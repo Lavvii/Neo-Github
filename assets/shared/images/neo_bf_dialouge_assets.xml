@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="neo bf dialouge assets.png">
+	<!-- Created with Adobe Animate version 21.0.5.40714 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Neo bf happy0000" x="0" y="0" width="433" height="424" frameX="-1" frameY="0" frameWidth="434" frameHeight="430"/>
+	<SubTexture name="Neo bf grimace0000" x="443" y="0" width="407" height="411" frameX="-26" frameY="-13" frameWidth="434" frameHeight="430"/>
+	<SubTexture name="Neo bf sweat0000" x="860" y="0" width="434" height="416" frameX="0" frameY="-8" frameWidth="434" frameHeight="430"/>
+	<SubTexture name="Neo bf angry0000" x="1304" y="0" width="414" height="419" frameX="-5" frameY="-5" frameWidth="434" frameHeight="430"/>
+	<SubTexture name="Neo bf angy0000" x="0" y="434" width="419" height="414" frameX="-12" frameY="-16" frameWidth="434" frameHeight="430"/>
+</TextureAtlas>

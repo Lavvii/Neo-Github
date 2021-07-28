@@ -1,0 +1,14 @@
+setDirector:
+JellyfishEDM
+setArtist:
+Mr.Moisty
+setArtist:
+EvanClubYT
+setProgrammer:
+MagnusStrom
+setMusic:
+JellyfishEDM
+setTesting:
+Beebox
+setInspired By:
+NinjaMuffin_99

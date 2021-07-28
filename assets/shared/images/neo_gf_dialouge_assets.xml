@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="neo gf dialouge assets.png">
+	<!-- Created with Adobe Animate version 21.0.5.40714 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Neo gf happy0000" x="0" y="0" width="383" height="355" frameX="-18" frameY="0" frameWidth="401" frameHeight="355"/>
+	<SubTexture name="Neo gf sad0000" x="393" y="0" width="382" height="355" frameX="-12" frameY="0" frameWidth="401" frameHeight="355"/>
+	<SubTexture name="Neo gf blush0002" x="0" y="365" width="383" height="355" frameX="0" frameY="0" frameWidth="401" frameHeight="355"/>
+</TextureAtlas>
