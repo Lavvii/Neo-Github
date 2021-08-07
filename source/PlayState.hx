@@ -155,6 +155,8 @@ class PlayState extends MusicBeatState
 
 	public var dialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
 
+	var stageCurtains:FlxSprite;
+
 	var halloweenBG:FlxSprite;
 	var isHalloween:Bool = false;
 
@@ -596,13 +598,13 @@ class PlayState extends MusicBeatState
 					{
 						defaultCamZoom = 0.9;
 						curStage = 'stage';
-						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
+						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backwall'));
 						bg.antialiasing = true;
 						bg.scrollFactor.set(0.9, 0.9);
 						bg.active = false;
 						add(bg);
 
-						var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
+						var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stage'));
 						stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
 						stageFront.updateHitbox();
 						stageFront.antialiasing = true;
@@ -610,14 +612,12 @@ class PlayState extends MusicBeatState
 						stageFront.active = false;
 						add(stageFront);
 
-						var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
+						stageCurtains = new FlxSprite(-500, -300).loadGraphic(Paths.image('lights'));
 						stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
 						stageCurtains.updateHitbox();
 						stageCurtains.antialiasing = true;
 						stageCurtains.scrollFactor.set(1.3, 1.3);
 						stageCurtains.active = false;
-
-						add(stageCurtains);
 					}
 				}
 		}
@@ -739,6 +739,10 @@ class PlayState extends MusicBeatState
 
 		add(dad);
 		add(boyfriend);
+
+		if (curStage == 'stage')
+			add(stageCurtains);
+
 		if (loadRep)
 		{
 			FlxG.watch.addQuick('rep rpesses',repPresses);
