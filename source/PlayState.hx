@@ -157,7 +157,6 @@ class PlayState extends MusicBeatState
 
 	var stageCurtains:FlxSprite;
 
-	var halloweenBG:FlxSprite;
 	var isHalloween:Bool = false;
 
 	var phillyCityLights:FlxTypedGroup<FlxSprite>;
@@ -183,8 +182,7 @@ class PlayState extends MusicBeatState
 	var scoreTxt:FlxText;
 	var replayTxt:FlxText;
 
-	var boomLeft:FlxSprite;
-	var boomRight:FlxSprite;
+	var speakers:FlxSprite;
 
 	var tables:FlxSprite;
 
@@ -328,39 +326,34 @@ class PlayState extends MusicBeatState
 			case 'spookeez' | 'monster' | 'south':
 				{
 					curStage = 'spooky';
+					defaultCamZoom = 0.9;
 					halloweenLevel = true;
 
-					var hallowTex = Paths.getSparrowAtlas('halloween_bg');
+					var bg:FlxSprite = new FlxSprite(-300, -100).loadGraphic(Paths.image('buildings'));
+					bg.antialiasing = true;
+					bg.scrollFactor.set(0.8, 0.8);
+					add(bg);
 
-					halloweenBG = new FlxSprite(-200, -100);
-					halloweenBG.frames = hallowTex;
-					halloweenBG.animation.addByPrefix('idle', 'halloweem bg0');
-					halloweenBG.animation.addByPrefix('lightning', 'halloweem bg lightning strike', 24, false);
-					halloweenBG.animation.play('idle');
-					halloweenBG.antialiasing = true;
-					add(halloweenBG);
+					var signs:FlxSprite = new FlxSprite(-300, -35).loadGraphic(Paths.image('neonsigns'));
+					signs.antialiasing = true;
+					signs.scrollFactor.set(0.9, 0.9);
+					add(signs);
 
-					// IDK
-					var speakerLeft = Paths.getSparrowAtlas('BoomLEFT');
-					var speakerRight = Paths.getSparrowAtlas('BoomRIGHT');
+					var scaffolding:FlxSprite = new FlxSprite(-300, 30).loadGraphic(Paths.image('scaffolding'));
+					scaffolding.antialiasing = true;
+					scaffolding.scrollFactor.set(0.85, 0.85);
+					add(scaffolding);
 
-					boomLeft = new FlxSprite(-50, 620);
-					boomLeft.frames = speakerLeft;
-					boomLeft.setGraphicSize(300,300);
-					boomLeft.animation.addByPrefix('idle', 'stereo boom', 24, false);
-					boomLeft.animation.play('idle');
-					boomLeft.antialiasing = true;
-		
-					boomRight = new FlxSprite(1300, 620);
-					boomRight.frames = speakerRight;
-					boomRight.setGraphicSize(300,300);
-					boomRight.animation.addByPrefix('idle', 'stereo boom', 24, false);
-					boomRight.animation.play('idle');
-					boomRight.antialiasing = true;
+					speakers = new FlxSprite(-450, 200);
+					speakers.frames = Paths.getSparrowAtlas('SpookySpeakers');
+					speakers.animation.addByPrefix('spoopy', "BG SPEAKERS", 24, false);
+					speakers.antialiasing = true;
+					speakers.scrollFactor.set(0.9, 0.9);
+					speakers.setGraphicSize(Std.int(speakers.width * 0.85));
+					speakers.updateHitbox();
+					add(speakers);
 
 					isHalloween = true;
-					add(boomLeft);
-					add(boomRight);
 				}
 			case 'pico' | 'blammed' | 'philly':
 				{
@@ -3109,14 +3102,13 @@ class PlayState extends MusicBeatState
 
 	function lightningStrikeShit():Void
 	{
-		FlxG.sound.play(Paths.soundRandom('thunder_', 1, 2));
-		halloweenBG.animation.play('lightning');
+	//	FlxG.sound.play(Paths.soundRandom('thunder_', 1, 2));
 
 		lightningStrikeBeat = curBeat;
 		lightningOffset = FlxG.random.int(8, 24);
 
-		boyfriend.playAnim('scared', true);
-		gf.playAnim('scared', true);
+	//	boyfriend.playAnim('scared', true);
+	//	gf.playAnim('scared', true);
 	}
 
 	var danced:Bool = false;
@@ -3278,8 +3270,7 @@ class PlayState extends MusicBeatState
 
 		if (isHalloween)
 		{
-			boomLeft.animation.play('idle', true);
-			boomRight.animation.play('idle', true);
+			speakers.animation.play('spoopy', true);
 		}
 	}
 
