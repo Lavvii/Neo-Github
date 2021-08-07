@@ -404,7 +404,6 @@ class PlayState extends MusicBeatState
 				}
 			case 'milf' | 'satin-panties' | 'high':
 				{
-					trace("start");
 					curStage = 'limo';
 					defaultCamZoom = 0.60; // 0.60
 					//-120 -50
@@ -419,6 +418,7 @@ class PlayState extends MusicBeatState
 					limo = new FlxSprite(150, 450);
 					limo.loadGraphic(Paths.image('planeshit/MommyPlane'));
 					limo.setGraphicSize(2750, 750);
+					limo.antialiasing = true;
 					limo.updateHitbox();
 					jet = new FlxSprite(-300, -150);
 					jet.loadGraphic(Paths.image('planeshit/DancerJet'));
@@ -3155,6 +3155,14 @@ class PlayState extends MusicBeatState
 	{
 		super.beatHit();
 
+
+		if (curSong.toLowerCase() == 'milf' && curBeat >= 80 && curBeat < 144 && camZooming && FlxG.camera.zoom < 1.35)
+			{
+				FlxG.camera.zoom += 0.015;
+				camHUD.zoom += 0.03;
+			}
+	
+
 		if (generatedMusic)
 		{
 			notes.sort(FlxSort.byY, (FlxG.save.data.downscroll ? FlxSort.ASCENDING : FlxSort.DESCENDING));
@@ -3266,8 +3274,8 @@ class PlayState extends MusicBeatState
 
 		if (isHalloween)
 		{
-			boomLeft.animation.play('idle');
-			boomRight.animation.play('idle');
+			boomLeft.animation.play('idle', true);
+			boomRight.animation.play('idle', true);
 		}
 	}
 

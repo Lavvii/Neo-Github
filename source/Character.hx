@@ -204,10 +204,10 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'Mom Pose Left', 24, false);
 
 				addOffset('idle');
-				addOffset("singUP", 14, 71);
+				addOffset("singUP", 16, 89);
 				addOffset("singRIGHT", 10, -60);
 				addOffset("singLEFT", 250, -23);
-				addOffset("singDOWN", 20, -160);
+				addOffset("singDOWN", 15, -164);
 
 				playAnim('idle');
 			case 'monster':
@@ -544,7 +544,11 @@ class Character extends FlxSprite
 			case 'gf':
 				if (animation.curAnim.name == 'hairFall' && animation.curAnim.finished)
 					playAnim('danceRight');
+			case 'mom-car':
+				if(animation.curAnim.name == 'idle' && animation.curAnim.finished)
+					playAnim('idle',false,false,11);
 		}
+
 
 		super.update(elapsed);
 	}
@@ -581,7 +585,10 @@ class Character extends FlxSprite
 						else
 							playAnim('danceLeft');
 					}
-
+				case 'mom-car':
+					if(danced)
+						playAnim('idle',true);
+					danced = !danced;
 				case 'gf-car':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
