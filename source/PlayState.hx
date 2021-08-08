@@ -157,6 +157,7 @@ class PlayState extends MusicBeatState
 
 	var stageLights:FlxSprite;
 	var stageCurtains:FlxSprite;
+	var stageBoppers:FlxSprite;
 
 	var isHalloween:Bool = false;
 
@@ -319,7 +320,7 @@ class PlayState extends MusicBeatState
 		try {
 			dialogue = CoolUtil.coolTextFile(Paths.txt(SONG.song.toLowerCase() + "/talk"));
 		} catch(err) {
-			trace("Pou");
+			trace("Magnus wtf");
 		}
 
 		switch (SONG.song.toLowerCase())
@@ -327,6 +328,38 @@ class PlayState extends MusicBeatState
 			case 'spookeez' | 'south':
 				{
 					curStage = 'spooky';
+					defaultCamZoom = 0.9;
+					halloweenLevel = true;
+
+					var bg:FlxSprite = new FlxSprite(-300, -100).loadGraphic(Paths.image('buildings'));
+					bg.antialiasing = true;
+					bg.scrollFactor.set(0.8, 0.8);
+					add(bg);
+
+					var signs:FlxSprite = new FlxSprite(-300, -35).loadGraphic(Paths.image('neonsigns'));
+					signs.antialiasing = true;
+					signs.scrollFactor.set(0.9, 0.9);
+					add(signs);
+
+					var scaffolding:FlxSprite = new FlxSprite(-300, 30).loadGraphic(Paths.image('scaffolding'));
+					scaffolding.antialiasing = true;
+					scaffolding.scrollFactor.set(0.85, 0.85);
+					add(scaffolding);
+
+					speakers = new FlxSprite(-200, 200);
+					speakers.frames = Paths.getSparrowAtlas('SpookySpeakers');
+					speakers.animation.addByPrefix('spoopy', "BG SPEAKERS", 24, false);
+					speakers.antialiasing = true;
+					speakers.scrollFactor.set(0.9, 0.9);
+					speakers.setGraphicSize(Std.int(speakers.width * 0.7));
+					speakers.updateHitbox();
+					add(speakers);
+
+					isHalloween = true;
+				}
+			case 'illusion':
+				{
+					curStage = 'illusion';
 					defaultCamZoom = 0.9;
 					halloweenLevel = true;
 
@@ -480,7 +513,7 @@ class PlayState extends MusicBeatState
 
 					
 				}
-			case 'illusion':
+			case 'hallucination':
 				{
 					curStage = 'mallEvil';
 					defaultCamZoom = 0.70;
@@ -591,12 +624,54 @@ class PlayState extends MusicBeatState
 					bg.scale.set(6, 6);
 					add(bg);
 				}
+			case 'dadbattle':
+				{
+					{
+						defaultCamZoom = 0.9;
+						curStage = 'swagbattle';
+						var bg:FlxSprite = new FlxSprite(-500, -200).loadGraphic(Paths.image('backwall'));
+						bg.antialiasing = true;
+						bg.scrollFactor.set(0.9, 0.9);
+						bg.active = false;
+						add(bg);
+
+						var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stage'));
+						stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+						stageFront.updateHitbox();
+						stageFront.antialiasing = true;
+						stageFront.scrollFactor.set(0.9, 0.9);
+						stageFront.active = false;
+						add(stageFront);
+
+						stageLights = new FlxSprite(-550, 450).loadGraphic(Paths.image('front_lights'));
+						stageLights.setGraphicSize(Std.int(stageLights.width * 1.0));
+						stageLights.updateHitbox();
+						stageLights.antialiasing = true;
+						stageLights.scrollFactor.set(1.0, 1.0);
+						stageLights.active = false;
+
+						stageCurtains = new FlxSprite(-500, -300).loadGraphic(Paths.image('lights'));
+						stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+						stageCurtains.updateHitbox();
+						stageCurtains.antialiasing = true;
+						stageCurtains.scrollFactor.set(1.3, 1.3);
+						stageCurtains.active = false;
+
+		                  		stageBoppers = new FlxSprite(-150, 600);
+		                  		stageBoppers.frames = Paths.getSparrowAtlas('stuff_1');
+		                  		stageBoppers.animation.addByPrefix('bop', "Crowd 1  instance 1", 24, false);
+		                  		stageBoppers.antialiasing = true;
+		                  		stageBoppers.scrollFactor.set(0.9, 0.9);
+		                  		stageBoppers.setGraphicSize(Std.int(stageBoppers.width * 1.3));
+		                  		stageBoppers.updateHitbox();
+					}
+				}
 			default:
 				{
 					{
 						defaultCamZoom = 0.9;
 						curStage = 'stage';
-						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('backwall'));
+						var bg:FlxSprite = new FlxSprite(-500, -200).loadGraphic(Paths.image('backwall'));
 						bg.antialiasing = true;
 						bg.scrollFactor.set(0.9, 0.9);
 						bg.active = false;
@@ -688,7 +763,7 @@ class PlayState extends MusicBeatState
 
 
 		
-		boyfriend = new Boyfriend(770, 450, SONG.player1);
+		boyfriend = new Boyfriend(1000, 450, SONG.player1);
 
 		// REPOSITIONING PER STAGE
 		switch (curStage)
@@ -752,6 +827,7 @@ class PlayState extends MusicBeatState
 		if (curStage == 'stage')
 			add(stageLights);
 			add(stageCurtains);
+			add(stageBoppers);
 
 		if (loadRep)
 		{
@@ -3244,6 +3320,8 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
+			case 'swagbattle':
+				stageBoppers.animation.play('bop', true);
 			case 'school':
 				if(FlxG.save.data.distractions){
 					bgGirls.dance();

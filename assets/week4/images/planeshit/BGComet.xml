@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="BGComet.png">
+	<!-- Created with Adobe Animate version 20.5.0.29329 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="BG COMET0000" x="0" y="0" width="12" height="8" pivotX="-837.5" pivotY="306" frameX="-240" frameY="0" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0001" x="0" y="0" width="12" height="8" frameX="-240" frameY="0" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0002" x="22" y="0" width="48" height="23" frameX="-194" frameY="-5" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0003" x="22" y="0" width="48" height="23" frameX="-194" frameY="-5" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0004" x="80" y="0" width="119" height="53" frameX="-89" frameY="-14" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0005" x="80" y="0" width="119" height="53" frameX="-89" frameY="-14" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0006" x="0" y="63" width="72" height="43" frameX="-45" frameY="-49" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0007" x="0" y="63" width="72" height="43" frameX="-45" frameY="-49" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0008" x="82" y="63" width="38" height="30" frameX="-34" frameY="-70" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0009" x="82" y="63" width="38" height="30" frameX="-34" frameY="-70" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0010" x="130" y="63" width="26" height="22" frameX="-32" frameY="-84" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0011" x="130" y="63" width="26" height="22" frameX="-32" frameY="-84" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0012" x="166" y="63" width="8" height="6" frameX="-35" frameY="-96" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0013" x="166" y="63" width="8" height="6" frameX="-35" frameY="-96" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0014" x="184" y="63" width="27" height="40" frameX="-21" frameY="-77" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0015" x="184" y="63" width="27" height="40" frameX="-21" frameY="-77" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0016" x="0" y="116" width="46" height="58" frameX="-10" frameY="-68" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0017" x="0" y="116" width="46" height="58" frameX="-10" frameY="-68" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0018" x="56" y="116" width="66" height="75" frameX="0" frameY="-61" frameWidth="252" frameHeight="136"/>
+	<SubTexture name="BG COMET0019" x="56" y="116" width="66" height="75" frameX="0" frameY="-61" frameWidth="252" frameHeight="136"/>
+</TextureAtlas>

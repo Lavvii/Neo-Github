@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="stuff 1.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Crowd 1  instance 10000" x="0" y="0" width="1267" height="334"/>
+	<SubTexture name="Crowd 1  instance 10001" x="0" y="0" width="1267" height="334"/>
+	<SubTexture name="Crowd 1  instance 10002" x="0" y="344" width="1267" height="320" frameX="0" frameY="-14" frameWidth="1267" frameHeight="334"/>
+	<SubTexture name="Crowd 1  instance 10003" x="0" y="344" width="1267" height="320" frameX="0" frameY="-14" frameWidth="1267" frameHeight="334"/>
+	<SubTexture name="Crowd 1  instance 10004" x="0" y="674" width="1267" height="310" frameX="0" frameY="-24" frameWidth="1267" frameHeight="334"/>
+	<SubTexture name="Crowd 1  instance 10005" x="0" y="674" width="1267" height="310" frameX="0" frameY="-24" frameWidth="1267" frameHeight="334"/>
+	<SubTexture name="Crowd 1  instance 10006" x="0" y="674" width="1267" height="310" frameX="0" frameY="-24" frameWidth="1267" frameHeight="334"/>
+	<SubTexture name="Crowd 1  instance 10007" x="0" y="674" width="1267" height="310" frameX="0" frameY="-24" frameWidth="1267" frameHeight="334"/>
+	<SubTexture name="Crowd 1  instance 10008" x="0" y="674" width="1267" height="310" frameX="0" frameY="-24" frameWidth="1267" frameHeight="334"/>
+	<SubTexture name="Crowd 1  instance 10009" x="0" y="674" width="1267" height="310" frameX="0" frameY="-24" frameWidth="1267" frameHeight="334"/>
+	<SubTexture name="Crowd 1  instance 10010" x="0" y="674" width="1267" height="310" frameX="0" frameY="-24" frameWidth="1267" frameHeight="334"/>
+	<SubTexture name="Crowd 1  instance 10011" x="0" y="674" width="1267" height="310" frameX="0" frameY="-24" frameWidth="1267" frameHeight="334"/>
+</TextureAtlas>
