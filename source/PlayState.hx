@@ -763,12 +763,16 @@ class PlayState extends MusicBeatState
 
 
 		
-		boyfriend = new Boyfriend(850, 450, SONG.player1);
+		boyfriend = new Boyfriend(930, 450, SONG.player1);
 
 		// REPOSITIONING PER STAGE
 		switch (curStage)
 		{
 			case 'stage':
+				dad.x += 100;
+				dad.y -= 20;
+
+			case 'swagbattle':
 				dad.x += 100;
 				dad.y -= 20;
 
@@ -817,7 +821,6 @@ class PlayState extends MusicBeatState
 
 		add(gf);
 
-		// Shitty layering but whatev it works LOL
 		if (curStage == 'limo')
 			add(limo);
 
