@@ -5,7 +5,9 @@ Mr.Moisty
 setArtist:
 EvanClubYT
 setProgrammer:
-MagnusStrom
+Smokey
+setProgrammer:
+GenoX
 setMusic:
 JellyfishEDM
 setTesting:

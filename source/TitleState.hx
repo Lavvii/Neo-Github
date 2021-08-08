@@ -160,7 +160,7 @@ class TitleState extends MusicBeatState
 		add(bg);
 
 		logoBl = new FlxSprite(500, 0);
-		logoBl.loadGraphic(Paths.image('senpaicuminmyassandcallmeobama'));
+		logoBl.loadGraphic(Paths.image('NEOlogo'));
 		logoBl.antialiasing = true;
 		logoBl.setGraphicSize(700);
 		//logoBl.screenCenter(X);

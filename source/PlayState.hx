@@ -657,7 +657,7 @@ class PlayState extends MusicBeatState
 						stageCurtains.scrollFactor.set(1.3, 1.3);
 						stageCurtains.active = false;
 
-		                  		stageBoppers = new FlxSprite(-200, 600);
+		                  		stageBoppers = new FlxSprite(-100, 600);
 		                  		stageBoppers.frames = Paths.getSparrowAtlas('stuff_1');
 		                  		stageBoppers.animation.addByPrefix('bop', "Crowd 1  instance 1", 24, false);
 		                  		stageBoppers.antialiasing = true;
@@ -763,7 +763,7 @@ class PlayState extends MusicBeatState
 
 
 		
-		boyfriend = new Boyfriend(930, 450, SONG.player1);
+		boyfriend = new Boyfriend(1000, 450, SONG.player1);
 
 		// REPOSITIONING PER STAGE
 		switch (curStage)
@@ -1975,7 +1975,7 @@ class PlayState extends MusicBeatState
 					offsetY = luaModchart.getVar("followYOffset", "float");
 				}
 				#end
-				camFollow.setPosition(boyfriend.getMidpoint().x - 100 + offsetX, boyfriend.getMidpoint().y - 100 + offsetY);
+				camFollow.setPosition(boyfriend.getMidpoint().x - 200 + offsetX, boyfriend.getMidpoint().y - 100 + offsetY);
 
 				#if windows
 				if (luaModchart != null)
