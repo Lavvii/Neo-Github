@@ -155,6 +155,7 @@ class PlayState extends MusicBeatState
 
 	public var dialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
 
+	var stageLights:FlxSprite;
 	var stageCurtains:FlxSprite;
 
 	var isHalloween:Bool = false;
@@ -318,12 +319,12 @@ class PlayState extends MusicBeatState
 		try {
 			dialogue = CoolUtil.coolTextFile(Paths.txt(SONG.song.toLowerCase() + "/talk"));
 		} catch(err) {
-			trace("Hello, Neo. Do you know who this is?\n\nYes. I've been looking for you, Neo. I don't know if you're ready to see what I want to show you, but unfortunately, you and I have run out of time. They're coming for you, Neo, and I don't know what they're going to do.");
+			trace("Pou");
 		}
 
 		switch (SONG.song.toLowerCase())
 		{
-			case 'spookeez' | 'monster' | 'south':
+			case 'spookeez' | 'south':
 				{
 					curStage = 'spooky';
 					defaultCamZoom = 0.9;
@@ -344,12 +345,12 @@ class PlayState extends MusicBeatState
 					scaffolding.scrollFactor.set(0.85, 0.85);
 					add(scaffolding);
 
-					speakers = new FlxSprite(-450, 200);
+					speakers = new FlxSprite(-200, 200);
 					speakers.frames = Paths.getSparrowAtlas('SpookySpeakers');
 					speakers.animation.addByPrefix('spoopy', "BG SPEAKERS", 24, false);
 					speakers.antialiasing = true;
 					speakers.scrollFactor.set(0.9, 0.9);
-					speakers.setGraphicSize(Std.int(speakers.width * 0.85));
+					speakers.setGraphicSize(Std.int(speakers.width * 0.7));
 					speakers.updateHitbox();
 					add(speakers);
 
@@ -363,7 +364,7 @@ class PlayState extends MusicBeatState
 					bg.scrollFactor.set(0.1, 0.1);
 					add(bg);
 
-					var city:FlxSprite = new FlxSprite(-10).loadGraphic(Paths.image('philly/city'));
+					var city:FlxSprite = new FlxSprite(-10).loadGraphic(Paths.image('philly/phillybuildings'));
 					city.scrollFactor.set(0.3, 0.3);
 					city.setGraphicSize(Std.int(city.width * 0.85));
 					city.updateHitbox();
@@ -372,9 +373,9 @@ class PlayState extends MusicBeatState
 					phillyCityLights = new FlxTypedGroup<FlxSprite>();
 					add(phillyCityLights);
 
-					for (i in 0...5)
+					for (i in 0...1)
 					{
-						var light:FlxSprite = new FlxSprite(city.x).loadGraphic(Paths.image('philly/win' + i));
+						var light:FlxSprite = new FlxSprite(city.x).loadGraphic(Paths.image('philly/light' + i));
 						light.scrollFactor.set(0.3, 0.3);
 						light.visible = false;
 						light.setGraphicSize(Std.int(light.width * 0.85));
@@ -383,7 +384,7 @@ class PlayState extends MusicBeatState
 						phillyCityLights.add(light);
 					}
 
-					var streetBehind:FlxSprite = new FlxSprite(-40, 50).loadGraphic(Paths.image('philly/behindTrain'));
+					var streetBehind:FlxSprite = new FlxSprite(-40, 50).loadGraphic(Paths.image('philly/roads'));
 					add(streetBehind);
 
 					phillyTrain = new FlxSprite(2000, 360).loadGraphic(Paths.image('philly/train'));
@@ -394,7 +395,7 @@ class PlayState extends MusicBeatState
 
 					// var cityLights:FlxSprite = new FlxSprite().loadGraphic(AssetPaths.win0.png);
 
-					var street:FlxSprite = new FlxSprite(-40, streetBehind.y).loadGraphic(Paths.image('philly/street'));
+					var street:FlxSprite = new FlxSprite(-40, streetBehind.y).loadGraphic(Paths.image('philly/alleyway'));
 					add(street);
 				}
 			case 'milf' | 'satin-panties' | 'high':
@@ -402,25 +403,29 @@ class PlayState extends MusicBeatState
 					curStage = 'limo';
 					defaultCamZoom = 0.60; // 0.60
 					//-120 -50
-					var skyBG:FlxSprite = new FlxSprite(-800,-200).loadGraphic(Paths.image('planeshit/planeNight_2'));
+					var skyBG:FlxSprite = new FlxSprite(-800,-200).loadGraphic(Paths.image('planeshit/limoSunset'));
 					skyBG.setGraphicSize(3500);
-					//skyBG.cameraFrameScaleUpdateX = 0.60;
-					//skyBG.velocity.x = 1050;
-					//skyBG.scale.x = 3500;
-					//skyBG.scale.y = 3500;
+				//	skyBG.cameraFrameScaleUpdateX = 0.60;
+					skyBG.velocity.x = 1050;
+					skyBG.scale.x = 3500;
+					skyBG.scale.y = 3500;
 					skyBG.scrollFactor.set(0, 0);
 					add(skyBG);
-					limo = new FlxSprite(150, 450);
-					limo.loadGraphic(Paths.image('planeshit/MommyPlane'));
-					limo.setGraphicSize(2750, 750);
-					limo.antialiasing = true;
-					limo.updateHitbox();
+
 					jet = new FlxSprite(-300, -150);
 					jet.loadGraphic(Paths.image('planeshit/DancerJet'));
 					jet.setGraphicSize(500);
 					bgjet = new BackgroundDancer(-300, -200);
 				//	bgjet.frames = Paths.getSparrowAtlas('planeshit/JIMMY');
 					bgjet.setGraphicSize(300);
+
+					limo = new FlxSprite(150, 450);
+					limo.frames = Paths.getSparrowAtlas('planeshit/limoDrive');
+					limo.animation.addByPrefix('limo', "Limo stage", 24, false);
+					limo.setGraphicSize(2750, 750);
+					limo.antialiasing = true;
+					limo.updateHitbox();
+
 					add(limo);
 
 					for (i in 0...20)
@@ -605,6 +610,13 @@ class PlayState extends MusicBeatState
 						stageFront.active = false;
 						add(stageFront);
 
+						stageLights = new FlxSprite(-550, 450).loadGraphic(Paths.image('front_lights'));
+						stageLights.setGraphicSize(Std.int(stageLights.width * 1.0));
+						stageLights.updateHitbox();
+						stageLights.antialiasing = true;
+						stageLights.scrollFactor.set(1.0, 1.0);
+						stageLights.active = false;
+
 						stageCurtains = new FlxSprite(-500, -300).loadGraphic(Paths.image('lights'));
 						stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
 						stageCurtains.updateHitbox();
@@ -681,6 +693,10 @@ class PlayState extends MusicBeatState
 		// REPOSITIONING PER STAGE
 		switch (curStage)
 		{
+			case 'stage':
+				dad.x += 100;
+				dad.y -= 20;
+
 			case 'philly':
 				dad.x += 100;
 			case 'limo':
@@ -734,6 +750,7 @@ class PlayState extends MusicBeatState
 		add(boyfriend);
 
 		if (curStage == 'stage')
+			add(stageLights);
 			add(stageCurtains);
 
 		if (loadRep)
@@ -3235,6 +3252,7 @@ class PlayState extends MusicBeatState
 			case 'mall':
 
 			case 'limo':
+				limo.animation.play('limo', true);
 				bgjet.dance();
 				if (FlxG.random.bool(10) && bgjetCanDrive) {
 					fastCarDrive();

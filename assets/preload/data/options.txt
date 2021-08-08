@@ -1,0 +1,8 @@
+setLimit Sprite Movement
+false
+setBackground Noises
+true
+setGhost Notes
+false
+setCustom Note Colors
+true

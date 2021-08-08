@@ -213,11 +213,11 @@ class Character extends FlxSprite
 			case 'monster':
 				tex = Paths.getSparrowAtlas('characters/Neo_lemon_redesign');
 				frames = tex;
-				animation.addByPrefix('idle', 'monster idle', 24, false);
-				animation.addByPrefix('singUP', 'monster up note', 24, false);
-				animation.addByPrefix('singDOWN', 'monster down', 24, false);
-				animation.addByPrefix('singRIGHT', 'Monster left note', 24, false);
-				animation.addByPrefix('singLEFT', 'Monster Right note', 24, false);
+				animation.addByPrefix('idle', 'Lemon IDLE', 24, false);
+				animation.addByPrefix('singUP', 'Lemon UP', 24, false);
+				animation.addByPrefix('singDOWN', 'Lemon DOWN', 24, false);
+				animation.addByPrefix('singRIGHT', 'Lemon LEFT', 24, false);
+				animation.addByPrefix('singLEFT', 'Lemon RIGHT', 24, false);
 
 				addOffset('idle');
 				addOffset("singUP", 130, 106);
@@ -314,16 +314,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
 				animation.addByPrefix('hey', 'BF HEY', 24, false);
 
-				addOffset('idle', -5);
-				addOffset("singUP", -29, 27);
-				addOffset("singRIGHT", -38, -7);
-				addOffset("singLEFT", 12, -6);
-				addOffset("singDOWN", -10, -50);
-				addOffset("singUPmiss", -29, 27);
-				addOffset("singRIGHTmiss", -30, 21);
-				addOffset("singLEFTmiss", 12, 24);
-				addOffset("singDOWNmiss", -11, -19);
-				addOffset("hey", 7, 4);
+				addOffset('idle', 0, 1);
+				addOffset("singUP", -6, 15);
+				addOffset("singRIGHT", 79, -1);
+				addOffset("singLEFT", 30, -7);
+				addOffset("singDOWN", 7, -48);
+				addOffset("singUPmiss", -16, 12);
+				addOffset("singRIGHTmiss", -6, 4);
+				addOffset("singLEFTmiss", 38, 0);
+				addOffset("singDOWNmiss", 4, -33);
+				addOffset("hey", 7, -1);
 
 				playAnim('idle');
 
@@ -342,16 +342,16 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
 				animation.addByPrefix('hit', "hit", 24, false);
 
-				addOffset('idle', -5);
-				addOffset("singUP", -29, 27);
-				addOffset("singRIGHT", -38, -7);
-				addOffset("singLEFT", 12, -6);
-				addOffset("singDOWN", -10, -50);
-				addOffset("singUPmiss", -29, 27);
-				addOffset("singRIGHTmiss", -30, 21);
-				addOffset("singLEFTmiss", 12, 24);
-				addOffset("singDOWNmiss", -11, -19);
-				addOffset('hit', -1, 10);
+				addOffset('idle', 0, 1);
+				addOffset("singUP", -6, 15);
+				addOffset("singRIGHT", 79, -1);
+				addOffset("singLEFT", 30, -7);
+				addOffset("singDOWN", 7, -48);
+				addOffset("singUPmiss", -16, 12);
+				addOffset("singRIGHTmiss", -6, 4);
+				addOffset("singLEFTmiss", 38, 0);
+				addOffset("singDOWNmiss", 4, -33);
+				addOffset("hey", 7, -1);
 				playAnim('idle');
 
 				flipX = true;
