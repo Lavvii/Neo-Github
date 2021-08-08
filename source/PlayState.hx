@@ -704,8 +704,8 @@ class PlayState extends MusicBeatState
 				boyfriend.x += 800;
 				gf.x += 475;
 				gf.y -= 300;
-				dad.x += 750;
-				dad.y -= 400;
+				dad.x += 850;
+				dad.y -= 380;
 				//camPos.set(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y + 1200);
 				gf.x += 200;
 				resetFastCar();
