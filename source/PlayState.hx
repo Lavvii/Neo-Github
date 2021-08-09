@@ -425,8 +425,7 @@ class PlayState extends MusicBeatState
 			case 'illusion':
 				{
 					curStage = 'illusion';
-					defaultCamZoom = 0.9;
-					halloweenLevel = true;
+					defaultCamZoom = 0.8;
 
 					var bg:FlxSprite = new FlxSprite(-300, -100).loadGraphic(Paths.image('buildingsevil'));
 					bg.antialiasing = true;
@@ -438,9 +437,9 @@ class PlayState extends MusicBeatState
 					signs.scrollFactor.set(0.9, 0.9);
 					add(signs);
 
-					mouth = new FlxSprite(300, 755);
+					mouth = new FlxSprite(350, 770);
 					mouth.frames = Paths.getSparrowAtlas('MOUTH');
-					mouth.animation.addByPrefix('mouth', "MOUTH", 24, false);
+					mouth.animation.addByPrefix('mouthh', "MOUTHANIM", 24, false);
 					mouth.antialiasing = true;
 					mouth.scrollFactor.set(0.9, 0.9);
 					mouth.setGraphicSize(Std.int(mouth.width * 1.0));
@@ -449,7 +448,7 @@ class PlayState extends MusicBeatState
 
 					tvL = new FlxSprite(-250, 150);
 					tvL.frames = Paths.getSparrowAtlas('XO_TV_L');
-					tvL.animation.addByPrefix('spoopyTV1', "BG SPEAKERS TVS", 24, false);
+					tvL.animation.addByPrefix('spoopyTV1', "BG SPEAKERS TVS", 24, true);
 					tvL.antialiasing = true;
 					tvL.scrollFactor.set(0.9, 0.9);
 					tvL.setGraphicSize(Std.int(tvL.width * 1.0));
@@ -458,14 +457,13 @@ class PlayState extends MusicBeatState
 
 					tvR = new FlxSprite(1000, 120);
 					tvR.frames = Paths.getSparrowAtlas('XO_TV_R');
-					tvR.animation.addByPrefix('spoopyTV2', "BG SPEAKERS TVS OtherSide", 24, false);
+					tvR.animation.addByPrefix('spoopyTV2', "BG SPEAKERS TVS OtherSide", 24, true);
 					tvR.antialiasing = true;
 					tvR.scrollFactor.set(0.9, 0.9);
 					tvR.setGraphicSize(Std.int(tvR.width * 1.0));
 					tvR.updateHitbox();
 					add(tvR);
 
-					isHalloween = true;
 				}
 			case 'pico' | 'blammed' | 'philly':
 				{
@@ -861,6 +859,10 @@ class PlayState extends MusicBeatState
 			case 'swagbattle':
 				dad.x += 100;
 				dad.y -= 20;
+
+			case 'illusion':
+				dad.x -= 100;
+				dad.y -= 30;
 
 			case 'philly':
 				dad.x += 100;
@@ -3385,9 +3387,6 @@ class PlayState extends MusicBeatState
 			// else
 			// Conductor.changeBPM(SONG.bpm);
 
-			// Dad doesnt interupt his own notes
-			if (SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.curCharacter != 'gf')
-				dad.dance();
 		}
 		// FlxG.log.add('change bpm' + SONG.notes[Std.int(curStep / 16)].changeBPM);
 		wiggleShit.update(Conductor.crochet);
@@ -3421,6 +3420,12 @@ class PlayState extends MusicBeatState
 			boyfriend.playAnim('idle');
 		}
 
+		// Dad doesnt interupt his own notes no matter the camera position
+		if (!dad.animation.curAnim.name.startsWith("sing"))
+		{
+			dad.dance();
+		}
+
 		switch (curStage)
 		{
 			case 'swagbattle':
@@ -3436,7 +3441,7 @@ class PlayState extends MusicBeatState
 				Boppers.animation.play('bop2', true);
 
 			case 'illusion':
-				mouth.animation.play('mouth', true);
+				mouth.animation.play('mouthh', true);
 				tvL.animation.play('spoopyTV1', true);
 				tvR.animation.play('spoopyTV2', true);
 
@@ -3482,9 +3487,6 @@ class PlayState extends MusicBeatState
 				}
 		}
 
-		if (isHalloween)
-		{
-		}
 	}
 
 	var curLight:Int = 0;
