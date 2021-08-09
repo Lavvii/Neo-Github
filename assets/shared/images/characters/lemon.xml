@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="Neo_lemon_Demon_assets.png">
+<TextureAtlas imagePath="lemon.png">
 	<!-- Created with Adobe Animate version 21.0.7.42652 -->
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="Lemon DOWN0000" x="0" y="0" width="971" height="785" frameX="0" frameY="0" frameWidth="974" frameHeight="785"/>

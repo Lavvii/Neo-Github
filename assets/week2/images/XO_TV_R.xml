@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="XO TV R.png">
+	<!-- Created with Adobe Animate version 20.5.0.29329 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="BG SPEAKERS TVS OtherSide0000" x="0" y="0" width="795" height="620" pivotX="32.5" pivotY="214.25" frameX="-4" frameY="-34" frameWidth="799" frameHeight="654"/>
+	<SubTexture name="BG SPEAKERS TVS OtherSide0001" x="0" y="0" width="795" height="620" frameX="-4" frameY="-34" frameWidth="799" frameHeight="654"/>
+	<SubTexture name="BG SPEAKERS TVS OtherSide0002" x="805" y="0" width="799" height="654"/>
+	<SubTexture name="BG SPEAKERS TVS OtherSide0003" x="805" y="0" width="799" height="654"/>
+	<SubTexture name="BG SPEAKERS TVS OtherSide0004" x="0" y="664" width="795" height="635" frameX="-4" frameY="-19" frameWidth="799" frameHeight="654"/>
+	<SubTexture name="BG SPEAKERS TVS OtherSide0005" x="0" y="664" width="795" height="635" frameX="-4" frameY="-19" frameWidth="799" frameHeight="654"/>
+</TextureAtlas>

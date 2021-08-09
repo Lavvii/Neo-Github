@@ -159,6 +159,15 @@ class PlayState extends MusicBeatState
 	var stageCurtains:FlxSprite;
 	var stageBoppers:FlxSprite;
 
+	var speakers:FlxSprite;
+	var speakers2:FlxSprite;
+	var Boppers:FlxSprite;
+
+	var mouth:FlxSprite;
+
+	var tvL:FlxSprite;
+	var tvR:FlxSprite;
+
 	var isHalloween:Bool = false;
 
 	var phillyCityLights:FlxTypedGroup<FlxSprite>;
@@ -183,8 +192,6 @@ class PlayState extends MusicBeatState
 	var songScoreDef:Int = 0;
 	var scoreTxt:FlxText;
 	var replayTxt:FlxText;
-
-	var speakers:FlxSprite;
 
 	var tables:FlxSprite;
 
@@ -325,7 +332,7 @@ class PlayState extends MusicBeatState
 
 		switch (SONG.song.toLowerCase())
 		{
-			case 'spookeez' | 'south':
+			case 'spookeez':
 				{
 					curStage = 'spooky';
 					defaultCamZoom = 0.9;
@@ -341,25 +348,34 @@ class PlayState extends MusicBeatState
 					signs.scrollFactor.set(0.9, 0.9);
 					add(signs);
 
+					speakers = new FlxSprite(-550, -70);
+					speakers.frames = Paths.getSparrowAtlas('SpookySpeakersB');
+					speakers.animation.addByPrefix('spoopy', "BG SPEAKERS", 24, false);
+					speakers.antialiasing = true;
+					speakers.scrollFactor.set(0.9, 0.9);
+					speakers.setGraphicSize(Std.int(speakers.width * 1.0));
+					speakers.updateHitbox();
+					add(speakers);
+
+					speakers2 = new FlxSprite(1300, -70);
+					speakers2.frames = Paths.getSparrowAtlas('SpookySpeakersP');
+					speakers2.animation.addByPrefix('spoopy2', "BG SPEAKERS PINK", 24, false);
+					speakers2.antialiasing = true;
+					speakers2.scrollFactor.set(0.9, 0.9);
+					speakers2.setGraphicSize(Std.int(speakers2.width * 1.0));
+					speakers2.updateHitbox();
+					add(speakers2);
+
 					var scaffolding:FlxSprite = new FlxSprite(-300, 30).loadGraphic(Paths.image('scaffolding'));
 					scaffolding.antialiasing = true;
 					scaffolding.scrollFactor.set(0.85, 0.85);
 					add(scaffolding);
 
-					speakers = new FlxSprite(-200, 200);
-					speakers.frames = Paths.getSparrowAtlas('SpookySpeakers');
-					speakers.animation.addByPrefix('spoopy', "BG SPEAKERS", 24, false);
-					speakers.antialiasing = true;
-					speakers.scrollFactor.set(0.9, 0.9);
-					speakers.setGraphicSize(Std.int(speakers.width * 0.7));
-					speakers.updateHitbox();
-					add(speakers);
-
 					isHalloween = true;
 				}
-			case 'illusion':
+			case 'south':
 				{
-					curStage = 'illusion';
+					curStage = 'spooky2';
 					defaultCamZoom = 0.9;
 					halloweenLevel = true;
 
@@ -373,19 +389,81 @@ class PlayState extends MusicBeatState
 					signs.scrollFactor.set(0.9, 0.9);
 					add(signs);
 
+					speakers = new FlxSprite(-550, -70);
+					speakers.frames = Paths.getSparrowAtlas('SpookySpeakersB');
+					speakers.animation.addByPrefix('spoopy', "BG SPEAKERS", 24, false);
+					speakers.antialiasing = true;
+					speakers.scrollFactor.set(0.9, 0.9);
+					speakers.setGraphicSize(Std.int(speakers.width * 1.0));
+					speakers.updateHitbox();
+					add(speakers);
+
+					speakers2 = new FlxSprite(1300, -70);
+					speakers2.frames = Paths.getSparrowAtlas('SpookySpeakersP');
+					speakers2.animation.addByPrefix('spoopy2', "BG SPEAKERS PINK", 24, false);
+					speakers2.antialiasing = true;
+					speakers2.scrollFactor.set(0.9, 0.9);
+					speakers2.setGraphicSize(Std.int(speakers2.width * 1.0));
+					speakers2.updateHitbox();
+					add(speakers2);
+
 					var scaffolding:FlxSprite = new FlxSprite(-300, 30).loadGraphic(Paths.image('scaffolding'));
 					scaffolding.antialiasing = true;
 					scaffolding.scrollFactor.set(0.85, 0.85);
 					add(scaffolding);
 
-					speakers = new FlxSprite(-200, 200);
-					speakers.frames = Paths.getSparrowAtlas('SpookySpeakers');
-					speakers.animation.addByPrefix('spoopy', "BG SPEAKERS", 24, false);
-					speakers.antialiasing = true;
-					speakers.scrollFactor.set(0.9, 0.9);
-					speakers.setGraphicSize(Std.int(speakers.width * 0.7));
-					speakers.updateHitbox();
-					add(speakers);
+		                  	Boppers = new FlxSprite(-100, 700);
+		                  	Boppers.frames = Paths.getSparrowAtlas('stuff_3');
+		                 	Boppers.animation.addByPrefix('bop2', "Crowd 2 instance 1", 24, false);
+		                 	Boppers.antialiasing = true;
+		                	Boppers.scrollFactor.set(0.9, 0.9);
+		                	Boppers.setGraphicSize(Std.int(Boppers.width * 1.3));
+		                 	Boppers.updateHitbox();
+
+					isHalloween = true;
+				}
+			case 'illusion':
+				{
+					curStage = 'illusion';
+					defaultCamZoom = 0.9;
+					halloweenLevel = true;
+
+					var bg:FlxSprite = new FlxSprite(-300, -100).loadGraphic(Paths.image('buildingsevil'));
+					bg.antialiasing = true;
+					bg.scrollFactor.set(0.8, 0.8);
+					add(bg);
+
+					var signs:FlxSprite = new FlxSprite(-300, -35).loadGraphic(Paths.image('floorevil'));
+					signs.antialiasing = true;
+					signs.scrollFactor.set(0.9, 0.9);
+					add(signs);
+
+					mouth = new FlxSprite(150, 650);
+					mouth.frames = Paths.getSparrowAtlas('MOUTH');
+					mouth.animation.addByPrefix('mouth', "MOUTH", 24, false);
+					mouth.antialiasing = true;
+					mouth.scrollFactor.set(0.9, 0.9);
+					mouth.setGraphicSize(Std.int(mouth.width * 1.0));
+					mouth.updateHitbox();
+					add(mouth);
+
+					tvL = new FlxSprite(-250, -20);
+					tvL.frames = Paths.getSparrowAtlas('XO_TV_L');
+					tvL.animation.addByPrefix('spoopyTV1', "BG SPEAKERS TVS", 24, false);
+					tvL.antialiasing = true;
+					tvL.scrollFactor.set(0.9, 0.9);
+					tvL.setGraphicSize(Std.int(tvL.width * 1.0));
+					tvL.updateHitbox();
+					add(tvL);
+
+					tvR = new FlxSprite(1000, -50);
+					tvR.frames = Paths.getSparrowAtlas('XO_TV_R');
+					tvR.animation.addByPrefix('spoopyTV2', "BG SPEAKERS TVS OtherSide", 24, false);
+					tvR.antialiasing = true;
+					tvR.scrollFactor.set(0.9, 0.9);
+					tvR.setGraphicSize(Std.int(tvR.width * 1.0));
+					tvR.updateHitbox();
+					add(tvR);
 
 					isHalloween = true;
 				}
@@ -831,6 +909,9 @@ class PlayState extends MusicBeatState
 			add(stageLights);
 			add(stageCurtains);
 			add(stageBoppers);
+
+		if(curStage == 'spooky2')
+			add(Boppers);
 
 		if (loadRep)
 		{
@@ -3325,6 +3406,21 @@ class PlayState extends MusicBeatState
 		{
 			case 'swagbattle':
 				stageBoppers.animation.play('bop', true);
+
+			case 'spooky':
+				speakers.animation.play('spoopy', true);
+				speakers2.animation.play('spoopy2', true);
+
+			case 'spooky2':
+				speakers.animation.play('spoopy', true);
+				speakers2.animation.play('spoopy2', true);
+				Boppers.animation.play('bop2', true);
+
+			case 'illusion':
+				mouth.animation.play('mouth', true);
+				tvL.animation.play('spoopyTV1', true);
+				tvR.animation.play('spoopyTV2', true);
+
 			case 'school':
 				if(FlxG.save.data.distractions){
 					bgGirls.dance();
@@ -3369,7 +3465,6 @@ class PlayState extends MusicBeatState
 
 		if (isHalloween)
 		{
-			speakers.animation.play('spoopy', true);
 		}
 	}
 
