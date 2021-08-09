@@ -203,29 +203,31 @@ class Character extends FlxSprite
 				animation.addByPrefix('idle', 'Lemon IDLE', 24, false);
 				animation.addByPrefix('singUP', 'Lemon UP', 24, false);
 				animation.addByPrefix('singDOWN', 'Lemon DOWN', 24, false);
-				animation.addByPrefix('singRIGHT', 'Lemon LEFT', 24, false);
-				animation.addByPrefix('singLEFT', 'Lemon RIGHT', 24, false);
+				animation.addByPrefix('singRIGHT', 'Lemon RIGHT', 24, false);
+				animation.addByPrefix('singLEFT', 'Lemon LEFT', 24, false);
 
 				addOffset('idle');
-				addOffset("singUP", 130, 106);
-				addOffset("singRIGHT", 72, 47);
-				addOffset("singLEFT", 159, 40);
-				addOffset("singDOWN", 145, -20);
+				addOffset("singUP", -119, 31);
+				addOffset("singRIGHT", 44, -41);
+				addOffset("singLEFT", -120, -38);
+				addOffset("singDOWN", 92, -63);
+
 				playAnim('idle');
 			case 'monster-christmas':
 				tex = Paths.getSparrowAtlas('characters/lemon');
 				frames = tex;
-				animation.addByPrefix('idle', 'monster idle', 24, false);
-				animation.addByPrefix('singUP', 'monster up note', 24, false);
-				animation.addByPrefix('singDOWN', 'monster down', 24, false);
-				animation.addByPrefix('singRIGHT', 'Monster left note', 24, false);
-				animation.addByPrefix('singLEFT', 'Monster Right note', 24, false);
+				animation.addByPrefix('idle', 'Lemon IDLE', 24, false);
+				animation.addByPrefix('singUP', 'Lemon UP', 24, false);
+				animation.addByPrefix('singDOWN', 'Lemon DOWN', 24, false);
+				animation.addByPrefix('singRIGHT', 'Lemon RIGHT', 24, false);
+				animation.addByPrefix('singLEFT', 'Lemon LEFT', 24, false);
 
 				addOffset('idle');
-				addOffset("singUP", 130, 106);
-				addOffset("singRIGHT", 72, 47);
-				addOffset("singLEFT", 159, 40);
-				addOffset("singDOWN", 145, -20);
+				addOffset("singUP", -119, 31);
+				addOffset("singRIGHT", 44, -41);
+				addOffset("singLEFT", -120, -38);
+				addOffset("singDOWN", 92, -63);
+
 				playAnim('idle');
 			case 'pico':
 				tex = Paths.getSparrowAtlas('characters/Pico');

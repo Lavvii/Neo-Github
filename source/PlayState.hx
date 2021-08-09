@@ -438,7 +438,7 @@ class PlayState extends MusicBeatState
 					signs.scrollFactor.set(0.9, 0.9);
 					add(signs);
 
-					mouth = new FlxSprite(150, 650);
+					mouth = new FlxSprite(300, 755);
 					mouth.frames = Paths.getSparrowAtlas('MOUTH');
 					mouth.animation.addByPrefix('mouth', "MOUTH", 24, false);
 					mouth.antialiasing = true;
@@ -447,7 +447,7 @@ class PlayState extends MusicBeatState
 					mouth.updateHitbox();
 					add(mouth);
 
-					tvL = new FlxSprite(-250, -20);
+					tvL = new FlxSprite(-250, 150);
 					tvL.frames = Paths.getSparrowAtlas('XO_TV_L');
 					tvL.animation.addByPrefix('spoopyTV1', "BG SPEAKERS TVS", 24, false);
 					tvL.antialiasing = true;
@@ -456,7 +456,7 @@ class PlayState extends MusicBeatState
 					tvL.updateHitbox();
 					add(tvL);
 
-					tvR = new FlxSprite(1000, -50);
+					tvR = new FlxSprite(1000, 120);
 					tvR.frames = Paths.getSparrowAtlas('XO_TV_R');
 					tvR.animation.addByPrefix('spoopyTV2', "BG SPEAKERS TVS OtherSide", 24, false);
 					tvR.antialiasing = true;
@@ -815,9 +815,11 @@ class PlayState extends MusicBeatState
 			case "spooky":
 				dad.y += 200;
 			case "monster":
-				dad.y += 100;
+				dad.y -= 100;
+				dad.x -= 130;
 			case 'monster-christmas':
-				dad.y += 130;
+				dad.y -= 100;
+				dad.x -= 130;
 			case 'dad':
 				camPos.x += 400;
 			case 'pico':
