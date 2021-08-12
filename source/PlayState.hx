@@ -83,7 +83,7 @@ class PlayState extends MusicBeatState
 	public static var songPosBG:FlxSprite;
 	public static var songPosBar:FlxBar;
 	
-	var overlay:FlxSprite;
+//	var overlay:FlxSprite;
 
 	public static var rep:Replay;
 	public static var loadRep:Bool = false;
@@ -529,7 +529,7 @@ class PlayState extends MusicBeatState
 					skyBG.velocity.x = 1;
 					skyBG.scrollFactor.set(0, 0);
 					skyBG.antialiasing = true;
-					skyBG.setGraphicSize(Std.int(skyBG.width * 1.2));
+					skyBG.setGraphicSize(Std.int(skyBG.width*1.2));
 					add(skyBG);
 
 					jet.frames = Paths.getSparrowAtlas('planeshit/DancerJet');
@@ -549,10 +549,10 @@ class PlayState extends MusicBeatState
 
 					add(limo);
 
-					overlay = new FlxSprite(0,0).makeGraphic(1280,720,FlxColor.fromRGB(20,18,118,42));
-					overlay.blend = 'multiply';
-					overlay.scrollFactor.set(0,0);
-					overlay.cameras = [camHUD];
+				//	overlay = new FlxSprite(0,0).makeGraphic(1280,720,FlxColor.fromRGB(20,18,118,42));
+				//	overlay.blend = 'multiply';
+				//	overlay.scrollFactor.set(0,0);
+				//	overlay.cameras = [camHUD];
 					
 					for (i in 0...20)
 						{
@@ -561,11 +561,11 @@ class PlayState extends MusicBeatState
 							zoom.updateHitbox();
 							zoom.alpha = 0.5;
 						//	cloud.scrollFactor.set(0, 0);
-								new FlxTimer().start(FlxG.random.float(0.1, 1.5), function(tmr:FlxTimer)
-									{
-										add(zoom);
-										zoom.fly();
-									});
+							new FlxTimer().start(FlxG.random.float(0.1, 1.5), function(tmr:FlxTimer)
+							{
+								add(zoom);
+								zoom.fly();
+							});
 						}
 
 				}
@@ -970,8 +970,8 @@ class PlayState extends MusicBeatState
 		add(dad);
 		add(boyfriend);
 
-		if (curStage == 'limo')
-			add(overlay);
+	//	if (curStage == 'limo')
+		//	add(overlay);
 
 		if (curStage == 'stage')
 			add(stageLights);
@@ -1843,13 +1843,6 @@ class PlayState extends MusicBeatState
 	{
 		#if !debug
 		perfectMode = false;
-		#end
-
-		#if debug
-		if (FlxG.keys.justPressed.END)
-			overlay.visible = false;
-		if (FlxG.keys.justPressed.INSERT)
-			overlay.visible = true;
 		#end
 
 		if (FlxG.save.data.botplay && FlxG.keys.justPressed.ONE)
