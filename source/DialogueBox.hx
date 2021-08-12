@@ -53,7 +53,7 @@ class DialogueBox extends FlxSpriteGroup
 		
 		var hasDialog = false;
 		hasDialog = true; // idk hopefully this works
-		box.frames = Paths.getSparrowAtlas('speech_bubble_talking');
+		box.frames = Paths.getSparrowAtlas('dialogueShit/speech_bubble_talking');
 		box.animation.addByPrefix('normalOpen', 'Speech Bubble Normal Open', 24, false);
 		box.animation.addByPrefix('normal', 'speech bubble normal', 24, true);
 
@@ -70,7 +70,7 @@ class DialogueBox extends FlxSpriteGroup
 		portraitLeft.visible = false;
 
 		portraitRight = new FlxSprite(750, 175);
-		portraitRight.frames = Paths.getSparrowAtlas("neo_bf_dialouge_assets");
+		portraitRight.frames = Paths.getSparrowAtlas("dialogueShit/neo_bf_dialouge_assets");
 		portraitRight.animation.addByPrefix("happy", "Neo bf happy");
 		portraitRight.animation.addByPrefix("grimace", "Neo bf grimace");
 		portraitRight.animation.addByPrefix("sweat", "Neo bf sweat");
@@ -84,17 +84,33 @@ class DialogueBox extends FlxSpriteGroup
 
 		switch(PlayState.SONG.player2.toLowerCase()) {
 			case 'gf':
-				portraitLeft.frames = Paths.getSparrowAtlas("neo_gf_dialouge_assets");
+				portraitLeft.frames = Paths.getSparrowAtlas("dialogueShit/neo_gf_dialouge_assets");
 				portraitLeft.animation.addByPrefix("happy", "Neo gf happy");
 				portraitLeft.animation.addByPrefix("sad", "Neo gf sad");
 				portraitLeft.animation.addByPrefix("blush", "Neo gf blush");
 			case 'dad':
-				portraitLeft.frames = Paths.getSparrowAtlas("neo_dad_dialouge_assets");
+				portraitLeft.frames = Paths.getSparrowAtlas("dialogueShit/neo_dad_dialouge_assets");
 				portraitLeft.animation.addByPrefix("point", "Neo dad point");
 				portraitLeft.animation.addByPrefix("fist", "Neo dad fist");
 				portraitLeft.animation.addByPrefix("unhappy", "Neo dad unhappy");
 				portraitLeft.animation.addByPrefix("smirk", "Neo dad smirk");
 				portraitLeft.y -= 100;
+			case 'pico':
+				portraitLeft.frames = Paths.getSparrowAtlas("dialogueShit/neo_dialouge_assets_pico");
+				portraitLeft.animation.addByPrefix("normal", "neo pico normal instance 1");
+				portraitLeft.animation.addByPrefix("sad", "Neo pico sad  instance 1");
+			//	portraitLeft.y -= 100;
+			case 'spooky':
+				portraitLeft.frames = Paths.getSparrowAtlas("dialogueShit/neo_dialouge_assets");
+				portraitLeft.animation.addByPrefix("pumpbruh", "Pump bruh instance 1");
+				portraitLeft.animation.addByPrefix("pumpnormal", "Pump normal instance 1");
+				portraitLeft.animation.addByPrefix("pumpscared", "Pump scared instance 1");
+				portraitLeft.animation.addByPrefix("skidirritated", "Skid Irritated  instance 1");
+				portraitLeft.animation.addByPrefix("skidangry", "Skid angry instance 1");
+				portraitLeft.animation.addByPrefix("skidnope", "Skid nope  instance 1");
+				portraitLeft.animation.addByPrefix("skidpoint", "Skid point instance 1");
+				portraitLeft.animation.addByPrefix("skideye", "skid eye glow instance 1");
+			//	portraitLeft.y -= 100;
 		}
 		
 		box.animation.play('normalOpen');
@@ -112,9 +128,9 @@ class DialogueBox extends FlxSpriteGroup
 			// box.flipX = true;
 		}
 
-		swagDialogue = new FlxTypeText(240, 550, Std.int(FlxG.width * 0.6), "", 32);
-		swagDialogue.font = 'Pixel Arial 11 Bold';
-		swagDialogue.color = 0xFF3F2021;
+		swagDialogue = new FlxTypeText(240, 550, Std.int(FlxG.width * 0.9), "", 40);
+		swagDialogue.font = 'Funkin';
+		swagDialogue.color = FlxColor.WHITE;
 		swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 0.6)];
 		add(swagDialogue);
 

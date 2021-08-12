@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="neo week 5 assets.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="neo garcello instance 10000" x="0" y="0" width="951" height="686" frameX="0" frameY="-28" frameWidth="951" frameHeight="715"/>
+	<SubTexture name="neo garcello instance 10001" x="0" y="0" width="951" height="686" frameX="0" frameY="-28" frameWidth="951" frameHeight="715"/>
+	<SubTexture name="neo garcello instance 10002" x="961" y="0" width="951" height="702" frameX="0" frameY="-12" frameWidth="951" frameHeight="715"/>
+	<SubTexture name="neo garcello instance 10003" x="961" y="0" width="951" height="702" frameX="0" frameY="-12" frameWidth="951" frameHeight="715"/>
+	<SubTexture name="neo garcello instance 10004" x="0" y="712" width="951" height="715"/>
+	<SubTexture name="neo garcello instance 10005" x="0" y="712" width="951" height="715"/>
+	<SubTexture name="neo garcello instance 10006" x="0" y="712" width="951" height="715"/>
+	<SubTexture name="neo garcello instance 10007" x="0" y="712" width="951" height="715"/>
+	<SubTexture name="neo garcello instance 10008" x="0" y="712" width="951" height="715"/>
+	<SubTexture name="neo garcello instance 10009" x="0" y="712" width="951" height="715"/>
+	<SubTexture name="neo garcello instance 10010" x="0" y="712" width="951" height="715"/>
+</TextureAtlas>

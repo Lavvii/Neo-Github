@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="neo dialouge assets pico.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Neo pico sad  instance 10000" x="0" y="0" width="337" height="428"/>
+	<SubTexture name="neo pico normal instance 10000" x="347" y="0" width="346" height="413"/>
+</TextureAtlas>

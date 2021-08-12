@@ -182,6 +182,10 @@ class PlayState extends MusicBeatState
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
 
+	var Boppers2:FlxSprite;
+	var corruptedBoppers:FlxSprite;
+	var fgFog:FlxSprite;
+
 	var fc:Bool = true;
 
 	var bgGirls:BackgroundGirls;
@@ -425,9 +429,9 @@ class PlayState extends MusicBeatState
 			case 'illusion':
 				{
 					curStage = 'illusion';
-					defaultCamZoom = 0.8;
+					defaultCamZoom = 0.75;
 
-					var bg:FlxSprite = new FlxSprite(-300, -100).loadGraphic(Paths.image('buildingsevil'));
+					var bg:FlxSprite = new FlxSprite(-300, -30).loadGraphic(Paths.image('buildingsevil'));
 					bg.antialiasing = true;
 					bg.scrollFactor.set(0.8, 0.8);
 					add(bg);
@@ -558,7 +562,7 @@ class PlayState extends MusicBeatState
 
 					defaultCamZoom = 0.70;
 
-					var bg:FlxSprite = new FlxSprite(-1000, -500).loadGraphic(Paths.image('newyears/Sky'));
+					var bg:FlxSprite = new FlxSprite(-1000, -500).loadGraphic(Paths.image('newyears/sky'));
 					bg.antialiasing = true;
 					bg.scrollFactor.set(0.2, 0.2);
 					bg.active = false;
@@ -566,35 +570,35 @@ class PlayState extends MusicBeatState
 					bg.updateHitbox();
 					add(bg);
 
-					var bgEscalator:FlxSprite = new FlxSprite(-1100, -600).loadGraphic(Paths.image('newyears/BackgroundBuildings'));
+					var bgEscalator:FlxSprite = new FlxSprite(-1100, -600).loadGraphic(Paths.image('newyears/buildings'));
 					bgEscalator.antialiasing = true;
-					bgEscalator.scrollFactor.set(0.3, 0.3);
+					bgEscalator.scrollFactor.set(0.4, 0.4);
 					bgEscalator.active = false;
 					bgEscalator.setGraphicSize(Std.int(bgEscalator.width * 0.9));
 					bgEscalator.updateHitbox();
 					add(bgEscalator);
 
-					var fgSnow:FlxSprite = new FlxSprite(-700, 100).loadGraphic(Paths.image('newyears/Balcony'));
+					var fgSnow:FlxSprite = new FlxSprite(-450, -550).loadGraphic(Paths.image('newyears/mainstage'));
 					fgSnow.active = false;
 					fgSnow.antialiasing = true;
+					fgSnow.setGraphicSize(Std.int(fgSnow.width * 1.25));
 					add(fgSnow);
 
-					// its a bigger var because im not fucking doing the week 4 aligning again fuck that
-					tables = new FlxSprite(1000, 100).loadGraphic(Paths.image('newyears/tables'));
-					tables.active = false;
-					tables.antialiasing = true;
-					add(tables);
-
-
-
+		                  	Boppers2 = new FlxSprite(950, 150);
+		                  	Boppers2.frames = Paths.getSparrowAtlas('newyears/neo_week_5_assets');
+		                 	Boppers2.animation.addByPrefix('boplol', "neo garcello instance 1", 24, false);
+		                 	Boppers2.antialiasing = true;
+		                //	Boppers2.setGraphicSize(Std.int(Boppers2.width * 1.0));
+		                 	Boppers2.updateHitbox();
 					
 				}
 			case 'hallucination':
 				{
 					curStage = 'mallEvil';
+
 					defaultCamZoom = 0.70;
 
-					var bg:FlxSprite = new FlxSprite(-1000, -500).loadGraphic(Paths.image('newyears/Sky'));
+					var bg:FlxSprite = new FlxSprite(-1000, -500).loadGraphic(Paths.image('newyears/skycorrupted'));
 					bg.antialiasing = true;
 					bg.scrollFactor.set(0.2, 0.2);
 					bg.active = false;
@@ -602,7 +606,7 @@ class PlayState extends MusicBeatState
 					bg.updateHitbox();
 					add(bg);
 
-					var bgEscalator:FlxSprite = new FlxSprite(-1100, -600).loadGraphic(Paths.image('newyears/BackgroundBuildings'));
+					var bgEscalator:FlxSprite = new FlxSprite(-1100, -600).loadGraphic(Paths.image('newyears/Scary-buildings'));
 					bgEscalator.antialiasing = true;
 					bgEscalator.scrollFactor.set(0.3, 0.3);
 					bgEscalator.active = false;
@@ -610,10 +614,31 @@ class PlayState extends MusicBeatState
 					bgEscalator.updateHitbox();
 					add(bgEscalator);
 
-					var fgSnow:FlxSprite = new FlxSprite(-700, 100).loadGraphic(Paths.image('newyears/Balcony'));
+					var fgSnow:FlxSprite = new FlxSprite(-450, -550).loadGraphic(Paths.image('newyears/mainstagecorruption'));
 					fgSnow.active = false;
 					fgSnow.antialiasing = true;
+					fgSnow.setGraphicSize(Std.int(fgSnow.width * 1.25));
 					add(fgSnow);
+
+		                  	corruptedBoppers = new FlxSprite(-5, -25);
+		                  	corruptedBoppers.frames = Paths.getSparrowAtlas('newyears/Corrupted_bg_characters');
+		                 	corruptedBoppers.animation.addByPrefix('phantomfear', "neo garcello instance 1", 24, false);
+		                 	corruptedBoppers.antialiasing = true;
+		                //	corruptedBoppers.setGraphicSize(Std.int(corruptedBoppers.width * 1.0));
+		                	corruptedBoppers.updateHitbox();
+					add(corruptedBoppers);
+
+					var fgTables:FlxSprite = new FlxSprite(-450, -550).loadGraphic(Paths.image('newyears/maintablescorruption'));
+					fgTables.active = false;
+					fgTables.antialiasing = true;
+					fgTables.setGraphicSize(Std.int(fgTables.width * 1.25));
+					add(fgTables);
+
+					fgFog = new FlxSprite(-450, -550).loadGraphic(Paths.image('newyears/fog'));
+					fgFog.active = false;
+					fgFog.antialiasing = true;
+					fgFog.setGraphicSize(Std.int(fgFog.width * 1.30));
+					FlxTween.tween(fgFog,{x: fgFog.x + 100}, 5.5,{ease:FlxEase.cubeOut,type:PINGPONG});
 				}
 			case 'senpai' | 'roses':
 				{
@@ -877,8 +902,10 @@ class PlayState extends MusicBeatState
 				boyfriend.x += 200;
 
 			case 'mallEvil':
-				boyfriend.x += 320;
-				dad.y -= 80;
+				boyfriend.x += 200;
+				dad.x -= 100;
+				dad.y -= 15;
+
 			case 'school':
 				boyfriend.x += 200;
 				boyfriend.y += 220;
@@ -901,10 +928,14 @@ class PlayState extends MusicBeatState
 				gf.y += 300;
 		}
 
-		add(gf);
+		if (curStage != 'mallEvil')
+			add(gf);
 
 		if (curStage == 'limo')
 			add(limo);
+
+		if (curStage == 'mall')
+			add(Boppers2);
 
 		add(dad);
 		add(boyfriend);
@@ -914,8 +945,11 @@ class PlayState extends MusicBeatState
 			add(stageCurtains);
 			add(stageBoppers);
 
-		if(curStage == 'spooky2')
+		if (curStage == 'spooky2')
 			add(Boppers);
+
+		if (curStage == 'mallEvil')
+			add(fgFog);
 
 		if (loadRep)
 		{
@@ -2072,6 +2106,8 @@ class PlayState extends MusicBeatState
 					case 'limo':
 						camFollow.x = boyfriend.getMidpoint().x - 300;
 					case 'mall':
+						camFollow.y = boyfriend.getMidpoint().y - 200;
+					case 'mallEvil':
 						camFollow.y = boyfriend.getMidpoint().y - 200;
 					case 'school':
 						camFollow.x = boyfriend.getMidpoint().x - 200;
@@ -3434,7 +3470,9 @@ class PlayState extends MusicBeatState
 				}
 
 			case 'mall':
-
+				Boppers2.animation.play('boplol', true);
+			case 'mallEvil':
+				corruptedBoppers.animation.play('phantomfear', true);
 			case 'limo':
 				limo.animation.play('limo', true);
 				bgjet.dance();

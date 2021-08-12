@@ -1,6 +1,6 @@
 {
     "song": {
-        "song": "Illusion",
+        "song": "Hallucination",
         "notes": [
             {
                 "lengthInSteps": 16,
@@ -3135,8 +3135,8 @@
         "bpm": 159,
         "sections": 0,
         "needsVoices": true,
-        "player1": "bf",
-        "player2": "monster",
+        "player1": "bf-christmas",
+        "player2": "monster-christmas",
         "sectionLengths": [],
         "speed": 1.3000000000000003,
         "validScore": true
