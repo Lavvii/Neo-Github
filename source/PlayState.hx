@@ -3428,7 +3428,7 @@ class PlayState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('firework'));
 				NEO.visible = true;
 				NEO.animation.play('swag');
-				new FlxTimer().start(1.2, function(tmr:FlxTimer)
+				new FlxTimer().start(2.3, function(tmr:FlxTimer)
 				{
 					NEO.visible = false;
 				});
@@ -3438,7 +3438,7 @@ class PlayState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('firework2'));
 				fire.visible = true;
 				fire.animation.play('swag2');
-				new FlxTimer().start(1.2, function(tmr:FlxTimer)
+				new FlxTimer().start(2.3, function(tmr:FlxTimer)
 				{
 					fire.visible = false;
 				});
