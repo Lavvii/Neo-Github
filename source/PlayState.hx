@@ -82,8 +82,6 @@ class PlayState extends MusicBeatState
 
 	public static var songPosBG:FlxSprite;
 	public static var songPosBar:FlxBar;
-	
-//	var overlay:FlxSprite;
 
 	public static var rep:Replay;
 	public static var loadRep:Bool = false;
@@ -193,6 +191,8 @@ class PlayState extends MusicBeatState
 	var fgFog:FlxSprite;
 
 	var fc:Bool = true;
+	
+	var overlay:FlxSprite;
 
 	var bgGirls:BackgroundGirls;
 	var wiggleShit:WiggleEffect = new WiggleEffect();
@@ -532,6 +532,7 @@ class PlayState extends MusicBeatState
 					skyBG.setGraphicSize(Std.int(skyBG.width*1.2));
 					add(skyBG);
 
+					jet = new FlxSprite(-300, -150);
 					jet.frames = Paths.getSparrowAtlas('planeshit/DancerJet');
 					jet.animation.addByPrefix('fly','ROCKET',24,true);
 					jet.animation.play('fly');
@@ -549,10 +550,10 @@ class PlayState extends MusicBeatState
 
 					add(limo);
 
-				//	overlay = new FlxSprite(0,0).makeGraphic(1280,720,FlxColor.fromRGB(20,18,118,42));
-				//	overlay.blend = 'multiply';
-				//	overlay.scrollFactor.set(0,0);
-				//	overlay.cameras = [camHUD];
+					overlay = new FlxSprite(0,0).makeGraphic(1280,720,FlxColor.fromRGB(20,18,118,42));
+					overlay.blend = 'multiply';
+					overlay.scrollFactor.set(0,0);
+					overlay.cameras = [camHUD];
 					
 					for (i in 0...20)
 						{
@@ -970,8 +971,8 @@ class PlayState extends MusicBeatState
 		add(dad);
 		add(boyfriend);
 
-	//	if (curStage == 'limo')
-		//	add(overlay);
+		if (curStage == 'limo')
+			add(overlay);
 
 		if (curStage == 'stage')
 			add(stageLights);
