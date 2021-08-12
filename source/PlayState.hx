@@ -82,7 +82,7 @@ class PlayState extends MusicBeatState
 
 	public static var songPosBG:FlxSprite;
 	public static var songPosBar:FlxBar;
-	var overlay:FlxSprite;
+
 	public static var rep:Replay;
 	public static var loadRep:Bool = false;
 
@@ -182,6 +182,10 @@ class PlayState extends MusicBeatState
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
 
+	var sky:FlxSprite;
+	var skyCorrupt:FlxSprite;
+	var NEO:FlxSprite;
+	var fire:FlxSprite;
 	var Boppers2:FlxSprite;
 	var corruptedBoppers:FlxSprite;
 	var fgFog:FlxSprite;
@@ -516,19 +520,18 @@ class PlayState extends MusicBeatState
 					curStage = 'limo';
 					defaultCamZoom = 0.60; // 0.60
 					//-120 -50
-					var skyBG:FlxSprite = new FlxSprite(-420,-400).loadGraphic(Paths.image('planeshit/limoSunset'));
+					var skyBG:FlxSprite = new FlxSprite(-800,-200).loadGraphic(Paths.image('planeshit/limoSunset'));
+					skyBG.setGraphicSize(3500);
 				//	skyBG.cameraFrameScaleUpdateX = 0.60;
-					skyBG.velocity.x = 1;
+					skyBG.velocity.x = 1050;
+					skyBG.scale.x = 3500;
+					skyBG.scale.y = 3500;
 					skyBG.scrollFactor.set(0, 0);
-					skyBG.antialiasing = true;
-					skyBG.setGraphicSize(Std.int(skyBG.width*1.2));
 					add(skyBG);
 
 					jet = new FlxSprite(-300, -150);
-					jet.frames = Paths.getSparrowAtlas('planeshit/DancerJet');
-					jet.animation.addByPrefix('fly','ROCKET',24,true);
-					jet.animation.play('fly');
-					//jet.setGraphicSize(500);
+					jet.loadGraphic(Paths.image('planeshit/DancerJet'));
+					jet.setGraphicSize(500);
 					bgjet = new BackgroundDancer(-300, -200);
 				//	bgjet.frames = Paths.getSparrowAtlas('planeshit/JIMMY');
 					bgjet.setGraphicSize(300);
@@ -541,11 +544,6 @@ class PlayState extends MusicBeatState
 					limo.updateHitbox();
 
 					add(limo);
-					overlay = new FlxSprite(0,0).makeGraphic(1280,720,FlxColor.fromRGB(20,18,118,42));
-					overlay.blend = 'multiply';
-					overlay.scrollFactor.set(0,0);
-					overlay.cameras = [camHUD]; 
-			
 
 					for (i in 0...20)
 						{
@@ -568,13 +566,33 @@ class PlayState extends MusicBeatState
 
 					defaultCamZoom = 0.70;
 
-					var bg:FlxSprite = new FlxSprite(-1000, -500).loadGraphic(Paths.image('newyears/sky'));
-					bg.antialiasing = true;
-					bg.scrollFactor.set(0.2, 0.2);
-					bg.active = false;
-					bg.setGraphicSize(Std.int(bg.width * 0.8));
-					bg.updateHitbox();
-					add(bg);
+					sky = new FlxSprite(-1000, -500).loadGraphic(Paths.image('newyears/sky'));
+					sky.antialiasing = true;
+					sky.scrollFactor.set(0.2, 0.2);
+					sky.active = false;
+					sky.setGraphicSize(Std.int(sky.width * 0.8));
+					sky.updateHitbox();
+					add(sky);
+
+				        NEO = new FlxSprite(300, -100);
+				        NEO.frames = Paths.getSparrowAtlas('newyears/NEO_Fireworks');
+				        NEO.animation.addByPrefix('swag', "Week 5 Firework Blue", 24, false);
+		        		NEO.antialiasing = true;
+					NEO.scrollFactor.set(0.25, 0.25);
+					NEO.setGraphicSize(Std.int(NEO.width * 1.3));
+				        NEO.updateHitbox();
+					add(NEO);
+					NEO.visible = false;
+
+				        fire = new FlxSprite(300, -100);
+				        fire.frames = Paths.getSparrowAtlas('newyears/FireworkNeo');
+				        fire.animation.addByPrefix('swag2', "Week 5 Firework", 24, false);
+		        		fire.antialiasing = true;
+					fire.scrollFactor.set(0.35, 0.35);
+					fire.setGraphicSize(Std.int(fire.width * 1.3));
+				        fire.updateHitbox();
+					add(fire);
+					fire.visible = false;
 
 					var bgEscalator:FlxSprite = new FlxSprite(-1100, -600).loadGraphic(Paths.image('newyears/buildings'));
 					bgEscalator.antialiasing = true;
@@ -604,13 +622,13 @@ class PlayState extends MusicBeatState
 
 					defaultCamZoom = 0.70;
 
-					var bg:FlxSprite = new FlxSprite(-1000, -500).loadGraphic(Paths.image('newyears/skycorrupted'));
-					bg.antialiasing = true;
-					bg.scrollFactor.set(0.2, 0.2);
-					bg.active = false;
-					bg.setGraphicSize(Std.int(bg.width * 0.8));
-					bg.updateHitbox();
-					add(bg);
+					skyCorrupt = new FlxSprite(-1000, -500).loadGraphic(Paths.image('newyears/skycorrupted'));
+					skyCorrupt.antialiasing = true;
+					skyCorrupt.scrollFactor.set(0.2, 0.2);
+					skyCorrupt.active = false;
+					skyCorrupt.setGraphicSize(Std.int(skyCorrupt.width * 0.8));
+					skyCorrupt.updateHitbox();
+					add(skyCorrupt);
 
 					var bgEscalator:FlxSprite = new FlxSprite(-1100, -600).loadGraphic(Paths.image('newyears/Scary-buildings'));
 					bgEscalator.antialiasing = true;
@@ -945,9 +963,6 @@ class PlayState extends MusicBeatState
 
 		add(dad);
 		add(boyfriend);
-
-		if (curStage == 'limo')
-			add(overlay);
 
 		if (curStage == 'stage')
 			add(stageLights);
@@ -1819,14 +1834,6 @@ class PlayState extends MusicBeatState
 	{
 		#if !debug
 		perfectMode = false;
-		#end
-
-
-		#if debug
-		if (FlxG.keys.justPressed.END)
-			overlay.visible = false;
-		if (FlxG.keys.justPressed.INSERT)
-			overlay.visible = true;
 		#end
 
 		if (FlxG.save.data.botplay && FlxG.keys.justPressed.ONE)
@@ -3411,6 +3418,31 @@ class PlayState extends MusicBeatState
 				dad.playAnim('danceLeft');
 			if (curBeat % 2 == 0 && dad.animOffsets.exists('danceRight'))
 				dad.playAnim('danceRight');
+		}
+
+		if (curStage == 'mall') {
+			fire.visible = false;
+			NEO.visible = false;
+			if (FlxG.random.bool(8))
+			{
+				FlxG.sound.play(Paths.sound('firework'));
+				NEO.visible = true;
+				NEO.animation.play('swag');
+				new FlxTimer().start(1.2, function(tmr:FlxTimer)
+				{
+					NEO.visible = false;
+				});
+			}
+			if (FlxG.random.bool(18))
+			{
+				FlxG.sound.play(Paths.sound('firework2'));
+				fire.visible = true;
+				fire.animation.play('swag2');
+				new FlxTimer().start(1.2, function(tmr:FlxTimer)
+				{
+					fire.visible = false;
+				});
+			}
 		}
 
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
