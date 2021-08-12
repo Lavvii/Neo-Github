@@ -82,7 +82,7 @@ class PlayState extends MusicBeatState
 
 	public static var songPosBG:FlxSprite;
 	public static var songPosBar:FlxBar;
-
+	var overlay:FlxSprite;
 	public static var rep:Replay;
 	public static var loadRep:Bool = false;
 
@@ -516,18 +516,19 @@ class PlayState extends MusicBeatState
 					curStage = 'limo';
 					defaultCamZoom = 0.60; // 0.60
 					//-120 -50
-					var skyBG:FlxSprite = new FlxSprite(-800,-200).loadGraphic(Paths.image('planeshit/limoSunset'));
-					skyBG.setGraphicSize(3500);
+					var skyBG:FlxSprite = new FlxSprite(-420,-400).loadGraphic(Paths.image('planeshit/limoSunset'));
 				//	skyBG.cameraFrameScaleUpdateX = 0.60;
-					skyBG.velocity.x = 1050;
-					skyBG.scale.x = 3500;
-					skyBG.scale.y = 3500;
+					skyBG.velocity.x = 1;
 					skyBG.scrollFactor.set(0, 0);
+					skyBG.antialiasing = true;
+					skyBG.setGraphicSize(Std.int(skyBG.width*1.2));
 					add(skyBG);
 
 					jet = new FlxSprite(-300, -150);
-					jet.loadGraphic(Paths.image('planeshit/DancerJet'));
-					jet.setGraphicSize(500);
+					jet.frames = Paths.getSparrowAtlas('planeshit/DancerJet');
+					jet.animation.addByPrefix('fly','ROCKET',24,true);
+					jet.animation.play('fly');
+					//jet.setGraphicSize(500);
 					bgjet = new BackgroundDancer(-300, -200);
 				//	bgjet.frames = Paths.getSparrowAtlas('planeshit/JIMMY');
 					bgjet.setGraphicSize(300);
@@ -540,6 +541,11 @@ class PlayState extends MusicBeatState
 					limo.updateHitbox();
 
 					add(limo);
+					overlay = new FlxSprite(0,0).makeGraphic(1280,720,FlxColor.fromRGB(20,18,118,42));
+					overlay.blend = 'multiply';
+					overlay.scrollFactor.set(0,0);
+					overlay.cameras = [camHUD]; 
+			
 
 					for (i in 0...20)
 						{
@@ -939,6 +945,9 @@ class PlayState extends MusicBeatState
 
 		add(dad);
 		add(boyfriend);
+
+		if (curStage == 'limo')
+			add(overlay);
 
 		if (curStage == 'stage')
 			add(stageLights);
@@ -1810,6 +1819,14 @@ class PlayState extends MusicBeatState
 	{
 		#if !debug
 		perfectMode = false;
+		#end
+
+
+		#if debug
+		if (FlxG.keys.justPressed.END)
+			overlay.visible = false;
+		if (FlxG.keys.justPressed.INSERT)
+			overlay.visible = true;
 		#end
 
 		if (FlxG.save.data.botplay && FlxG.keys.justPressed.ONE)
