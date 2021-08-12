@@ -433,9 +433,10 @@ class PlayState extends MusicBeatState
 			case 'illusion':
 				{
 					curStage = 'illusion';
-					defaultCamZoom = 0.75;
+					defaultCamZoom = 0.85;
+					halloweenLevel = true;
 
-					var bg:FlxSprite = new FlxSprite(-300, -30).loadGraphic(Paths.image('buildingsevil'));
+					var bg:FlxSprite = new FlxSprite(-300, -300).loadGraphic(Paths.image('buildingsevil'));
 					bg.antialiasing = true;
 					bg.scrollFactor.set(0.8, 0.8);
 					add(bg);
@@ -471,6 +472,8 @@ class PlayState extends MusicBeatState
 					tvR.setGraphicSize(Std.int(tvR.width * 1.0));
 					tvR.updateHitbox();
 					add(tvR);
+					
+					isHalloween = true;
 
 				}
 			case 'pico' | 'blammed' | 'philly':
@@ -574,23 +577,23 @@ class PlayState extends MusicBeatState
 					sky.updateHitbox();
 					add(sky);
 
-				        NEO = new FlxSprite(300, -100);
-				        NEO.frames = Paths.getSparrowAtlas('newyears/NEO_Fireworks');
-				        NEO.animation.addByPrefix('swag', "Week 5 Firework Blue", 24, false);
-		        		NEO.antialiasing = true;
+				    NEO = new FlxSprite(300, -100);
+				    NEO.frames = Paths.getSparrowAtlas('newyears/NEO_Fireworks');
+					NEO.animation.addByPrefix('swag', "Week 5 Firework Blue", 24, false);
+		      		NEO.antialiasing = true;
 					NEO.scrollFactor.set(0.25, 0.25);
 					NEO.setGraphicSize(Std.int(NEO.width * 1.3));
-				        NEO.updateHitbox();
+				    NEO.updateHitbox();
 					add(NEO);
 					NEO.visible = false;
 
-				        fire = new FlxSprite(300, -100);
-				        fire.frames = Paths.getSparrowAtlas('newyears/FireworkNeo');
-				        fire.animation.addByPrefix('swag2', "Week 5 Firework", 24, false);
-		        		fire.antialiasing = true;
+				    fire = new FlxSprite(300, -100);
+				    fire.frames = Paths.getSparrowAtlas('newyears/FireworkNeo');
+					fire.animation.addByPrefix('swag2', "Week 5 Firework", 24, false);
+		        	fire.antialiasing = true;
 					fire.scrollFactor.set(0.35, 0.35);
 					fire.setGraphicSize(Std.int(fire.width * 1.3));
-				        fire.updateHitbox();
+					fire.updateHitbox();
 					add(fire);
 					fire.visible = false;
 
@@ -618,9 +621,9 @@ class PlayState extends MusicBeatState
 				}
 			case 'hallucination':
 				{
-					curStage = 'mallEvil';
+					curStage = 'illusion-two';
 
-					defaultCamZoom = 0.70;
+					defaultCamZoom = 0.9;
 
 					skyCorrupt = new FlxSprite(-1000, -500).loadGraphic(Paths.image('newyears/skycorrupted'));
 					skyCorrupt.antialiasing = true;
@@ -644,12 +647,12 @@ class PlayState extends MusicBeatState
 					fgSnow.setGraphicSize(Std.int(fgSnow.width * 1.25));
 					add(fgSnow);
 
-		                  	corruptedBoppers = new FlxSprite(-5, -25);
-		                  	corruptedBoppers.frames = Paths.getSparrowAtlas('newyears/Corrupted_bg_characters');
-		                 	corruptedBoppers.animation.addByPrefix('phantomfear', "neo garcello instance 1", 24, false);
-		                 	corruptedBoppers.antialiasing = true;
-		                //	corruptedBoppers.setGraphicSize(Std.int(corruptedBoppers.width * 1.0));
-		                	corruptedBoppers.updateHitbox();
+		            corruptedBoppers = new FlxSprite(-5, -25);
+		           	corruptedBoppers.frames = Paths.getSparrowAtlas('newyears/Corrupted_bg_characters');
+	            	corruptedBoppers.animation.addByPrefix('phantomfear', "neo garcello instance 1", 24, false);
+		            corruptedBoppers.antialiasing = true;
+		         //	corruptedBoppers.setGraphicSize(Std.int(corruptedBoppers.width * 1.0));
+					corruptedBoppers.updateHitbox();
 					add(corruptedBoppers);
 
 					var fgTables:FlxSprite = new FlxSprite(-450, -550).loadGraphic(Paths.image('newyears/maintablescorruption'));
@@ -925,7 +928,7 @@ class PlayState extends MusicBeatState
 			case 'mall':
 				boyfriend.x += 200;
 
-			case 'mallEvil':
+			case 'illusion-two':
 				boyfriend.x += 200;
 				dad.x -= 100;
 				dad.y -= 15;
@@ -952,7 +955,7 @@ class PlayState extends MusicBeatState
 				gf.y += 300;
 		}
 
-		if (curStage != 'mallEvil')
+		if (!curStage.startsWith('illusion'))
 			add(gf);
 
 		if (curStage == 'limo')
@@ -972,7 +975,7 @@ class PlayState extends MusicBeatState
 		if (curStage == 'spooky2')
 			add(Boppers);
 
-		if (curStage == 'mallEvil')
+		if (curStage == 'illusion-two')
 			add(fgFog);
 
 		if (loadRep)
@@ -2131,7 +2134,7 @@ class PlayState extends MusicBeatState
 						camFollow.x = boyfriend.getMidpoint().x - 300;
 					case 'mall':
 						camFollow.y = boyfriend.getMidpoint().y - 200;
-					case 'mallEvil':
+					case 'illusion-two':
 						camFollow.y = boyfriend.getMidpoint().y - 200;
 					case 'school':
 						camFollow.x = boyfriend.getMidpoint().x - 200;
@@ -3341,17 +3344,6 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	function lightningStrikeShit():Void
-	{
-	//	FlxG.sound.play(Paths.soundRandom('thunder_', 1, 2));
-
-		lightningStrikeBeat = curBeat;
-		lightningOffset = FlxG.random.int(8, 24);
-
-	//	boyfriend.playAnim('scared', true);
-	//	gf.playAnim('scared', true);
-	}
-
 	var danced:Bool = false;
 
 	override function stepHit()
@@ -3384,9 +3376,6 @@ class PlayState extends MusicBeatState
 		#end
 
 	}
-
-	var lightningStrikeBeat:Int = 0;
-	var lightningOffset:Int = 8;
 
 	override function beatHit()
 	{
@@ -3520,7 +3509,7 @@ class PlayState extends MusicBeatState
 
 			case 'mall':
 				Boppers2.animation.play('boplol', true);
-			case 'mallEvil':
+			case 'illusion-two':
 				corruptedBoppers.animation.play('phantomfear', true);
 			case 'limo':
 				limo.animation.play('limo', true);
