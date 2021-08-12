@@ -552,7 +552,7 @@ class PlayState extends MusicBeatState
 					overlay = new FlxSprite(0,0).makeGraphic(1280,720,FlxColor.fromRGB(20,18,118,42));
 					overlay.blend = 'multiply';
 					overlay.scrollFactor.set(0,0);
-					overlay.cameras = [camHUD]; 
+					overlay.cameras = [camHUD];
 					
 					for (i in 0...20)
 						{
@@ -964,14 +964,14 @@ class PlayState extends MusicBeatState
 		if (!curStage.startsWith('illusion'))
 			add(gf);
 
-		if (curStage == 'limo')
-			add(overlay);
-
 		if (curStage == 'mall')
 			add(Boppers2);
 
 		add(dad);
 		add(boyfriend);
+
+		if (curStage == 'limo')
+			add(overlay);
 
 		if (curStage == 'stage')
 			add(stageLights);
