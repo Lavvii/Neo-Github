@@ -592,20 +592,20 @@ class PlayState extends MusicBeatState
 					sky.updateHitbox();
 					add(sky);
 
-				    NEO = new FlxSprite(300, -100);
-				    NEO.frames = Paths.getSparrowAtlas('newyears/NEO_Fireworks');
+				    	NEO = new FlxSprite(300, -100);
+				    	NEO.frames = Paths.getSparrowAtlas('newyears/NEO_Fireworks');
 					NEO.animation.addByPrefix('swag', "Week 5 Firework Blue", 24, false);
-		      		NEO.antialiasing = true;
+		      			NEO.antialiasing = true;
 					NEO.scrollFactor.set(0.25, 0.25);
 					NEO.setGraphicSize(Std.int(NEO.width * 1.3));
-				    NEO.updateHitbox();
+				 	NEO.updateHitbox();
 					add(NEO);
 					NEO.visible = false;
 
-				    fire = new FlxSprite(300, -100);
-				    fire.frames = Paths.getSparrowAtlas('newyears/FireworkNeo');
+				   	fire = new FlxSprite(300, -100);
+				    	fire.frames = Paths.getSparrowAtlas('newyears/FireworkNeo');
 					fire.animation.addByPrefix('swag2', "Week 5 Firework", 24, false);
-		        	fire.antialiasing = true;
+		        		fire.antialiasing = true;
 					fire.scrollFactor.set(0.35, 0.35);
 					fire.setGraphicSize(Std.int(fire.width * 1.3));
 					fire.updateHitbox();
