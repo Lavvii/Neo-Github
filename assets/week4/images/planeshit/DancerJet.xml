@@ -2,9 +2,9 @@
 <TextureAtlas imagePath="DancerJet.png">
 	<!-- Created with Adobe Animate version 20.5.0.29329 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="ROCKET0000" x="0" y="0" width="1985" height="777" frameX="0" frameY="0" frameWidth="2094" frameHeight="777"/>
-	<SubTexture name="ROCKET0001" x="1995" y="0" width="2028" height="777" frameX="0" frameY="0" frameWidth="2094" frameHeight="777"/>
-	<SubTexture name="ROCKET0002" x="0" y="787" width="2014" height="777" frameX="0" frameY="0" frameWidth="2094" frameHeight="777"/>
-	<SubTexture name="ROCKET0003" x="0" y="1574" width="2094" height="777"/>
-	<SubTexture name="ROCKET0004" x="0" y="1574" width="2094" height="777"/>
+	<SubTexture name="ROCKET0000" x="0" y="0" width="1981" height="777" pivotX="902.8" pivotY="388.2" frameX="0" frameY="0" frameWidth="2090" frameHeight="777"/>
+	<SubTexture name="ROCKET0001" x="1991" y="0" width="2024" height="777" frameX="0" frameY="0" frameWidth="2090" frameHeight="777"/>
+	<SubTexture name="ROCKET0002" x="0" y="787" width="2010" height="777" frameX="0" frameY="0" frameWidth="2090" frameHeight="777"/>
+	<SubTexture name="ROCKET0003" x="0" y="1574" width="2090" height="777"/>
+	<SubTexture name="ROCKET0004" x="0" y="1574" width="2090" height="777"/>
 </TextureAtlas>

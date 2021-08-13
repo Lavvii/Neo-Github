@@ -181,6 +181,8 @@ class PlayState extends MusicBeatState
 	var upperBoppers:FlxSprite;
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
+	
+	var cloud:FlxSprite;
 
 	var sky:FlxSprite;
 	var skyCorrupt:FlxSprite;
@@ -525,11 +527,11 @@ class PlayState extends MusicBeatState
 					curStage = 'limo';
 					defaultCamZoom = 0.60; // 0.60
 					//-120 -50
-					var skyBG:FlxSprite = new FlxSprite(-420,-400).loadGraphic(Paths.image('planeshit/limoSunset'));
-					skyBG.velocity.x = 1;
+					var skyBG:FlxSprite = new FlxSprite(-780,-400).loadGraphic(Paths.image('planeshit/limoSunset'));
+					skyBG.velocity.x = 7;
 					skyBG.scrollFactor.set(0, 0);
 					skyBG.antialiasing = true;
-					skyBG.setGraphicSize(Std.int(skyBG.width*1.2));
+					skyBG.setGraphicSize(Std.int(skyBG.width*1.9));
 					add(skyBG);
 
 					jet = new FlxSprite(-300, -150);
@@ -541,10 +543,10 @@ class PlayState extends MusicBeatState
 				//	bgjet.frames = Paths.getSparrowAtlas('planeshit/JIMMY');
 					bgjet.setGraphicSize(300);
 
-					limo = new FlxSprite(150, 450);
+					limo = new FlxSprite(150, 375);
 					limo.frames = Paths.getSparrowAtlas('planeshit/limoDrive');
 					limo.animation.addByPrefix('limo', "Limo stage", 24, false);
-					limo.setGraphicSize(2750, 750);
+					limo.setGraphicSize(2950, 750);
 					limo.antialiasing = true;
 					limo.updateHitbox();
 
@@ -568,6 +570,12 @@ class PlayState extends MusicBeatState
 								zoom.fly();
 							});
 						}
+						
+					cloud = new FlxSprite(-950,75).loadGraphic(Paths.image('planeshit/cloud'));
+					cloud.velocity.x = 20;
+					cloud.scrollFactor.set(0.65, 0.65);
+					cloud.antialiasing = true;
+					cloud.setGraphicSize(Std.int(cloud.width*3.0));
 
 				}
 			case 'cocoa' | 'eggnog':
@@ -922,9 +930,9 @@ class PlayState extends MusicBeatState
 			case 'limo':
 				boyfriend.y -= 350;//220
 				boyfriend.x += 800;
-				gf.x += 475;
+				gf.x += 655;
 				gf.y -= 300;
-				dad.x += 850;
+				dad.x += 1050;
 				dad.y -= 380;
 				//camPos.set(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y + 1200);
 				gf.x += 200;
@@ -972,6 +980,7 @@ class PlayState extends MusicBeatState
 		add(boyfriend);
 
 		if (curStage == 'limo')
+			add(cloud);
 			add(overlay);
 
 		if (curStage == 'stage')
