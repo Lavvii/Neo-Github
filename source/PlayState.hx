@@ -528,10 +528,10 @@ class PlayState extends MusicBeatState
 					defaultCamZoom = 0.60; // 0.60
 					//-120 -50
 					var skyBG:FlxSprite = new FlxSprite(-780,-400).loadGraphic(Paths.image('planeshit/limoSunset'));
-					skyBG.velocity.x = 7;
+					skyBG.velocity.x = 5;
 					skyBG.scrollFactor.set(0, 0);
 					skyBG.antialiasing = true;
-					skyBG.setGraphicSize(Std.int(skyBG.width*1.9));
+					skyBG.setGraphicSize(Std.int(skyBG.width*1.65));
 					add(skyBG);
 
 					jet = new FlxSprite(-300, -150);
@@ -845,21 +845,31 @@ class PlayState extends MusicBeatState
 				}
 		}
 
-		var gfVersion:String = 'gf';
+		var gfCheck:String = 'gf';
 
-		switch (SONG.gfVersion)
+		if (SONG.gfVersion == null)
 		{
-			case 'gf-car':
-				gfVersion = 'gf-car';
-			case 'gf-christmas':
-				gfVersion = 'gf-christmas';
-			case 'gf-pixel':
-				gfVersion = 'gf-pixel';
-			default:
-				gfVersion = 'gf';
+			switch (storyWeek)
+			{
+				case 4:
+					gfCheck = 'gf-car';
+			}
+		}
+		else
+		{
+			gfCheck = SONG.gfVersion;
 		}
 
-		gf = new Character(400, 130, gfVersion);
+		var curGf:String = '';
+		switch (gfCheck)
+		{
+			case 'gf-car':
+				curGf = 'gf-car';
+			default:
+				curGf = 'gf';
+		}
+
+		gf = new Character(400, 130, curGf);
 		gf.scrollFactor.set(0.95, 0.95);
 
 		dad = new Character(100, 100, SONG.player2);
