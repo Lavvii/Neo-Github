@@ -270,18 +270,18 @@ class Character extends FlxSprite
 
 				addOffset('idle', 0, 1);
 				addOffset("singUP", -6, 15);
-				addOffset("singRIGHT", 79, -1);
-				addOffset("singLEFT", 30, -7);
-				addOffset("singDOWN", 7, -48);
-				addOffset("singUPmiss", -16, 12);
+				addOffset("singRIGHT", -12, -8);
+				addOffset("singLEFT", 36, -8);
+				addOffset("singDOWN", 13, -50);
+				addOffset("singUPmiss", -6, 12);
 				addOffset("singRIGHTmiss", -6, 4);
 				addOffset("singLEFTmiss", 38, 0);
-				addOffset("singDOWNmiss", 4, -33);
+				addOffset("singDOWNmiss", 6, -36);
 				addOffset("hey", 7, -1);
 				addOffset('passOut', 14, -22);
-				addOffset('firstDeath', 37, 11);
-				addOffset('deathLoop', 37, 5);
-				addOffset('deathConfirm', 62, 69);
+				addOffset('firstDeath', 57, -13);
+				addOffset('deathLoop', 57, -17);
+				addOffset('deathConfirm', 83, 51);
 				addOffset('scared', -4, 0);
 				//addOffset('hit', -1, 10);
 

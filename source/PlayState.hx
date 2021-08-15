@@ -806,13 +806,13 @@ class PlayState extends MusicBeatState
 						stageCurtains.scrollFactor.set(1.3, 1.3);
 						stageCurtains.active = false;
 
-		                  		stageBoppers = new FlxSprite(-100, 600);
-		                  		stageBoppers.frames = Paths.getSparrowAtlas('stuff_1');
-		                  		stageBoppers.animation.addByPrefix('bop', "Crowd 1  instance 1", 24, false);
-		                  		stageBoppers.antialiasing = true;
-		                  		stageBoppers.scrollFactor.set(0.9, 0.9);
-		                  		stageBoppers.setGraphicSize(Std.int(stageBoppers.width * 1.3));
-		                  		stageBoppers.updateHitbox();
+		                stageBoppers = new FlxSprite(-100, 600);
+		                stageBoppers.frames = Paths.getSparrowAtlas('stuff_1');
+		                stageBoppers.animation.addByPrefix('bop', "Crowd 1  instance 1", 24, false);
+		                stageBoppers.antialiasing = true;
+		                stageBoppers.scrollFactor.set(0.9, 0.9);
+		                stageBoppers.setGraphicSize(Std.int(stageBoppers.width * 1.3));
+		                stageBoppers.updateHitbox();
 					}
 				}
 			default:
@@ -2249,8 +2249,7 @@ class PlayState extends MusicBeatState
 				notes.forEachAlive(function(daNote:Note)
 				{	
 
-					// instead of doing stupid y > FlxG.height
-					// we be men and actually calculate the time :)
+				
 					if (daNote.tooLate)
 					{
 						daNote.active = false;
