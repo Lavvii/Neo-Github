@@ -477,6 +477,12 @@ class PlayState extends MusicBeatState
 					tvR.updateHitbox();
 					add(tvR);
 					
+					fgFog = new FlxSprite(-450, -550).loadGraphic(Paths.image('fog'));
+					fgFog.active = false;
+					fgFog.antialiasing = true;
+					fgFog.setGraphicSize(Std.int(fgFog.width * 1.30));
+					FlxTween.tween(fgFog,{x: fgFog.x + 100}, 5.5,{ease:FlxEase.cubeOut,type:PINGPONG});
+
 					isHalloween = true;
 
 				}
@@ -662,11 +668,11 @@ class PlayState extends MusicBeatState
 					fgSnow.setGraphicSize(Std.int(fgSnow.width * 1.25));
 					add(fgSnow);
 
-		            corruptedBoppers = new FlxSprite(-5, -25);
-		           	corruptedBoppers.frames = Paths.getSparrowAtlas('newyears/Corrupted_bg_characters');
-	            	corruptedBoppers.animation.addByPrefix('phantomfear', "neo garcello instance 1", 24, false);
-		            corruptedBoppers.antialiasing = true;
-		         //	corruptedBoppers.setGraphicSize(Std.int(corruptedBoppers.width * 1.0));
+		            		corruptedBoppers = new FlxSprite(-5, -25);
+		           		corruptedBoppers.frames = Paths.getSparrowAtlas('newyears/Corrupted_bg_characters');
+	            			corruptedBoppers.animation.addByPrefix('phantomfear', "neo garcello instance 1", 24, false);
+		          		corruptedBoppers.antialiasing = true;
+		    		     //	corruptedBoppers.setGraphicSize(Std.int(corruptedBoppers.width * 1.0));
 					corruptedBoppers.updateHitbox();
 					add(corruptedBoppers);
 
@@ -676,7 +682,7 @@ class PlayState extends MusicBeatState
 					fgTables.setGraphicSize(Std.int(fgTables.width * 1.25));
 					add(fgTables);
 
-					fgFog = new FlxSprite(-450, -550).loadGraphic(Paths.image('newyears/fog'));
+					fgFog = new FlxSprite(-450, -550).loadGraphic(Paths.image('fog'));
 					fgFog.active = false;
 					fgFog.antialiasing = true;
 					fgFog.setGraphicSize(Std.int(fgFog.width * 1.30));
@@ -1001,7 +1007,7 @@ class PlayState extends MusicBeatState
 		if (curStage == 'spooky2')
 			add(Boppers);
 
-		if (curStage == 'illusion-two')
+		if (curStage.startsWith('illusion'))
 			add(fgFog);
 
 		if (loadRep)
@@ -3433,6 +3439,13 @@ class PlayState extends MusicBeatState
 				dad.playAnim('danceLeft');
 			if (curBeat % 2 == 0 && dad.animOffsets.exists('danceRight'))
 				dad.playAnim('danceRight');
+		}
+
+		if (dad.curCharacter.startsWith('monster')) {
+			if (curBeat % 2 == 1)
+				health -= 0.0175;
+			if (curBeat % 2 == 0)
+				health -= 0.0175;
 		}
 
 		if (curStage == 'mall') {
