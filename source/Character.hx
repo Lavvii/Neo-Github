@@ -332,15 +332,14 @@ class Character extends FlxSprite
 				animation.addByPrefix('hit', "hit", 24, false);
 
 				addOffset('idle', 0, 1);
-				addOffset("singUP", -6, 15);
-				addOffset("singRIGHT", 79, -1);
-				addOffset("singLEFT", 30, -7);
-				addOffset("singDOWN", 7, -48);
+				addOffset("singUP", -14, 0);
+				addOffset("singRIGHT", -12, -6);
+				addOffset("singLEFT", 38, -11);
+				addOffset("singDOWN", 12, -62);
 				addOffset("singUPmiss", -16, 12);
-				addOffset("singRIGHTmiss", -6, 4);
-				addOffset("singLEFTmiss", 38, 0);
-				addOffset("singDOWNmiss", 4, -33);
-				addOffset("hey", 7, -1);
+				addOffset("singRIGHTmiss", -9, -8);
+				addOffset("singLEFTmiss", 31, -12);
+				addOffset("singDOWNmiss", 7, -46);
 				playAnim('idle');
 
 				flipX = true;
