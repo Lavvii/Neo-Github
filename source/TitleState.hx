@@ -24,6 +24,7 @@ import flixel.util.FlxTimer;
 import io.newgrounds.NG;
 import lime.app.Application;
 import openfl.Assets;
+import flixel.group.FlxGroup.FlxTypedGroup;
 
 #if windows
 import Discord.DiscordClient;
@@ -126,6 +127,10 @@ class TitleState extends MusicBeatState
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
 	var bg:FlxSprite;
+	var city:FlxSprite;
+	var wall:FlxSprite;
+	var light0:FlxSprite;
+	var light1:FlxSprite;
 
 	function startIntro()
 	{
@@ -155,11 +160,31 @@ class TitleState extends MusicBeatState
 		Conductor.changeBPM(102);
 		persistentUpdate = true;
 
-		bg = new FlxSprite(-130, -90).loadGraphic(Paths.image('mainMenuCity'));//.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		bg = new FlxSprite(-130, -90).loadGraphic(Paths.image('menuAssets/SkyBG'));
 		bg.antialiasing = true;
+		bg.scrollFactor.set(0.8, 0.8);
 		add(bg);
 
-		logoBl = new FlxSprite(500, 0);
+		city = new FlxSprite(-130, -90).loadGraphic(Paths.image('menuAssets/buildings'));
+		city.antialiasing = true;
+		city.scrollFactor.set(0.9, 0.9);
+		add(city);
+
+		light0 = new FlxSprite(-130, -90).loadGraphic(Paths.image('menuAssets/lights0'));
+		light0.antialiasing = true;
+		light0.scrollFactor.set(0.9, 0.9);
+		add(light0);
+
+		light1 = new FlxSprite(-130, -90).loadGraphic(Paths.image('menuAssets/lights1'));
+		light1.antialiasing = true;
+		light1.scrollFactor.set(0.9, 0.9);
+		add(light1);
+
+		wall = new FlxSprite(-130, -90).loadGraphic(Paths.image('menuAssets/Walls'));
+		wall.antialiasing = true;
+		add(wall);
+
+		logoBl = new FlxSprite(500, 100);
 		logoBl.loadGraphic(Paths.image('NEOlogo'));
 		logoBl.antialiasing = true;
 		logoBl.setGraphicSize(700);
@@ -388,6 +413,17 @@ class TitleState extends MusicBeatState
 			gfDance.animation.play('danceRight');
 		else
 			gfDance.animation.play('danceLeft');
+
+		if (curBeat % 2 == 1)
+		{
+			light0.visible = true;
+			light1.visible = false;
+		}
+		if (curBeat % 2 == 0)
+		{
+			light0.visible = false;
+			light1.visible = true;
+		}
 
 		FlxG.log.add(curBeat);
 

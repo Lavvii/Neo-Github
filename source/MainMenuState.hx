@@ -49,8 +49,11 @@ class MainMenuState extends MusicBeatState
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 
-
 	var bg:FlxSprite;
+	var city:FlxSprite;
+	var wall:FlxSprite;
+	var light0:FlxSprite;
+	var light1:FlxSprite;
 
 	function autism2(tween:FlxTween) { // haxe funny
 		var i = 0;
@@ -79,15 +82,51 @@ class MainMenuState extends MusicBeatState
 			case "none":
 				trace("Came from nothing??? maybe havent defined it yet(search for CumFart.stateFrom");
 		}
-		bg = new FlxSprite(bgx, -300);
+
+		bg = new FlxSprite(bgx, -300).loadGraphic(Paths.image('menuAssets/SkyBG'));
+		bg.antialiasing = true;
+		bg.scrollFactor.set(0.8, 0.8);
 		add(bg);
-		bg.loadGraphic(Paths.image('mainMenuCity'));
+
+		city = new FlxSprite(bgx, -300).loadGraphic(Paths.image('menuAssets/buildings'));
+		city.antialiasing = true;
+		city.scrollFactor.set(0.9, 0.9);
+		add(city);
+
+		light0 = new FlxSprite(-130, -90).loadGraphic(Paths.image('menuAssets/lights0'));
+		light0.antialiasing = true;
+		light0.scrollFactor.set(0.9, 0.9);
+		add(light0);
+
+		light1 = new FlxSprite(-130, -90).loadGraphic(Paths.image('menuAssets/lights1'));
+		light1.antialiasing = true;
+		light1.scrollFactor.set(0.9, 0.9);
+		add(light1);
+
+		wall = new FlxSprite(bgx, -300).loadGraphic(Paths.image('menuAssets/Walls'));
+		wall.antialiasing = true;
+		add(wall);
 
 		FlxTween.linearMotion(bg, bgx, -90, -1300, -90, 1, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
+		FlxTween.linearMotion(city, bgx, -90, -1300, -90, 1, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
+		FlxTween.linearMotion(light0, bgx, -90, -1300, -90, 1, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
+		FlxTween.linearMotion(light1, bgx, -90, -1300, -90, 1, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
+		FlxTween.linearMotion(wall, bgx, -90, -1300, -90, 1, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
 
 		if (!FlxG.sound.music.playing)
 		{
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+		}
+
+		if (curBeat % 2 == 1)
+		{
+			light0.visible = true;
+			light1.visible = false;
+		}
+		if (curBeat % 2 == 0)
+		{
+			light0.visible = false;
+			light1.visible = true;
 		}
 
 		persistentUpdate = persistentDraw = true;
