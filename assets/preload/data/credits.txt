@@ -1,16 +1,6 @@
-setDirector:
-JellyfishEDM
-setArtist:
-Mr.Moisty
-setArtist:
-EvanClubYT
-setProgrammer:
-Smokey
-setProgrammer:
+JellyFish
 GenoX
-setMusic:
-JellyfishEDM
-setTesting:
-Beebox
-setInspired By:
-NinjaMuffin_99
+Smokey
+NoLime
+Pincer
+Moisty

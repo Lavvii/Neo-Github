@@ -94,7 +94,7 @@ class DialogueBox extends FlxSpriteGroup
 		}
 
 		blackBG = new FlxSprite(-256, -256).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
-		add(blackBG);
+		//add(blackBG);
 	
 		bgFade = new FlxSprite(-200, -200).makeGraphic(Std.int(FlxG.width * 1.3), Std.int(FlxG.height * 1.3), 0xFFB3DFd8);
 		bgFade.scrollFactor.set();

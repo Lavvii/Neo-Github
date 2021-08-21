@@ -32,7 +32,7 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
 	#if !switch
-	var optionShit:Array<String> = ['story mode', 'freeplay', 'options'];
+	var optionShit:Array<String> = ['story mode', 'freeplay', 'options', 'donate'];
 	#else
 	var optionShit:Array<String> = ['story mode', 'freeplay'];
 	#end
@@ -79,6 +79,9 @@ class MainMenuState extends MusicBeatState
 				bgx = -600;
 			case "title":
 				bgx = -130;
+			case "donate":
+				trace("Came from donate");
+				bgx = -600;
 			case "none":
 				trace("Came from nothing??? maybe havent defined it yet(search for CumFart.stateFrom");
 		}
@@ -289,7 +292,7 @@ class MainMenuState extends MusicBeatState
 			
 			case 'donate':
 				trace("Credits selected lol");
-				FlxG.switchState(new CreditsMenu());
+				FlxG.switchState(new CreditsSubState());
 		}
 	}
 

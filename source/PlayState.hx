@@ -326,7 +326,7 @@ class PlayState extends MusicBeatState
 
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
-		FlxG.cameras.add(camDialogue);
+	//	FlxG.cameras.add(camDialogue);
 		FlxCamera.defaultCameras = [camGame];
 
 		persistentUpdate = true;
@@ -1178,8 +1178,8 @@ class PlayState extends MusicBeatState
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
-		doof.cameras = [camDialogue];
-		doof2.cameras = [camDialogue];
+		//doof.cameras = [camDialogue];
+		//doof2.cameras = [camDialogue];
 
 		if (FlxG.save.data.songPosition)
 		{
@@ -1347,22 +1347,23 @@ class PlayState extends MusicBeatState
 
 	function startCutscene(dialogueBox:DialogueBox){
 
-		inCutscene = true;
-		camHUD.visible = false;
-		add(dialogueBox);
-
+		if (dialogueBox != null)
+		{
+			inCutscene = true;
+			camHUD.visible = false;
+			add(dialogueBox);
+		} 
+		else
+		{	
+			startCountdown();
+		}
 	}
 
 	function endCutscene(dialogueBox:DialogueBox){
 
 		trace("endCutscene");
-		var black:FlxSprite = new FlxSprite(-256, -256).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
-		black.scrollFactor.set(0);
 		inCutscene = true;
-		black.alpha = 0;
-		add(black);
 		camHUD.visible = false;
-		FlxTween.tween(black, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		vocals.stop();
 		new FlxTimer().start(0.5, function(tmr:FlxTimer)
 		{
@@ -2512,11 +2513,8 @@ class PlayState extends MusicBeatState
 		if (!inCutscene)
 			keyShit();
 
-
-		#if debug
 		if (FlxG.keys.justPressed.ONE)
 			endSong();
-		#end
 	}
 
 	function endSong():Void
@@ -2568,12 +2566,18 @@ class PlayState extends MusicBeatState
 
 				if (storyPlaylist.length <= 0)
 				{
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
-
 					transIn = FlxTransitionableState.defaultTransIn;
 					transOut = FlxTransitionableState.defaultTransOut;
 
-					FlxG.switchState(new StoryMenuState());
+					if (SONG.song.toLowerCase() == 'hallucination')
+					{
+						LoadingState.loadAndSwitchState(new CutsceneState(), true);
+					}
+					else
+					{
+						FlxG.sound.playMusic(Paths.music('freakyMenu'));
+						FlxG.switchState(new StoryMenuState());
+					}
 
 					#if windows
 					if (luaModchart != null)

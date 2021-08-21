@@ -28,8 +28,6 @@ class CreditsMenu extends MusicBeatState
 
 	override function create()
 	{
-		trace("Opened credits! From " + CumFart.stateFrom);
-
 		bg = new FlxSprite(-1300, -90);
 		add(bg);
 		bg.loadGraphic(Paths.image('mainMenuCity'));
@@ -64,20 +62,20 @@ class CreditsMenu extends MusicBeatState
 		{
 			switch(curSelected) {
 				case 0:
-					FlxG.openURL("https://youtube.com/channel/UCVgVvwOzvsR8pRwVy316SyA");
+					FlxG.openURL("https://www.youtube.com/c/JellyFishEdm");
 				case 1:
-					FlxG.openURL("https://www.youtube.com/channel/UC7M0aIL8-eVSJker9p0OyUQ");
+					FlxG.openURL("https://www.youtube.com/c/GenoXLOID");
 				case 2:
-					FlxG.openURL("https://twitter.com/EvanClubYT");
+					FlxG.openURL("https://twitter.com/Smokey_5_");
 				case 3:
 					FlxG.openURL("https://twitter.com/C0nfuzzl3dis/");
 				case 4:
 					FlxG.openURL("https://youtube.com/channel/UCVgVvwOzvsR8pRwVy316SyA");
 				case 5:
-					FlxG.openURL("https://twitter.com/ninja_muffin99");
+					FlxG.openURL("hhttps://www.youtube.com/channel/UC7M0aIL8-eVSJker9p0OyUQ");
 			}
-		//	var funnystring = Std.string(curSelected);
-		//	FlxG.openURL(funnystring); 
+			var funnystring = Std.string(curSelected);
+			FlxG.openURL(funnystring); 
 		}
 
 		if (isSettingControl)
@@ -114,10 +112,6 @@ class CreditsMenu extends MusicBeatState
 
 	function changeSelection(change:Int = 0)
 	{
-//		#if !switch
-		//NGio.logEvent('Fresh');
-//		#end
-
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
 		curSelected += change;
