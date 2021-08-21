@@ -70,6 +70,7 @@ class PlayState extends MusicBeatState
 
 	public static var curStage:String = '';
 	public static var SONG:SwagSong;
+	var usesDialogue:Bool = false;
 	public static var isStoryMode:Bool = false;
 	public static var storyWeek:Int = 0;
 	public static var storyPlaylist:Array<String> = [];
@@ -87,7 +88,7 @@ class PlayState extends MusicBeatState
 	public static var loadRep:Bool = false;
 
 	public static var noteBools:Array<Bool> = [false, false, false, false];
-
+	var overlay:FlxSprite;
 	var halloweenLevel:Bool = false;
 
 	var songLength:Float = 0;
@@ -102,7 +103,8 @@ class PlayState extends MusicBeatState
 	#end
 
 	private var vocals:FlxSound;
-
+	private var dialogueList = CoolUtil.coolTextFile("assets/data/dialogueList.txt");
+	private var dialogueEndList = CoolUtil.coolTextFile("assets/data/dialogueEndList.txt");
 	public static var dad:Character;
 	public static var gf:Character;
 	public static var boyfriend:Boyfriend;
@@ -120,7 +122,8 @@ class PlayState extends MusicBeatState
 	public static var strumLineNotes:FlxTypedGroup<FlxSprite> = null;
 	public static var playerStrums:FlxTypedGroup<FlxSprite> = null;
 	public static var cpuStrums:FlxTypedGroup<FlxSprite> = null;
-
+	var doof:DialogueBox;
+	var doof2:DialogueBox;
 	private var camZooming:Bool = false;
 	private var curSong:String = "";
 
@@ -147,13 +150,14 @@ class PlayState extends MusicBeatState
 	public var iconP2:HealthIcon; //what could go wrong?
 	public var camHUD:FlxCamera;
 	private var camGame:FlxCamera;
-
+	private var camDialogue:FlxCamera;
 	public static var offsetTesting:Bool = false;
 
 	var notesHitArray:Array<Date> = [];
 	var currentFrames:Int = 0;
-
-	public var dialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
+	var usesEndDialogue:Bool = false;
+	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
+	var dialogueEnd:Array<String> = ['ayooooo', 'swagcool'];
 
 	var stageLights:FlxSprite;
 	var stageCurtains:FlxSprite;
@@ -194,7 +198,7 @@ class PlayState extends MusicBeatState
 
 	var fc:Bool = true;
 	
-	var overlay:FlxSprite;
+
 
 	var bgGirls:BackgroundGirls;
 	var wiggleShit:WiggleEffect = new WiggleEffect();
@@ -317,11 +321,12 @@ class PlayState extends MusicBeatState
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
 		camHUD = new FlxCamera();
+		camDialogue = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
-
+		FlxG.cameras.add(camDialogue);
 		FlxCamera.defaultCameras = [camGame];
 
 		persistentUpdate = true;
@@ -332,15 +337,23 @@ class PlayState extends MusicBeatState
 
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
+		
+		if(dialogueList.contains(SONG.song.toLowerCase())){
+			dialogue = CoolUtil.coolTextFile("assets/data/" + SONG.song.toLowerCase() + "/dialogue.txt");
+			usesDialogue = true;
+			trace(dialogue);
+		}
+
+		if(dialogueEndList.contains(SONG.song.toLowerCase())){
+			dialogueEnd = CoolUtil.coolTextFile("assets/data/" + SONG.song.toLowerCase() + "/dialogueEnd.txt");
+			usesEndDialogue = true;
+		}
+		
 
 		trace('INFORMATION ABOUT WHAT U PLAYIN WIT:\nFRAMES: ' + Conductor.safeFrames + '\nZONE: ' + Conductor.safeZoneOffset + '\nTS: ' + Conductor.timeScale + '\nBotPlay : ' + FlxG.save.data.botplay);
 	
 		//dialogue shit
-		try {
-			dialogue = CoolUtil.coolTextFile(Paths.txt(SONG.song.toLowerCase() + "/talk"));
-		} catch(err) {
-			trace("Magnus wtf");
-		}
+	
 
 		switch (SONG.song.toLowerCase())
 		{
@@ -1021,12 +1034,16 @@ class PlayState extends MusicBeatState
 			// FlxG.watch.addQuick('Queued',inputsQueued);
 		}
 
-		var doof:DialogueBox = new DialogueBox(false, dialogue);
+		doof = new DialogueBox(false, dialogue);
 		// doof.x += 70;
 		// doof.y = FlxG.height * 0.5;
 		doof.scrollFactor.set();
 		doof.finishThing = startCountdown;
-
+		doof2 = new DialogueBox(false, dialogueEnd);
+		// doof.x += 70;
+		// doof.y = FlxG.height * 0.5;
+		doof2.scrollFactor.set();
+		
 		Conductor.songPosition = -5000;
 		
 		strumLine = new FlxSprite(0, 50).makeGraphic(FlxG.width, 10);
@@ -1161,7 +1178,9 @@ class PlayState extends MusicBeatState
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
-		doof.cameras = [camHUD];
+		doof.cameras = [camDialogue];
+		doof2.cameras = [camDialogue];
+
 		if (FlxG.save.data.songPosition)
 		{
 			songPosBG.cameras = [camHUD];
@@ -1207,15 +1226,24 @@ class PlayState extends MusicBeatState
 								ease: FlxEase.quadInOut,
 								onComplete: function(twn:FlxTween)
 								{
-									startCountdown();
+									schoolIntro(doof);
 								}
 							});
 						});
 					});
-				case 'tutorial', 'bopeebo', 'fresh', 'dadbattle':
-					schoolIntro(doof);
 				default:
-					startCountdown();
+					if(usesDialogue){
+						startCutscene(doof);
+					}
+					else{
+						startCountdown();
+						}
+				case 'senpai':
+					schoolIntro(doof);
+				case 'roses':
+					schoolIntro(doof);
+				case 'thorns':
+					schoolIntro(doof);
 			}
 		}
 		else
@@ -1316,6 +1344,33 @@ class PlayState extends MusicBeatState
 			}
 		});
 	}
+
+	function startCutscene(dialogueBox:DialogueBox){
+
+		inCutscene = true;
+		camHUD.visible = false;
+		add(dialogueBox);
+
+	}
+
+	function endCutscene(dialogueBox:DialogueBox){
+
+		trace("endCutscene");
+		var black:FlxSprite = new FlxSprite(-256, -256).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+		black.scrollFactor.set(0);
+		inCutscene = true;
+		black.alpha = 0;
+		add(black);
+		camHUD.visible = false;
+		FlxTween.tween(black, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+		vocals.stop();
+		new FlxTimer().start(0.5, function(tmr:FlxTimer)
+		{
+			add(dialogueBox);
+		});
+
+	}
+
 
 	var startTimer:FlxTimer;
 	var perfectMode:Bool = false;

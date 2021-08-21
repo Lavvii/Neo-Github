@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="neo dialouge assets.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Pump bruh instance 10000" x="0" y="0" width="286" height="403"/>
+	<SubTexture name="Pump normal instance 10000" x="296" y="0" width="365" height="394"/>
+	<SubTexture name="Pump scared instance 10000" x="671" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10001" x="671" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10002" x="671" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10003" x="671" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10004" x="671" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10005" x="671" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10006" x="671" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10007" x="983" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10008" x="983" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10009" x="983" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10010" x="983" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10011" x="983" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10012" x="983" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10013" x="983" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10014" x="983" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10015" x="983" y="0" width="302" height="404" frameX="0" frameY="0" frameWidth="303" frameHeight="404"/>
+	<SubTexture name="Pump scared instance 10016" x="1295" y="0" width="303" height="404"/>
+	<SubTexture name="Pump scared instance 10017" x="1295" y="0" width="303" height="404"/>
+	<SubTexture name="Pump scared instance 10018" x="1295" y="0" width="303" height="404"/>
+	<SubTexture name="Pump scared instance 10019" x="1295" y="0" width="303" height="404"/>
+	<SubTexture name="Pump scared instance 10020" x="1295" y="0" width="303" height="404"/>
+	<SubTexture name="Pump scared instance 10021" x="1295" y="0" width="303" height="404"/>
+	<SubTexture name="Pump scared instance 10022" x="1295" y="0" width="303" height="404"/>
+	<SubTexture name="Pump scared instance 10023" x="1295" y="0" width="303" height="404"/>
+	<SubTexture name="Skid Irritated  instance 10000" x="1608" y="0" width="275" height="333"/>
+	<SubTexture name="Skid angry instance 10000" x="0" y="414" width="510" height="346"/>
+	<SubTexture name="Skid nope  instance 10000" x="520" y="414" width="292" height="350"/>
+	<SubTexture name="Skid point instance 10000" x="822" y="414" width="507" height="346"/>
+	<SubTexture name="skid eye glow instance 10000" x="1339" y="414" width="106" height="89"/>
+</TextureAtlas>
