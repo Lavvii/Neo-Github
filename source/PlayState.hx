@@ -179,6 +179,7 @@ class PlayState extends MusicBeatState
 	var trainSound:FlxSound;
 
 	var limo:FlxSprite;
+	var grpBgjet:FlxTypedGroup<BackgroundDancer>;
 	var bgjet:BackgroundDancer;
 	var jet:FlxSprite;
 	var songName:FlxText;
@@ -558,9 +559,16 @@ class PlayState extends MusicBeatState
 					jet.animation.addByPrefix('fly','ROCKET',24,true);
 					jet.animation.play('fly');
 					//jet.setGraphicSize(500);
-					bgjet = new BackgroundDancer(-300, -200);
-				//	bgjet.frames = Paths.getSparrowAtlas('planeshit/JIMMY');
-					bgjet.setGraphicSize(300);
+
+			                grpBgjet = new FlxTypedGroup<BackgroundDancer>();
+			                add(grpBgjet);
+
+			                for (i in 0...5)
+			                {
+						bgjet = new BackgroundDancer((100 * i) - 300, -200);
+					//	bgjet.frames = Paths.getSparrowAtlas('planeshit/JIMMY');
+						bgjet.setGraphicSize(300);
+			                }
 
 					limo = new FlxSprite(150, 375);
 					limo.frames = Paths.getSparrowAtlas('planeshit/limoDrive');
@@ -966,7 +974,7 @@ class PlayState extends MusicBeatState
 				//camPos.set(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y + 1200);
 				gf.x += 200;
 				resetFastCar();
-				add(bgjet);
+				grpBgjet.add(bgjet);
 				add(jet);
 
 			case 'mall':
@@ -3558,6 +3566,11 @@ class PlayState extends MusicBeatState
 			camHUD.zoom += 0.03;
 		}
 
+		if (curSong == 'Eggnog' && curBeat > 287)
+		{
+			boyfriend.playAnim('passOut', true);
+		}
+
 		iconP1.setGraphicSize(Std.int(iconP1.width + 30));
 		iconP2.setGraphicSize(Std.int(iconP2.width + 30));
 
@@ -3610,7 +3623,10 @@ class PlayState extends MusicBeatState
 				corruptedBoppers.animation.play('phantomfear', true);
 			case 'limo':
 				limo.animation.play('limo', true);
-				bgjet.dance();
+				grpBgjet.forEach(function(dancer:BackgroundDancer)
+				{
+					bgjet.dance();
+				});
 				if (FlxG.random.bool(10) && bgjetCanDrive) {
 					fastCarDrive();
 				}
