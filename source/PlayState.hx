@@ -3507,6 +3507,11 @@ class PlayState extends MusicBeatState
 				dad.playAnim('danceRight');
 		}
 
+		if (curSong == 'Eggnog' && curBeat > 287)
+		{
+			boyfriend.animation.play('passOut', true);
+		}
+
 		if (dad.curCharacter.startsWith('monster')) {
 			if (curBeat % 2 == 1)
 				health -= 0.0175;
@@ -3564,11 +3569,6 @@ class PlayState extends MusicBeatState
 		{
 			FlxG.camera.zoom += 0.015;
 			camHUD.zoom += 0.03;
-		}
-
-		if (curSong == 'Eggnog' && curBeat > 287)
-		{
-			boyfriend.playAnim('passOut', true);
 		}
 
 		iconP1.setGraphicSize(Std.int(iconP1.width + 30));
