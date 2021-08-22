@@ -1,5 +1,5 @@
 <p align="center">
-	<img width="1463" height="887" src="assets/preload/images/NEOlogo.png"> 
+	<img src="assets/preload/images/NEOlogo.png"> 
 </p>
 
 # Friday Night Funkin': Neo V3
