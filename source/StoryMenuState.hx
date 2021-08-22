@@ -112,7 +112,7 @@ class StoryMenuState extends MusicBeatState
 		bg = new FlxSprite(-1300, -90);
 		add(bg);
 		bg.loadGraphic(Paths.image('mainMenuCity'));
-		FlxTween.linearMotion(bg, -1300, -90, -600, -90, 1, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut});
+		FlxTween.linearMotion(bg, -1300, -90, -600, -90, 1, true, {ease: FlxEase.expoInOut});
 
 
 		grpWeekText = new FlxTypedGroup<MenuItem>();

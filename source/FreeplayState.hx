@@ -345,20 +345,19 @@ class FreeplayState extends MusicBeatState
 			// I LEGIT AM SO FUCKING RETARDED I CANT EVEN FIGURE OUT THIS STUPID FUCKING ALPHABET SHIT WHY MUCH I USE A TIMER FOR EVERYTHING THIS IS NOT GOOD PRACTICE
 			new FlxTimer().start(0.05, function(tmr:FlxTimer)
 			{
-				item.alpha = 0;
-				// item.setGraphicSize(Std.int(item.width * 0.8));
-
 				if (item.targetY == 0)
 				{
 					item.alpha = 1;
 					// item.setGraphicSize(Std.int(item.width));
 				}
-
-				if (item.targetY - 1 == 0 || item.targetY + 1 == 0) 
+				else if (item.targetY - 1 == 0 || item.targetY + 1 == 0) 
 				{
 					item.alpha = 0.6;
 				}
-				
+				else 
+				{
+					item.alpha = 0;
+				}
 			});
 		}
 	}

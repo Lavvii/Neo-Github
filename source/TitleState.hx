@@ -1,6 +1,5 @@
 package;
 
-import CumFart.CumFart;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -293,6 +292,8 @@ class TitleState extends MusicBeatState
 
 			FlxTween.tween(logoBl, {alpha: 0}, 1);
 			FlxTween.tween(titleText, {alpha: 0}, 1);
+
+			CumFart.stateFrom = 'title';
 
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{

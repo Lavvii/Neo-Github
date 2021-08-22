@@ -1,27 +1,17 @@
 package;
 
 import CumFart.CumFart;
-import CumFart.CumFart;
-import CumFart.CumFart;
-import CumFart.CumFart;
 import Controls.KeyboardScheme;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.effects.FlxFlicker;
-import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import io.newgrounds.NG;
-import lime.app.Application;
-
-#if windows
-import Discord.DiscordClient;
-#end
 
 using StringTools;
 
@@ -36,6 +26,8 @@ class MainMenuState extends MusicBeatState
 	#else
 	var optionShit:Array<String> = ['story mode', 'freeplay'];
 	#end
+
+	public static var debugTools:Bool = false;
 
 	var newGaming:FlxText;
 	var newGaming2:FlxText;
@@ -212,6 +204,17 @@ class MainMenuState extends MusicBeatState
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
+
+		if (FlxG.keys.justPressed.D && FlxG.keys.pressed.CONTROL)
+		{
+			debugTools = !debugTools;
+			trace('debug tools: ' + debugTools);
+			FlxG.sound.play(Paths.sound('confirmMenu', 'preload'));
+		}
+
+		#if debug
+		debugTools = true;
+		#end
 
 		if (!selectedSomethin)
 		{
