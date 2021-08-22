@@ -67,7 +67,7 @@ class Portrait extends FlxSprite
                 addAnim("fist", "Neo dad fist");
                 addAnim("unhappy", "Neo dad unhappy");
                 addAnim("smirk", "Neo dad smirk");
-                animation.play("default");
+                animation.play("point");
             case "spooky":
                 addAnim("default", "skump default.png");
                 addAnim("happy", "skump happy.png");

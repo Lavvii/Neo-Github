@@ -1,6 +1,5 @@
-:dad:point:Seems like you want to become a big figure around here, eh? 
-:bf:happy:Jelly is a bitch
-:bf:grimace:Jelly is a bitch
-:bf:sweat:Jelly is a bitch
-:bf:angry:Jelly is a bitch
-:bf:confused:Jelly is a bitch
+:dad::point:So, you're that kid that wants to be the next star in this place, eh? You sure you could handle it? 
+:bf::happy:'Course I can! I'll sure as hell be able to handle it, maybe even better than you. 
+:dad::unhappy:Your attitude says otherwise, kid. I'll still give ya a chance at this though. 
+:bf::happy:Bring it, shit lips! 
+:dad::unhappy:Alright. Your funeral.

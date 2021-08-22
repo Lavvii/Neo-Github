@@ -73,8 +73,6 @@ class PlayState extends MusicBeatState
 	#end
 
 	private var vocals:FlxSound;
-	private var dialogueList = CoolUtil.coolTextFile("assets/data/dialogueList.txt");
-	private var dialogueEndList = CoolUtil.coolTextFile("assets/data/dialogueEndList.txt");
 	public static var dad:Character;
 	public static var gf:Character;
 	public static var boyfriend:Boyfriend;
@@ -312,25 +310,19 @@ class PlayState extends MusicBeatState
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
 		
-		if (dialogueList.contains(SONG.song.toLowerCase()))
+		var path:String = "assets/data/" + SONG.song.toLowerCase() + "/dialogue.txt";
+		if (FileSystem.exists(path))
 		{
-			var path:String = "assets/data/" + SONG.song.toLowerCase() + "/dialogue.txt";
-			if (FileSystem.exists(path))
-			{
-				dialogue = CoolUtil.coolTextFile(path);
-				usesDialogue = true;
-				trace(dialogue);
-			}
+			dialogue = CoolUtil.coolTextFile(path);
+			usesDialogue = true;
+			trace(dialogue);
 		}
 
-		if (dialogueEndList.contains(SONG.song.toLowerCase()))
+		var path:String = "assets/data/" + SONG.song.toLowerCase() + "/dialogueEnd.txt";
+		if (FileSystem.exists(path))
 		{
-			var path:String = "assets/data/" + SONG.song.toLowerCase() + "/dialogueEnd.txt";
-			if (FileSystem.exists(path))
-			{
-				dialogueEnd = CoolUtil.coolTextFile(path);
-				usesEndDialogue = true;
-			}
+			dialogueEnd = CoolUtil.coolTextFile(path);
+			usesEndDialogue = true;
 		}
 		
 
@@ -1252,8 +1244,8 @@ class PlayState extends MusicBeatState
 		});
 	}
 
-	function startCutscene(dialogueBox:DialogueBox){
-
+	function startCutscene(dialogueBox:DialogueBox)
+	{
 		if (dialogueBox != null)
 		{
 			inCutscene = true;
@@ -1266,8 +1258,8 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	function endCutscene(dialogueBox:DialogueBox){
-
+	function endCutscene(dialogueBox:DialogueBox)
+	{
 		trace("endCutscene");
 		inCutscene = true;
 		camHUD.visible = false;
