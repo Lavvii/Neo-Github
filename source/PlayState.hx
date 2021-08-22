@@ -73,6 +73,8 @@ class PlayState extends MusicBeatState
 	#end
 
 	private var vocals:FlxSound;
+	private var dialogueList = CoolUtil.coolTextFile("assets/data/dialogueList.txt");
+	private var dialogueEndList = CoolUtil.coolTextFile("assets/data/dialogueEndList.txt");
 	public static var dad:Character;
 	public static var gf:Character;
 	public static var boyfriend:Boyfriend;
@@ -311,19 +313,25 @@ class PlayState extends MusicBeatState
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
 		
-		var path:String = "assets/data/" + SONG.song.toLowerCase() + "/dialogue.txt";
-		if (FileSystem.exists(path))
+		if (dialogueList.contains(SONG.song.toLowerCase()))
 		{
-			dialogue = CoolUtil.coolTextFile(path);
-			usesDialogue = true;
-			trace(dialogue);
+			var path:String = "assets/data/" + SONG.song.toLowerCase() + "/dialogue.txt";
+			if (FileSystem.exists(path))
+			{
+				dialogue = CoolUtil.coolTextFile(path);
+				usesDialogue = true;
+				trace(dialogue);
+			}
 		}
 
-		var path:String = "assets/data/" + SONG.song.toLowerCase() + "/dialogueEnd.txt";
-		if (FileSystem.exists(path))
+		if (dialogueEndList.contains(SONG.song.toLowerCase()))
 		{
-			dialogueEnd = CoolUtil.coolTextFile(path);
-			usesEndDialogue = true;
+			var path:String = "assets/data/" + SONG.song.toLowerCase() + "/dialogueEnd.txt";
+			if (FileSystem.exists(path))
+			{
+				dialogueEnd = CoolUtil.coolTextFile(path);
+				usesEndDialogue = true;
+			}
 		}
 		
 
@@ -587,13 +595,13 @@ class PlayState extends MusicBeatState
 				fgSnow.setGraphicSize(Std.int(fgSnow.width * 1.25));
 				add(fgSnow);
 
-				Boppers2 = new FlxSprite(850, 150);
+				Boppers2 = new FlxSprite(1050, 150);
 				Boppers2.frames = Paths.getSparrowAtlas('newyears/CrowdRight');
 				Boppers2.animation.addByPrefix('boplol', "CROWD RIGHT", 24, false);
 				Boppers2.antialiasing = true;
 				Boppers2.updateHitbox();
 
-				Boppers3 = new FlxSprite(450, 150);
+				Boppers3 = new FlxSprite(1050, 150);
 				Boppers3.frames = Paths.getSparrowAtlas('newyears/CrowdLeft');
 				Boppers3.animation.addByPrefix('boplmao', "CROWD LEFT", 24, false);
 				Boppers3.antialiasing = true;
@@ -1252,8 +1260,8 @@ class PlayState extends MusicBeatState
 		});
 	}
 
-	function startCutscene(dialogueBox:DialogueBox)
-	{
+	function startCutscene(dialogueBox:DialogueBox){
+
 		if (dialogueBox != null)
 		{
 			inCutscene = true;
@@ -1266,8 +1274,8 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	function endCutscene(dialogueBox:DialogueBox)
-	{
+	function endCutscene(dialogueBox:DialogueBox){
+
 		trace("endCutscene");
 		inCutscene = true;
 		camHUD.visible = false;
