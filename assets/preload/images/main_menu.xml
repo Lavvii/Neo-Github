@@ -2,52 +2,52 @@
 <TextureAtlas imagePath="main_menu.png">
 	<!-- Created with Adobe Animate version 20.5.0.29329 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="donate basic0000" x="0" y="0" width="507" height="128" pivotX="41.45" pivotY="25.35"/>
-	<SubTexture name="donate basic0001" x="0" y="0" width="507" height="128"/>
-	<SubTexture name="donate basic0002" x="0" y="0" width="507" height="128"/>
-	<SubTexture name="donate basic0003" x="517" y="0" width="507" height="128"/>
-	<SubTexture name="donate basic0004" x="517" y="0" width="507" height="128"/>
-	<SubTexture name="donate basic0005" x="517" y="0" width="507" height="128"/>
-	<SubTexture name="donate basic0006" x="1034" y="0" width="507" height="128"/>
-	<SubTexture name="donate basic0007" x="1034" y="0" width="507" height="128"/>
-	<SubTexture name="donate basic0008" x="1034" y="0" width="507" height="128"/>
-	<SubTexture name="donate white0000" x="0" y="138" width="687" height="173" pivotX="83.45" pivotY="30.05"/>
-	<SubTexture name="donate white0001" x="697" y="138" width="687" height="173"/>
-	<SubTexture name="donate white0002" x="0" y="321" width="687" height="173"/>
-	<SubTexture name="freeplay basic0000" x="697" y="321" width="484" height="148" pivotX="7.65" pivotY="10.55"/>
-	<SubTexture name="freeplay basic0001" x="697" y="321" width="484" height="148"/>
-	<SubTexture name="freeplay basic0002" x="697" y="321" width="484" height="148"/>
-	<SubTexture name="freeplay basic0003" x="1191" y="321" width="484" height="148"/>
-	<SubTexture name="freeplay basic0004" x="1191" y="321" width="484" height="148"/>
-	<SubTexture name="freeplay basic0005" x="1191" y="321" width="484" height="148"/>
-	<SubTexture name="freeplay basic0006" x="0" y="504" width="484" height="148"/>
-	<SubTexture name="freeplay basic0007" x="0" y="504" width="484" height="148"/>
-	<SubTexture name="freeplay basic0008" x="0" y="504" width="484" height="148"/>
-	<SubTexture name="freeplay white0000" x="494" y="504" width="635" height="198" pivotX="19" pivotY="17.85"/>
-	<SubTexture name="freeplay white0001" x="494" y="504" width="635" height="198"/>
-	<SubTexture name="freeplay white0002" x="494" y="504" width="635" height="198"/>
-	<SubTexture name="options basic0000" x="1139" y="504" width="487" height="111" pivotX="14.15" pivotY="11.95"/>
-	<SubTexture name="options basic0001" x="1139" y="504" width="487" height="111"/>
-	<SubTexture name="options basic0002" x="1139" y="504" width="487" height="111"/>
-	<SubTexture name="options basic0003" x="0" y="712" width="487" height="111"/>
-	<SubTexture name="options basic0004" x="0" y="712" width="487" height="111"/>
-	<SubTexture name="options basic0005" x="0" y="712" width="487" height="111"/>
-	<SubTexture name="options basic0006" x="497" y="712" width="487" height="111"/>
-	<SubTexture name="options basic0007" x="497" y="712" width="487" height="111"/>
-	<SubTexture name="options basic0008" x="497" y="712" width="487" height="111"/>
-	<SubTexture name="options white0000" x="994" y="712" width="610" height="156" pivotX="18.95" pivotY="23.95" frameX="0" frameY="-1" frameWidth="610" frameHeight="163"/>
-	<SubTexture name="options white0001" x="0" y="878" width="610" height="158" frameX="0" frameY="-1" frameWidth="610" frameHeight="163"/>
-	<SubTexture name="options white0002" x="620" y="878" width="610" height="163"/>
-	<SubTexture name="story mode basic0000" x="1240" y="878" width="615" height="144" pivotX="8.4" pivotY="9.8"/>
-	<SubTexture name="story mode basic0001" x="1240" y="878" width="615" height="144"/>
-	<SubTexture name="story mode basic0002" x="1240" y="878" width="615" height="144"/>
-	<SubTexture name="story mode basic0003" x="1240" y="878" width="615" height="144"/>
-	<SubTexture name="story mode basic0004" x="1240" y="878" width="615" height="144"/>
-	<SubTexture name="story mode basic0005" x="1240" y="878" width="615" height="144"/>
-	<SubTexture name="story mode basic0006" x="1240" y="878" width="615" height="144"/>
-	<SubTexture name="story mode basic0007" x="1240" y="878" width="615" height="144"/>
-	<SubTexture name="story mode basic0008" x="1240" y="878" width="615" height="144"/>
-	<SubTexture name="story mode white0000" x="0" y="1051" width="801" height="179" pivotX="19" pivotY="19"/>
-	<SubTexture name="story mode white0001" x="0" y="1051" width="801" height="179"/>
-	<SubTexture name="story mode white0002" x="0" y="1051" width="801" height="179"/>
+	<SubTexture name="donate basic0000" x="0" y="0" width="507" height="142" pivotX="41.45" pivotY="25.35"/>
+	<SubTexture name="donate basic0001" x="0" y="0" width="507" height="142"/>
+	<SubTexture name="donate basic0002" x="0" y="0" width="507" height="142"/>
+	<SubTexture name="donate basic0003" x="517" y="0" width="507" height="142"/>
+	<SubTexture name="donate basic0004" x="517" y="0" width="507" height="142"/>
+	<SubTexture name="donate basic0005" x="517" y="0" width="507" height="142"/>
+	<SubTexture name="donate basic0006" x="1034" y="0" width="507" height="142"/>
+	<SubTexture name="donate basic0007" x="1034" y="0" width="507" height="142"/>
+	<SubTexture name="donate basic0008" x="1034" y="0" width="507" height="142"/>
+	<SubTexture name="donate white0000" x="0" y="152" width="678" height="182" pivotX="82.95" pivotY="27" frameX="0" frameY="-1" frameWidth="678" frameHeight="186"/>
+	<SubTexture name="donate white0001" x="688" y="152" width="678" height="183" frameX="0" frameY="0" frameWidth="678" frameHeight="186"/>
+	<SubTexture name="donate white0002" x="0" y="345" width="678" height="185" frameX="0" frameY="-1" frameWidth="678" frameHeight="186"/>
+	<SubTexture name="freeplay basic0000" x="688" y="345" width="484" height="148" pivotX="7.65" pivotY="10.55"/>
+	<SubTexture name="freeplay basic0001" x="688" y="345" width="484" height="148"/>
+	<SubTexture name="freeplay basic0002" x="688" y="345" width="484" height="148"/>
+	<SubTexture name="freeplay basic0003" x="1182" y="345" width="484" height="148"/>
+	<SubTexture name="freeplay basic0004" x="1182" y="345" width="484" height="148"/>
+	<SubTexture name="freeplay basic0005" x="1182" y="345" width="484" height="148"/>
+	<SubTexture name="freeplay basic0006" x="0" y="540" width="484" height="148"/>
+	<SubTexture name="freeplay basic0007" x="0" y="540" width="484" height="148"/>
+	<SubTexture name="freeplay basic0008" x="0" y="540" width="484" height="148"/>
+	<SubTexture name="freeplay white0000" x="494" y="540" width="627" height="202" pivotX="15" pivotY="17.15" frameX="0" frameY="0" frameWidth="635" frameHeight="202"/>
+	<SubTexture name="freeplay white0001" x="1131" y="540" width="632" height="199" frameX="-3" frameY="-1" frameWidth="635" frameHeight="202"/>
+	<SubTexture name="freeplay white0002" x="0" y="752" width="629" height="200" frameX="-4" frameY="-1" frameWidth="635" frameHeight="202"/>
+	<SubTexture name="options basic0000" x="639" y="752" width="487" height="134" pivotX="14.15" pivotY="11.95"/>
+	<SubTexture name="options basic0001" x="639" y="752" width="487" height="134"/>
+	<SubTexture name="options basic0002" x="639" y="752" width="487" height="134"/>
+	<SubTexture name="options basic0003" x="1136" y="752" width="487" height="134"/>
+	<SubTexture name="options basic0004" x="1136" y="752" width="487" height="134"/>
+	<SubTexture name="options basic0005" x="1136" y="752" width="487" height="134"/>
+	<SubTexture name="options basic0006" x="0" y="962" width="487" height="134"/>
+	<SubTexture name="options basic0007" x="0" y="962" width="487" height="134"/>
+	<SubTexture name="options basic0008" x="0" y="962" width="487" height="134"/>
+	<SubTexture name="options white0000" x="497" y="962" width="606" height="183" pivotX="18.2" pivotY="23.95" frameX="-2" frameY="-1" frameWidth="610" frameHeight="188"/>
+	<SubTexture name="options white0001" x="1113" y="962" width="607" height="186" frameX="-3" frameY="-1" frameWidth="610" frameHeight="188"/>
+	<SubTexture name="options white0002" x="0" y="1158" width="610" height="188"/>
+	<SubTexture name="story mode basic0000" x="620" y="1158" width="615" height="149" pivotX="8.4" pivotY="9.8"/>
+	<SubTexture name="story mode basic0001" x="620" y="1158" width="615" height="149"/>
+	<SubTexture name="story mode basic0002" x="620" y="1158" width="615" height="149"/>
+	<SubTexture name="story mode basic0003" x="1245" y="1158" width="615" height="149"/>
+	<SubTexture name="story mode basic0004" x="1245" y="1158" width="615" height="149"/>
+	<SubTexture name="story mode basic0005" x="1245" y="1158" width="615" height="149"/>
+	<SubTexture name="story mode basic0006" x="0" y="1356" width="615" height="149"/>
+	<SubTexture name="story mode basic0007" x="0" y="1356" width="615" height="149"/>
+	<SubTexture name="story mode basic0008" x="0" y="1356" width="615" height="149"/>
+	<SubTexture name="story mode white0000" x="625" y="1356" width="796" height="207" pivotX="11.05" pivotY="17.15" frameX="0" frameY="-3" frameWidth="796" frameHeight="210"/>
+	<SubTexture name="story mode white0001" x="0" y="1573" width="796" height="207" frameX="0" frameY="-2" frameWidth="796" frameHeight="210"/>
+	<SubTexture name="story mode white0002" x="806" y="1573" width="794" height="209" frameX="0" frameY="0" frameWidth="796" frameHeight="210"/>
 </TextureAtlas>
