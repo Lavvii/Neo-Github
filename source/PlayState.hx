@@ -595,13 +595,13 @@ class PlayState extends MusicBeatState
 				fgSnow.setGraphicSize(Std.int(fgSnow.width * 1.25));
 				add(fgSnow);
 
-				Boppers2 = new FlxSprite(1050, 150);
+				Boppers2 = new FlxSprite(350, 150);
 				Boppers2.frames = Paths.getSparrowAtlas('newyears/CrowdRight');
 				Boppers2.animation.addByPrefix('boplol', "CROWD RIGHT", 24, false);
 				Boppers2.antialiasing = true;
 				Boppers2.updateHitbox();
 
-				Boppers3 = new FlxSprite(1050, 150);
+				Boppers3 = new FlxSprite(-800, 85);
 				Boppers3.frames = Paths.getSparrowAtlas('newyears/CrowdLeft');
 				Boppers3.animation.addByPrefix('boplmao', "CROWD LEFT", 24, false);
 				Boppers3.antialiasing = true;
@@ -916,6 +916,11 @@ class PlayState extends MusicBeatState
 			add(Boppers3);
 
 		add(dad);
+
+		//For funny
+		//if (curStage == 'mall')
+		//	add(Boppers3);
+
 		add(boyfriend);
 
 		if (curStage == 'limo')
