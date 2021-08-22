@@ -59,7 +59,7 @@ class MainMenuState extends MusicBeatState
 		var i = 0;
 		menuItems.forEach(function(menuItem:FlxSprite) {
 			i++;
-			FlxTween.linearMotion(menuItem, menuItem.x, menuItem.y, menuItem.x, (i * 130), 0.5, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut});
+			FlxTween.linearMotion(menuItem, menuItem.x, menuItem.y, menuItem.x, (i * 130), 0.5, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut});
 		}
 		);
 		}
@@ -110,11 +110,11 @@ class MainMenuState extends MusicBeatState
 		wall.antialiasing = true;
 		add(wall);
 
-		FlxTween.linearMotion(bg, bgx, -90, -1300, -90, 1, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
-		FlxTween.linearMotion(city, bgx, -90, -1300, -90, 1, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
-		FlxTween.linearMotion(light0, bgx, -90, -1300, -90, 1, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
-		FlxTween.linearMotion(light1, bgx, -90, -1300, -90, 1, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
-		FlxTween.linearMotion(wall, bgx, -90, -1300, -90, 1, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
+		FlxTween.linearMotion(bg, bgx, -90, -1300, -90, 1, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
+		FlxTween.linearMotion(city, bgx, -90, -1300, -90, 1, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
+		FlxTween.linearMotion(light0, bgx, -90, -1300, -90, 1, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
+		FlxTween.linearMotion(light1, bgx, -90, -1300, -90, 1, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
+		FlxTween.linearMotion(wall, bgx, -90, -1300, -90, 1, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
 
 		if (!FlxG.sound.music.playing)
 		{
@@ -159,7 +159,7 @@ class MainMenuState extends MusicBeatState
 		logoBl.updateHitbox();
 			add(logoBl);
 
-		FlxTween.linearMotion(logoBl, 500, 0, -670, 0, 1, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut});
+		FlxTween.linearMotion(logoBl, 500, 0, -670, 0, 1, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut});
 	}
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
