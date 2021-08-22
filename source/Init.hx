@@ -25,7 +25,7 @@ class Init extends FlxUIState
 
 	override function create()
 	{   
-		loadingImage = new FlxSprite(0,0).loadGraphic(Paths.image('menuBG','preload'));
+		loadingImage = new FlxSprite(0,0).loadGraphic(Paths.image('backwall','shared'));
 		loadingImage.updateHitbox();
         loadingImage.screenCenter();
         loadingImage.antialiasing = true;
@@ -81,8 +81,8 @@ class Init extends FlxUIState
 		FlxG.mouse.useSystemCursor = true;
 		FlxG.mouse.visible = false;
 		FlxG.console.autoPause = false;
-        FlxG.autoPause = FlxG.save.data.focusfreeze;
-        FlxGraphic.defaultPersist = FlxG.save.data.memorycache;
+        FlxG.autoPause = false;
+        FlxGraphic.defaultPersist = true;
 
         FlxG.worldBounds.set(0,0);
     }

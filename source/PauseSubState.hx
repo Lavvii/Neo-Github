@@ -1,5 +1,7 @@
 package;
 
+import flixel.effects.FlxFlicker;
+import flixel.util.FlxTimer;
 import openfl.Lib;
 #if windows
 import llua.Lua;
@@ -29,6 +31,12 @@ class PauseSubState extends MusicBeatSubstate
 	
 	var offsetChanged:Bool = false;
 
+	var bg:FlxSprite;
+
+	var levelInfo:FlxText;
+
+	var levelDifficulty:FlxText;
+
 	public function new(x:Float, y:Float)
 	{
 		super();
@@ -39,19 +47,19 @@ class PauseSubState extends MusicBeatSubstate
 
 		FlxG.sound.list.add(pauseMusic);
 
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		bg.alpha = 0;
 		bg.scrollFactor.set();
 		add(bg);
 
-		var levelInfo:FlxText = new FlxText(20, 15, 0, "", 32);
+		levelInfo = new FlxText(20, 15, 0, "", 32);
 		levelInfo.text += PlayState.SONG.song;
 		levelInfo.scrollFactor.set();
 		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
 		levelInfo.updateHitbox();
 		add(levelInfo);
 
-		var levelDifficulty:FlxText = new FlxText(20, 15 + 32, 0, "", 32);
+		levelDifficulty = new FlxText(20, 15 + 32, 0, "", 32);
 		levelDifficulty.text += CoolUtil.difficultyString();
 		levelDifficulty.scrollFactor.set();
 		levelDifficulty.setFormat(Paths.font('vcr.ttf'), 32);
@@ -72,7 +80,7 @@ class PauseSubState extends MusicBeatSubstate
 		add(grpMenuShit);
 		perSongOffset = new FlxText(5, FlxG.height - 18, 0, "Additive Offset (Left, Right): " + PlayState.songOffset + " - Description - " + 'Adds value to global offset, per song.', 12);
 		perSongOffset.scrollFactor.set();
-		perSongOffset.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		perSongOffset.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		
 		#if cpp
 			add(perSongOffset);
@@ -178,7 +186,12 @@ class PauseSubState extends MusicBeatSubstate
 			switch (daSelected)
 			{
 				case "Resume":
-					close();
+					if (!returning)
+					{
+						FlxG.sound.play(Paths.sound('confirmMenu'));
+						closeState();
+						returning = true;
+					}
 				case "Restart Song":
 					FlxG.resetState();
 				case "Exit to menu":
@@ -210,6 +223,8 @@ class PauseSubState extends MusicBeatSubstate
 		}
 	}
 
+	var returning:Bool = false;
+
 	override function destroy()
 	{
 		pauseMusic.destroy();
@@ -217,29 +232,57 @@ class PauseSubState extends MusicBeatSubstate
 		super.destroy();
 	}
 
+	var daTime:Float = 0.5;
+
+	function closeState()
+	{
+		FlxTween.tween(bg, {alpha: 0}, daTime);
+		for (i in 0...grpMenuShit.members.length)
+		{
+			if (i == curSelected)
+			{
+				FlxFlicker.flicker(grpMenuShit.members[i], 1, 0.06, false, false);
+			}
+			else
+			{
+				FlxTween.tween(grpMenuShit.members[i], {alpha: 0.0}, 0.4, {ease: FlxEase.quadIn});
+			}
+		}
+		FlxTween.tween(levelInfo, {alpha: 0, y: 15}, daTime, {ease: FlxEase.quartInOut});
+		FlxTween.tween(levelDifficulty, {alpha: 0, y: 15}, daTime, {ease: FlxEase.quartInOut});
+		FlxTween.tween(perSongOffset, {alpha: 0}, daTime, {ease: FlxEase.quartInOut});
+		new FlxTimer().start(daTime, function(tmr:FlxTimer)
+		{
+			close();
+		});
+	}
+
 	function changeSelection(change:Int = 0):Void
 	{
-		curSelected += change;
-
-		if (curSelected < 0)
-			curSelected = menuItems.length - 1;
-		if (curSelected >= menuItems.length)
-			curSelected = 0;
-
-		var bullShit:Int = 0;
-
-		for (item in grpMenuShit.members)
+		if (!returning)
 		{
-			item.targetY = bullShit - curSelected;
-			bullShit++;
+			curSelected += change;
 
-			item.alpha = 0.6;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
-
-			if (item.targetY == 0)
+			if (curSelected < 0)
+				curSelected = menuItems.length - 1;
+			if (curSelected >= menuItems.length)
+				curSelected = 0;
+	
+			var bullShit:Int = 0;
+	
+			for (item in grpMenuShit.members)
 			{
-				item.alpha = 1;
-				// item.setGraphicSize(Std.int(item.width));
+				item.targetY = bullShit - curSelected;
+				bullShit++;
+	
+				item.alpha = 0.6;
+				// item.setGraphicSize(Std.int(item.width * 0.8));
+	
+				if (item.targetY == 0)
+				{
+					item.alpha = 1;
+					// item.setGraphicSize(Std.int(item.width));
+				}
 			}
 		}
 	}

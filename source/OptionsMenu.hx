@@ -80,7 +80,7 @@ class OptionsMenu extends MusicBeatState
 		bg = new FlxSprite(-1300, -300);
 		add(bg);
 		bg.loadGraphic(Paths.image('mainMenuCity'));
-		FlxTween.linearMotion(bg, -1300, -90, -600, -90, 1, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut});
+		FlxTween.linearMotion(bg, -1300, -90, -600, -90, 1, true, {ease: FlxEase.expoInOut});
 
 		grpControls = new FlxTypedGroup<Alphabet>();
 
@@ -97,7 +97,7 @@ class OptionsMenu extends MusicBeatState
 
 		versionShit = new FlxText(5, FlxG.height + 40, 0, "Offset (Left, Right, Shift for slow): " + HelperFunctions.truncateFloat(FlxG.save.data.offset,2) + " - Description - " + currentDescription, 12);
 		versionShit.scrollFactor.set();
-		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		
 		blackBorder = new FlxSprite(-30,FlxG.height + 40).makeGraphic((Std.int(versionShit.width + 900)),Std.int(versionShit.height + 600),FlxColor.BLACK);
 		blackBorder.alpha = 0.5;

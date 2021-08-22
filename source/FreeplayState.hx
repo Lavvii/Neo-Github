@@ -1,5 +1,7 @@
 package;
 
+import Song.SwagSong;
+import flixel.effects.FlxFlicker;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -21,6 +23,7 @@ class FreeplayState extends MusicBeatState
 {
 	public static var songs:Array<SongMetadata> = [];
 	public static var bpms:Array<Float> = [];
+	public static var charts:Array<SwagSong> = [];
 
 	var selector:FlxText;
 	static var curSelected:Int = 0;
@@ -137,6 +140,14 @@ class FreeplayState extends MusicBeatState
 		trace("cached " + songName);
 		songs.push(new SongMetadata(songName, weekNum, songCharacter));
 		bpms.push(Song.loadFromJson(songName, StringTools.replace(songName," ", "-").toLowerCase()).bpm);
+
+		for (i in 0...2)
+		{
+			//var poop:String = Highscore.formatSong(StringTools.replace(songName," ", "-").toLowerCase(), i);
+
+			//charts.push(Song.loadFromJson(poop, StringTools.replace(songName," ", "-").toLowerCase()));
+		}
+
 	}
 
 	public static function addWeek(songs:Array<String>, weekNum:Int, ?songCharacters:Array<String>)
@@ -225,12 +236,37 @@ class FreeplayState extends MusicBeatState
 
 			trace(poop);
 
+			for (i in 0...grpSongs.members.length)
+			{
+				if (i == curSelected)
+				{
+					FlxFlicker.flicker(grpSongs.members[i], 0.75, 0.06, false, false);
+					FlxFlicker.flicker(iconArray[i], 0.75, 0.06, false, false);
+				}
+				else
+				{
+					FlxTween.tween(grpSongs.members[i], {alpha: 0.0}, 0.4, {ease: FlxEase.quadIn});
+					FlxTween.tween(iconArray[i], {alpha: 0.0}, 0.4, {ease: FlxEase.quadIn});
+				}
+			}
+
 			PlayState.SONG = Song.loadFromJson(poop, StringTools.replace(songs[curSelected].songName," ", "-").toLowerCase());
+			//PlayState.SONG = charts[curSelected];
 			PlayState.isStoryMode = false;
 			PlayState.storyDifficulty = curDifficulty;
 			PlayState.storyWeek = songs[curSelected].week;
 			trace('CUR WEEK' + PlayState.storyWeek);
-			LoadingState.loadAndSwitchState(new PlayState());
+
+			FlxG.sound.play(Paths.sound('confirmMenu'));
+
+			FlxG.camera.fade(FlxColor.BLACK, 0.75, false);
+
+			FlxG.sound.music.fadeOut(0.75, 0);
+
+			new FlxTimer().start(0.75, function(tmr:FlxTimer)
+			{
+				LoadingState.loadAndSwitchState(new PlayState());
+			});
 		}
 	}
 

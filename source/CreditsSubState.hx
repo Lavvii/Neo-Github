@@ -43,7 +43,7 @@ class CreditsSubState extends MusicBeatState
 		add(credits);
 		credits.loadGraphic(Paths.image('creditsAssets/CREDITS'));
 
-		for (i in 0...personShit.length)
+		/*for (i in 0...personShit.length)
 		{
 			var menuItem:FlxSprite = new FlxSprite(10 + (i * 40), 90 + (i * 140));
 			menuItem.ID = i;
@@ -53,7 +53,7 @@ class CreditsSubState extends MusicBeatState
 			menuItem.x -= 200;
 			menuItem.alpha = 0;
 			FlxTween.tween(menuItem,{x : menuItem.x + 200,alpha:1},0.6,{ease:FlxEase.smoothStepOut,startDelay: 0.3*i});
-		}
+		}*/
 
 		selection = new FlxSprite(-600, -90);
 		selection.frames = Paths.getSparrowAtlas('creditsAssets/Select');
@@ -69,12 +69,15 @@ class CreditsSubState extends MusicBeatState
 
 		super.create();
 	}
+
+	var movedBack:Bool = false;
+
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
 		if (controls.ACCEPT)
 		{
-			switch(curSelected)
+			switch (curSelected)
 			{
 				case 0:
 					FlxG.openURL("https://www.youtube.com/c/JellyFishEdm");
@@ -87,10 +90,8 @@ class CreditsSubState extends MusicBeatState
 				case 4:
 					FlxG.openURL("https://youtube.com/channel/UCVgVvwOzvsR8pRwVy316SyA");
 				case 5:
-					FlxG.openURL("hhttps://www.youtube.com/channel/UC7M0aIL8-eVSJker9p0OyUQ");
+					FlxG.openURL("https://www.youtube.com/channel/UC7M0aIL8-eVSJker9p0OyUQ");
 			}
-			var funnystring = Std.string(curSelected);
-			FlxG.openURL(funnystring);
 		}
 		if (controls.UP_P)
 		{
@@ -99,6 +100,13 @@ class CreditsSubState extends MusicBeatState
 		if (controls.DOWN_P)
 		{
 			changeSelection(1);
+		}
+		if (controls.BACK && !movedBack)
+		{
+			FlxG.sound.play(Paths.sound('cancelMenu'));
+			movedBack = true;
+			CumFart.stateFrom = "freeplay";
+			FlxG.switchState(new MainMenuState());
 		}
 	}
 
@@ -109,8 +117,8 @@ class CreditsSubState extends MusicBeatState
 		curSelected += change;
 
 		if (curSelected < 0)
-			curSelected = menuItems.length - 1;
-		if (curSelected >= menuItems.length)
+			curSelected = 5;
+		if (curSelected > 5)
 			curSelected = 0;
 
 		selection.animation.play(personShit[curSelected]);
