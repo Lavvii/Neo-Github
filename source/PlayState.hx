@@ -164,6 +164,7 @@ class PlayState extends MusicBeatState
 	var NEO:FlxSprite;
 	var fire:FlxSprite;
 	var Boppers2:FlxSprite;
+	var Boppers3:FlxSprite;
 	var corruptedBoppers:FlxSprite;
 	var fgFog:FlxSprite;
 
@@ -594,11 +595,17 @@ class PlayState extends MusicBeatState
 				fgSnow.setGraphicSize(Std.int(fgSnow.width * 1.25));
 				add(fgSnow);
 
-				Boppers2 = new FlxSprite(950, 150);
-				Boppers2.frames = Paths.getSparrowAtlas('newyears/neo_week_5_assets');
-				Boppers2.animation.addByPrefix('boplol', "neo garcello instance 1", 24, false);
+				Boppers2 = new FlxSprite(850, 150);
+				Boppers2.frames = Paths.getSparrowAtlas('newyears/CrowdRight');
+				Boppers2.animation.addByPrefix('boplol', "CROWD RIGHT", 24, false);
 				Boppers2.antialiasing = true;
 				Boppers2.updateHitbox();
+
+				Boppers3 = new FlxSprite(450, 150);
+				Boppers3.frames = Paths.getSparrowAtlas('newyears/CrowdLeft');
+				Boppers3.animation.addByPrefix('boplmao', "CROWD LEFT", 24, false);
+				Boppers3.antialiasing = true;
+				Boppers3.updateHitbox();
 				
 			}
 			case 'hallucination':
@@ -906,6 +913,7 @@ class PlayState extends MusicBeatState
 
 		if (curStage == 'mall')
 			add(Boppers2);
+			add(Boppers3);
 
 		add(dad);
 		add(boyfriend);
@@ -3530,6 +3538,7 @@ class PlayState extends MusicBeatState
 
 			case 'mall':
 				Boppers2.animation.play('boplol', true);
+				Boppers3.animation.play('boplmao', true);
 			case 'illusion-two':
 				corruptedBoppers.animation.play('phantomfear', true);
 			case 'limo':
