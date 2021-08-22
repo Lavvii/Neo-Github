@@ -3,15 +3,12 @@ package;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import lime.utils.Assets;
 
 
 #if windows
@@ -22,11 +19,12 @@ using StringTools;
 
 class FreeplayState extends MusicBeatState
 {
-	var songs:Array<SongMetadata> = [];
+	public static var songs:Array<SongMetadata> = [];
+	public static var bpms:Array<Float> = [];
 
 	var selector:FlxText;
-	var curSelected:Int = 0;
-	var curDifficulty:Int = 1;
+	static var curSelected:Int = 0;
+	static var curDifficulty:Int = 1;
 
 	var scoreText:FlxText;
 	var diffText:FlxText;
@@ -41,39 +39,14 @@ class FreeplayState extends MusicBeatState
 	private var curPlaying:Bool = false;
 
 	private var iconArray:Array<HealthIcon> = [];
-
-/*	function autism(tween:FlxTween) { // haxe funny
-		var i = 0;
-		grpSongs.forEach(function(song:Alphabet) {
-		i++;
-		FlxTween.linearMotion(song, song.x, song.y, song.x, (70 * i) + 200, 0.5, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut});
-		song.startTypedText();
-	}
-	);
-	}*/
+	var camZoom:FlxTween;
 
 	override function create()
 	{
-		var initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplaySonglist'));
-
-		for (i in 0...initSonglist.length)
-		{
-			var data:Array<String> = initSonglist[i].split(':');
-			songs.push(new SongMetadata(data[0], Std.parseInt(data[2]), data[1]));
-		}
-
-		/* 
-			if (FlxG.sound.music != null)
-			{
-				if (!FlxG.sound.music.playing)
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
-			}
-		 */
-
-		 #if windows
-		 // Updating Discord Rich Presence
-		 DiscordClient.changePresence("In the Freeplay Menu", null);
-		 #end
+		#if windows
+		// Updating Discord Rich Presence
+		DiscordClient.changePresence("In the Freeplay Menu", null);
+		#end
 
 		var isDebug:Bool = false;
 
@@ -83,30 +56,17 @@ class FreeplayState extends MusicBeatState
 
 		// LOAD MUSIC
 
-		if (StoryMenuState.weekUnlocked[2] || isDebug)
-			addWeek(['Bopeebo', 'Fresh', 'Dadbattle'], 1, ['dad']);
+		//moved adding songs to init cuz i can cache them from there yuhhhh
+		//brightfyre
 
-		if (StoryMenuState.weekUnlocked[2] || isDebug)
-			addWeek(['Spookeez', 'South', 'Illusion'], 2, ['spooky', 'spooky', 'monster']);
-
-		if (StoryMenuState.weekUnlocked[3] || isDebug)
-			addWeek(['Pico', 'Philly', 'Blammed'], 3, ['pico']);
-
-		if (StoryMenuState.weekUnlocked[4] || isDebug)
-			addWeek(['Satin-Panties', 'High', 'Milf'], 4, ['mom']);
-
-		if (StoryMenuState.weekUnlocked[5] || isDebug)
-			addWeek(['Cocoa', 'Eggnog', 'Hallucination'], 5, ['parents-christmas', 'parents-christmas', 'monster-christmas']);
-
-		if (StoryMenuState.weekUnlocked[6] || isDebug)
-			addWeek(['Senpai', 'Roses', 'Thorns'], 6, ['senpai', 'senpai-angry', 'spirit']);
+		camZoom = FlxTween.tween(this, {}, 0);
 		
 		// LOAD CHARACTERS
 
 		bg = new FlxSprite(-1300, -90);
 		add(bg);
 		bg.loadGraphic(Paths.image('mainMenuCity'));
-		FlxTween.linearMotion(bg, -1300, -90, -600, -90, 1, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut});
+		FlxTween.linearMotion(bg, -1300, -90, -600, -90, 1, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut});
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 
@@ -165,33 +125,21 @@ class FreeplayState extends MusicBeatState
 		selector.text = ">";
 		// add(selector);
 
-		var swag:Alphabet = new Alphabet(1, 0, "swag");
-		// JUST DOIN THIS SHIT FOR TESTING!!!
-		/* 
-			var md:String = Markdown.markdownToHtml(Assets.getText('CHANGELOG.md'));
- TextField();
-			texFel.width = FlxG.width;
-			var texFel:TextField = new
-			texFel.height = FlxG.height;
-			// texFel.
-			texFel.htmlText = md;
+		trace(bpms);
 
-			FlxG.stage.addChild(texFel);
-
-			// scoreText.textField.htmlText = md;
-
-			trace(md);
-		 */
 
 		super.create();
 	}
 
-	public function addSong(songName:String, weekNum:Int, songCharacter:String)
+	public static function addSong(songName:String, weekNum:Int, songCharacter:String)
 	{
+		FlxG.sound.cache(Paths.inst(songName));
+		trace("cached " + songName);
 		songs.push(new SongMetadata(songName, weekNum, songCharacter));
+		bpms.push(Song.loadFromJson(songName, StringTools.replace(songName," ", "-").toLowerCase()).bpm);
 	}
 
-	public function addWeek(songs:Array<String>, weekNum:Int, ?songCharacters:Array<String>)
+	public static function addWeek(songs:Array<String>, weekNum:Int, ?songCharacters:Array<String>)
 	{
 		if (songCharacters == null)
 			songCharacters = ['dad'];
@@ -206,9 +154,32 @@ class FreeplayState extends MusicBeatState
 		}
 	}
 
+	override function beatHit()
+	{
+		super.beatHit();
+		if (!accepted)
+		{
+			bopOnBeat();
+		}
+	}
+
+	function bopOnBeat()
+	{
+		if (!accepted)
+		{
+			FlxG.camera.zoom += 0.015;
+			camZoom = FlxTween.tween(FlxG.camera, {zoom: 1}, 0.1);
+		}
+	}
+
+	var accepted:Bool = false;
+
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+
+		if (FlxG.sound.music != null)
+            Conductor.songPosition = FlxG.sound.music.time;
 
 		if (FlxG.sound.music.volume < 0.7)
 		{
@@ -224,7 +195,6 @@ class FreeplayState extends MusicBeatState
 
 		var upP = controls.UP_P;
 		var downP = controls.DOWN_P;
-		var accepted = controls.ACCEPT;
 
 		if (upP)
 		{
@@ -246,8 +216,9 @@ class FreeplayState extends MusicBeatState
 			FlxG.switchState(new MainMenuState());
 		}
 
-		if (accepted)
+		if (controls.ACCEPT)
 		{
+			accepted = true;
 			trace(StringTools.replace(songs[curSelected].songName," ", "-").toLowerCase());
 
 			var poop:String = Highscore.formatSong(StringTools.replace(songs[curSelected].songName," ", "-").toLowerCase(), curDifficulty);
@@ -289,10 +260,6 @@ class FreeplayState extends MusicBeatState
 
 	function changeSelection(change:Int = 0)
 	{
-		#if !switch
-		// NGio.logEvent('Fresh');
-		#end
-
 		// NGio.logEvent('Fresh');
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
@@ -314,6 +281,8 @@ class FreeplayState extends MusicBeatState
 		FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
 		#end
 
+		Conductor.changeBPM(bpms[curSelected]);
+
 		var bullShit:Int = 0;
 
 		for (i in 0...iconArray.length)
@@ -331,25 +300,30 @@ class FreeplayState extends MusicBeatState
 			bullShit++;
 
 			// TRY TO COPE WITH MY RETARDNESS
-			if (item.targetY + (change * 2) == 0) { // ok this is kinda smart ngl
+			if (item.targetY + (change * 2) == 0) 
+			{ 
+				// ok this is kinda smart ngl
 				item.alpha = 0;
 			}
+
 			// I LEGIT AM SO FUCKING RETARDED I CANT EVEN FIGURE OUT THIS STUPID FUCKING ALPHABET SHIT WHY MUCH I USE A TIMER FOR EVERYTHING THIS IS NOT GOOD PRACTICE
 			new FlxTimer().start(0.05, function(tmr:FlxTimer)
-		{
-			item.alpha = 0;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
-
-			if (item.targetY == 0)
 			{
-				item.alpha = 1;
-				// item.setGraphicSize(Std.int(item.width));
-			}
+				item.alpha = 0;
+				// item.setGraphicSize(Std.int(item.width * 0.8));
 
-			if (item.targetY - 1 == 0 || item.targetY + 1 == 0) {
-				item.alpha = 0.6;
-			}
-		});
+				if (item.targetY == 0)
+				{
+					item.alpha = 1;
+					// item.setGraphicSize(Std.int(item.width));
+				}
+
+				if (item.targetY - 1 == 0 || item.targetY + 1 == 0) 
+				{
+					item.alpha = 0.6;
+				}
+				
+			});
 		}
 	}
 }

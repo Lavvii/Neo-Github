@@ -27,7 +27,7 @@ using StringTools;
 
 class MainMenuState extends MusicBeatState
 {
-	var curSelected:Int = 0;
+	static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
@@ -55,14 +55,14 @@ class MainMenuState extends MusicBeatState
 	var light0:FlxSprite;
 	var light1:FlxSprite;
 
-	function autism2(tween:FlxTween) { // haxe funny
-		var i = 0;
-		menuItems.forEach(function(menuItem:FlxSprite) {
-			i++;
-			FlxTween.linearMotion(menuItem, menuItem.x, menuItem.y, menuItem.x, (i * 130), 0.5, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut});
+	function autism2(tween:FlxTween) 
+	{
+		// haxe funny
+		for (i in 0...menuItems.members.length)
+		{
+			FlxTween.tween(menuItems.members[i], {y: (i * 130) + 100, alpha: 1}, 0.5, {ease: FlxEase.expoInOut});
 		}
-		);
-		}
+	}
 
 	override function create()
 	{
@@ -73,7 +73,8 @@ class MainMenuState extends MusicBeatState
 
 		// where the states from
 		var bgx = 0;
-		switch (CumFart.stateFrom) {
+		switch (CumFart.stateFrom) 
+		{
 			case "freeplay":
 				trace("Came from freeplay");
 				bgx = -600;
@@ -110,11 +111,11 @@ class MainMenuState extends MusicBeatState
 		wall.antialiasing = true;
 		add(wall);
 
-		FlxTween.linearMotion(bg, bgx, -90, -1300, -90, 1, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
-		FlxTween.linearMotion(city, bgx, -90, -1300, -90, 1, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
-		FlxTween.linearMotion(light0, bgx, -90, -1300, -90, 1, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
-		FlxTween.linearMotion(light1, bgx, -90, -1300, -90, 1, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
-		FlxTween.linearMotion(wall, bgx, -90, -1300, -90, 1, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut, onComplete: autism2});
+		FlxTween.linearMotion(bg, bgx, -90, -1300, -90, 1, true, {ease: FlxEase.expoInOut, onComplete: autism2});
+		FlxTween.linearMotion(city, bgx, -90, -1300, -90, 1, true, {ease: FlxEase.expoInOut});
+		FlxTween.linearMotion(light0, bgx, -90, -1300, -90, 1, true, {ease: FlxEase.expoInOut});
+		FlxTween.linearMotion(light1, bgx, -90, -1300, -90, 1, true, {ease: FlxEase.expoInOut});
+		FlxTween.linearMotion(wall, bgx, -90, -1300, -90, 1, true, {ease: FlxEase.expoInOut});
 
 		if (!FlxG.sound.music.playing)
 		{
@@ -169,7 +170,7 @@ class MainMenuState extends MusicBeatState
 
 		for (i in 0...optionShit.length)
 		{
-			var menuItem:FlxSprite = new FlxSprite(-50, -120);
+			var menuItem:FlxSprite = new FlxSprite(-50, -240);
 			menuItem.frames = tex;
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
@@ -177,10 +178,9 @@ class MainMenuState extends MusicBeatState
 			menuItem.ID = i;
 			menuItem.setGraphicSize(400);
 			menuItems.add(menuItem);
+			menuItem.alpha = 0;
 			menuItem.scrollFactor.set();
 			menuItem.antialiasing = true;
-			menuItem.y = -120;// + (i * 130);
-			//FlxTween.linearMotion(menuItem, menuItem.x, menuItem.y, menuItem.x, 120 + (i * 130), 2, true, {type: FlxTween.ONESHOT, ease: FlxEase.smoothStepInOut});
 		}
 
 

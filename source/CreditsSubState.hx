@@ -1,17 +1,10 @@
 package;
 
-import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.math.FlxMath;
-import flixel.text.FlxText;
-import flixel.util.FlxColor;
-import lime.utils.Assets;
 
 #if windows
 import Discord.DiscordClient;
@@ -36,7 +29,7 @@ class CreditsSubState extends MusicBeatState
 		bg = new FlxSprite(-1300, -90);
 		add(bg);
 		bg.loadGraphic(Paths.image('mainMenuCity'));
-		FlxTween.linearMotion(bg, -1300, -90, -600, -90, 1, true, {type: FlxTween.ONESHOT, ease: FlxEase.expoInOut});
+		FlxTween.linearMotion(bg, -1300, -90, -600, -90, 1, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut});
 
 		unselected = new FlxSprite(-600, -90);
 		add(unselected);

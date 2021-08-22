@@ -339,15 +339,25 @@ class PlayState extends MusicBeatState
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
 		
-		if(dialogueList.contains(SONG.song.toLowerCase())){
-			dialogue = CoolUtil.coolTextFile("assets/data/" + SONG.song.toLowerCase() + "/dialogue.txt");
-			usesDialogue = true;
-			trace(dialogue);
+		if (dialogueList.contains(SONG.song.toLowerCase()))
+		{
+			var path:String = "assets/data/" + SONG.song.toLowerCase() + "/dialogue.txt";
+			if (FileSystem.exists(path))
+			{
+				dialogue = CoolUtil.coolTextFile(path);
+				usesDialogue = true;
+				trace(dialogue);
+			}
 		}
 
-		if(dialogueEndList.contains(SONG.song.toLowerCase())){
-			dialogueEnd = CoolUtil.coolTextFile("assets/data/" + SONG.song.toLowerCase() + "/dialogueEnd.txt");
-			usesEndDialogue = true;
+		if (dialogueEndList.contains(SONG.song.toLowerCase()))
+		{
+			var path:String = "assets/data/" + SONG.song.toLowerCase() + "/dialogueEnd.txt";
+			if (FileSystem.exists(path))
+			{
+				dialogueEnd = CoolUtil.coolTextFile(path);
+				usesEndDialogue = true;
+			}
 		}
 		
 
@@ -536,6 +546,7 @@ class PlayState extends MusicBeatState
 
 					trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
 					FlxG.sound.list.add(trainSound);
+					trainSound.volume = 0.6;
 
 					// var cityLights:FlxSprite = new FlxSprite().loadGraphic(AssetPaths.win0.png);
 
@@ -619,25 +630,25 @@ class PlayState extends MusicBeatState
 					sky.updateHitbox();
 					add(sky);
 
-				    	NEO = new FlxSprite(300, -100);
-				    	NEO.frames = Paths.getSparrowAtlas('newyears/NEO_Fireworks');
+				    NEO = new FlxSprite(300, -100);
+				    NEO.frames = Paths.getSparrowAtlas('newyears/NEO_Fireworks');
 					NEO.animation.addByPrefix('swag', "Week 5 Firework Blue", 24, false);
-		      			NEO.antialiasing = true;
+		      		NEO.antialiasing = true;
 					NEO.scrollFactor.set(0.25, 0.25);
 					NEO.setGraphicSize(Std.int(NEO.width * 1.3));
 				 	NEO.updateHitbox();
 					add(NEO);
-					NEO.visible = false;
+					NEO.alpha = 0;
 
 				   	fire = new FlxSprite(300, -100);
-				    	fire.frames = Paths.getSparrowAtlas('newyears/FireworkNeo');
+				    fire.frames = Paths.getSparrowAtlas('newyears/FireworkNeo');
 					fire.animation.addByPrefix('swag2', "Week 5 Firework", 24, false);
-		        		fire.antialiasing = true;
+		        	fire.antialiasing = true;
 					fire.scrollFactor.set(0.35, 0.35);
 					fire.setGraphicSize(Std.int(fire.width * 1.3));
 					fire.updateHitbox();
 					add(fire);
-					fire.visible = false;
+					fire.alpha = 0;
 
 					var bgEscalator:FlxSprite = new FlxSprite(-1100, -600).loadGraphic(Paths.image('newyears/buildings'));
 					bgEscalator.antialiasing = true;
@@ -653,12 +664,11 @@ class PlayState extends MusicBeatState
 					fgSnow.setGraphicSize(Std.int(fgSnow.width * 1.25));
 					add(fgSnow);
 
-		                  	Boppers2 = new FlxSprite(950, 150);
-		                  	Boppers2.frames = Paths.getSparrowAtlas('newyears/neo_week_5_assets');
-		                 	Boppers2.animation.addByPrefix('boplol', "neo garcello instance 1", 24, false);
-		                 	Boppers2.antialiasing = true;
-		                //	Boppers2.setGraphicSize(Std.int(Boppers2.width * 1.0));
-		                 	Boppers2.updateHitbox();
+					Boppers2 = new FlxSprite(950, 150);
+					Boppers2.frames = Paths.getSparrowAtlas('newyears/neo_week_5_assets');
+					Boppers2.animation.addByPrefix('boplol', "neo garcello instance 1", 24, false);
+					Boppers2.antialiasing = true;
+					Boppers2.updateHitbox();
 					
 				}
 			case 'hallucination':
@@ -1134,7 +1144,7 @@ class PlayState extends MusicBeatState
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
-		healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
+		healthBar.createFilledBar(dad.healthbarColor, boyfriend.healthbarColor);
 		// healthBar
 		add(healthBar);
 
@@ -1397,6 +1407,8 @@ class PlayState extends MusicBeatState
 		generateStaticArrows(0);
 		generateStaticArrows(1);
 
+		camHUD.visible = true;
+		camHUD.alpha = 1;
 
 		#if windows
 		if (executeModchart)
@@ -3519,27 +3531,28 @@ class PlayState extends MusicBeatState
 				health -= 0.0175;
 		}
 
-		if (curStage == 'mall') {
-			fire.visible = false;
-			NEO.visible = false;
+		if (curStage == 'mall') 
+		{
+			fire.alpha = 0;
+			NEO.alpha = 0;
 			if (FlxG.random.bool(8))
 			{
 				FlxG.sound.play(Paths.sound('firework'));
-				NEO.visible = true;
+				NEO.alpha = 1;
 				NEO.animation.play('swag');
 				new FlxTimer().start(2.3, function(tmr:FlxTimer)
 				{
-					NEO.visible = false;
+					NEO.alpha = 0;
 				});
 			}
 			if (FlxG.random.bool(18))
 			{
 				FlxG.sound.play(Paths.sound('firework2'));
-				fire.visible = true;
+				fire.alpha = 1;
 				fire.animation.play('swag2');
 				new FlxTimer().start(2.3, function(tmr:FlxTimer)
 				{
-					fire.visible = false;
+					fire.alpha = 0;
 				});
 			}
 		}

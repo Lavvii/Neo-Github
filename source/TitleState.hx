@@ -52,27 +52,6 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{	
-		#if sys
-		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
-			sys.FileSystem.createDirectory(Sys.getCwd() + "/assets/replays");
-		#end
-
-		@:privateAccess
-		{
-			trace("Loaded " + openfl.Assets.getLibrary("default").assetsLoaded + " assets (DEFAULT)");
-		}
-		
-		PlayerSettings.init();
-
-		#if windows
-		DiscordClient.initialize();
-
-		Application.current.onExit.add (function (exitCode) {
-			DiscordClient.shutdown();
-		 });
-		 
-		#end
-
 		curWacky = FlxG.random.getObject(getIntroTextShit());
 
 		// DEBUG BULLSHIT
@@ -85,12 +64,6 @@ class TitleState extends MusicBeatState
 		var ng:NGio = new NGio(APIStuff.API, APIStuff.EncKey);
 		trace('NEWGROUNDS LOL');
 		#end
-
-		FlxG.save.bind('funkin', 'ninjamuffin99');
-
-		KadeEngineData.initSave();
-
-		Highscore.load();
 
 		if (FlxG.save.data.weekUnlocked != null)
 		{
@@ -106,16 +79,10 @@ class TitleState extends MusicBeatState
 				StoryMenuState.weekUnlocked[0] = true;
 		}
 
-		#if FREEPLAY
-		FlxG.switchState(new FreeplayState());
-		#elseif CHARTING
-		FlxG.switchState(new ChartingState());
-		#else
 		new FlxTimer().start(1, function(tmr:FlxTimer)
 		{
 			startIntro();
 		});
-		#end
 	}
 
 	var logoBl:FlxSprite;
@@ -428,7 +395,7 @@ class TitleState extends MusicBeatState
 			case 1:
 				deleteCoolText();
 			case 2:
-				createCoolText(['JellyFish', 'Moisty', 'Pincer', 'Smokey', 'GenoX', 'NoLime']);
+				createCoolText(['JellyFish', 'Moisty', 'Pincer', 'Smokey', 'GenoX', 'NoLime', 'BrightFyre']);
 			// credTextShit.visible = true;
 			case 4:
 				deleteCoolText();

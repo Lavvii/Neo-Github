@@ -1,5 +1,6 @@
 package;
 
+import flixel.util.FlxColor;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.animation.FlxBaseAnimation;
@@ -16,6 +17,8 @@ class Character extends FlxSprite
 	public var curCharacter:String = 'bf';
 
 	public var holdTimer:Float = 0;
+
+	public var healthbarColor:FlxColor = FlxColor.RED;
 
 	public function new(x:Float, y:Float, ?character:String = "bf", ?isPlayer:Bool = false)
 	{
@@ -60,6 +63,8 @@ class Character extends FlxSprite
 
 				addOffset('scared', -2, -17);
 
+				healthbarColor = FlxColor.fromRGB(188,58,168);
+
 				playAnim('danceRight');
 
 			case 'gf-christmas':
@@ -91,6 +96,8 @@ class Character extends FlxSprite
 
 				addOffset('scared', -2, -17);
 
+				healthbarColor = FlxColor.fromRGB(188,58,168);
+
 				playAnim('danceRight');
 
 			case 'gf-car':
@@ -104,6 +111,8 @@ class Character extends FlxSprite
 				addOffset('danceLeft', 0);
 				addOffset('danceRight', 0);
 
+				healthbarColor = FlxColor.fromRGB(188,58,168);
+
 				playAnim('danceRight');
 
 			case 'gf-pixel':
@@ -115,6 +124,8 @@ class Character extends FlxSprite
 
 				addOffset('danceLeft', 0);
 				addOffset('danceRight', 0);
+
+				healthbarColor = FlxColor.fromRGB(188,58,168);
 
 				playAnim('danceRight');
 
@@ -138,6 +149,8 @@ class Character extends FlxSprite
 				addOffset("singRIGHT", 3, 27);
 				addOffset("singDOWN", 0, -30);
 
+				healthbarColor = FlxColor.fromRGB(0,234,255);
+
 				playAnim('idle');
 			case 'spooky':
 				tex = Paths.getSparrowAtlas('characters/spookeez');
@@ -157,6 +170,8 @@ class Character extends FlxSprite
 				addOffset("singLEFT", 130, -10);
 				addOffset("singDOWN", -50, -130);
 
+				healthbarColor = FlxColor.fromRGB(102,243,255);
+
 				playAnim('danceRight');
 			case 'mom':
 				tex = Paths.getSparrowAtlas('characters/mommyMustMurder');
@@ -175,6 +190,8 @@ class Character extends FlxSprite
 				addOffset("singRIGHT", 10, -60);
 				addOffset("singLEFT", 250, -23);
 				addOffset("singDOWN", 20, -160);
+
+				healthbarColor = FlxColor.fromRGB(0,234,255);
 
 				playAnim('idle');
 
@@ -196,6 +213,8 @@ class Character extends FlxSprite
 				addOffset("singLEFT", 149, -28);
 				addOffset("singDOWN", 15, -164);
 
+				healthbarColor = FlxColor.fromRGB(0,234,255);
+
 				playAnim('idle');
 			case 'monster':
 				tex = Paths.getSparrowAtlas('characters/lemon');
@@ -211,6 +230,8 @@ class Character extends FlxSprite
 				addOffset("singRIGHT", 44, -41);
 				addOffset("singLEFT", -120, -38);
 				addOffset("singDOWN", 92, -63);
+
+				healthbarColor = FlxColor.fromRGB(255,0,7);
 
 				playAnim('idle');
 			case 'monster-christmas':
@@ -228,6 +249,8 @@ class Character extends FlxSprite
 				addOffset("singLEFT", -120, -38);
 				addOffset("singDOWN", 92, -63);
 
+				healthbarColor = FlxColor.fromRGB(255,0,7);
+
 				playAnim('idle');
 			case 'pico':
 				tex = Paths.getSparrowAtlas('characters/Pico');
@@ -243,6 +266,9 @@ class Character extends FlxSprite
 				addOffset("singRIGHT", -28, -11);
 				addOffset("singLEFT", 19, 2);
 				addOffset("singDOWN", -15, -78);
+
+				healthbarColor = FlxColor.fromRGB(255,51,255);
+
 				playAnim('idle');
 
 				flipX = true;
@@ -285,6 +311,8 @@ class Character extends FlxSprite
 				addOffset('scared', -4, 0);
 				//addOffset('hit', -1, 10);
 
+				healthbarColor = FlxColor.fromRGB(102,255,153);
+
 				playAnim('idle');
 
 				flipX = true;
@@ -320,6 +348,8 @@ class Character extends FlxSprite
 				addOffset('scared', -4, 0);
 				//addOffset('hit', -1, 10);
 
+				healthbarColor = FlxColor.fromRGB(102,255,153);
+
 				playAnim('idle');
 
 				flipX = true; // hi
@@ -346,6 +376,9 @@ class Character extends FlxSprite
 				addOffset("singRIGHTmiss", -9, -8);
 				addOffset("singLEFTmiss", 31, -12);
 				addOffset("singDOWNmiss", 7, -46);
+
+				healthbarColor = FlxColor.fromRGB(102,255,153);
+
 				playAnim('idle');
 
 				flipX = true;
@@ -371,6 +404,8 @@ class Character extends FlxSprite
 				addOffset("singLEFTmiss");
 				addOffset("singDOWNmiss");
 
+				healthbarColor = FlxColor.fromRGB(102,255,153);
+
 				setGraphicSize(Std.int(width * 6));
 				updateHitbox();
 
@@ -393,6 +428,7 @@ class Character extends FlxSprite
 				addOffset('firstDeath');
 				addOffset('deathLoop', -37);
 				addOffset('deathConfirm', -37);
+
 				playAnim('firstDeath');
 				// pixel bullshit
 				setGraphicSize(Std.int(width * 6));
@@ -484,6 +520,8 @@ class Character extends FlxSprite
 				addOffset("singRIGHT-alt", -1, -24);
 				addOffset("singLEFT-alt", -30, 15);
 				addOffset("singDOWN-alt", -30, -27);
+
+				healthbarColor = FlxColor.fromRGB(0,234,255);
 
 				playAnim('idle');
 		}
