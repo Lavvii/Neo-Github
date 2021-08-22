@@ -126,6 +126,7 @@ class OptionsMenu extends MusicBeatState
 		{
 			if (controls.BACK && !isCat) {
 				CumFart.stateFrom = "freeplay"; // doesnt rlly matter
+				FlxG.sound.play(Paths.sound('cancelMenu'));
 				FlxG.switchState(new MainMenuState());
 			}
 			else if (controls.BACK)

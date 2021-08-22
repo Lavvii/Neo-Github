@@ -2319,6 +2319,12 @@ class PlayState extends MusicBeatState
 							case 0:
 								dad.playAnim('singLEFT' + altAnim, true);
 						}
+
+						if (dad.curCharacter == 'monster' || dad.curCharacter == 'monster-christmas')
+						{
+							FlxG.camera.shake(0.015, 0.1);
+							camHUD.shake(0.005, 0.1);
+						}
 						
 						if (FlxG.save.data.cpuStrums)
 						{
@@ -3306,7 +3312,6 @@ class PlayState extends MusicBeatState
 			if (trainSound.time >= 4700)
 				{
 					startedMoving = true;
-					gf.playAnim('hairBlow');
 				}
 		
 				if (startedMoving)
@@ -3332,7 +3337,6 @@ class PlayState extends MusicBeatState
 	function trainReset():Void
 	{
 		if(FlxG.save.data.distractions){
-			gf.playAnim('hairFall');
 			phillyTrain.x = FlxG.width + 200;
 			trainMoving = false;
 			// trainSound.stop();

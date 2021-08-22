@@ -150,12 +150,7 @@ class TitleState extends MusicBeatState
 		logoBl.loadGraphic(Paths.image('NEOlogo'));
 		logoBl.antialiasing = true;
 		logoBl.setGraphicSize(700);
-		//logoBl.screenCenter(X);
-	//	logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
-	//	logoBl.animation.play('bump');
 		logoBl.updateHitbox();
-		// logoBl.screenCenter();
-		// logoBl.color = FlxColor.BLACK;
 
 		gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
 		gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
