@@ -1493,7 +1493,7 @@ class PlayState extends MusicBeatState
 
 		curSong = songData.song;
 
-		if (SONG.needsVoices)
+		if (HelperFunctions.vocalExists(SONG.song.toLowerCase()))
 			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
 		else
 			vocals = new FlxSound();
@@ -2352,7 +2352,7 @@ class PlayState extends MusicBeatState
 
 						dad.holdTimer = 0;
 	
-						if (SONG.needsVoices)
+						if (HelperFunctions.vocalExists(SONG.song.toLowerCase()))
 							vocals.volume = 1;
 	
 						daNote.active = false;
