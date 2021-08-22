@@ -34,6 +34,8 @@ class CreditsSubState extends MusicBeatState
 		unselected = new FlxSprite(-600, -90);
 		add(unselected);
 		unselected.loadGraphic(Paths.image('creditsAssets/Unselected'));
+		unselected.y += 70;
+		unselected.alpha = 0;
 
 		shit = new FlxSprite(-600, -90);
 		add(shit);
@@ -42,6 +44,7 @@ class CreditsSubState extends MusicBeatState
 		credits = new FlxSprite(-600, -90);
 		add(credits);
 		credits.loadGraphic(Paths.image('creditsAssets/CREDITS'));
+	
 
 		/*for (i in 0...personShit.length)
 		{
@@ -66,6 +69,12 @@ class CreditsSubState extends MusicBeatState
 		selection.antialiasing = true;
 		add(selection);
 		selection.animation.play('0');
+		selection.y += 70;
+		selection.alpha = 0;
+
+		FlxTween.tween(selection,{y: selection.y - 70, alpha: 1},0.7,{ease:FlxEase.smoothStepOut});
+		
+		FlxTween.tween(unselected,{y: unselected.y - 70, alpha: 1},0.7,{ease:FlxEase.smoothStepOut});
 
 		super.create();
 	}
