@@ -1,9 +1,9 @@
-:dad::point:Well would ya look at that, we attracted a bit of a crowd! That’s impressive...
-:dad::smirk:Welp, It's been fun messing with ya, but I'm going all out on this one. 
-:dad::fist:You can say goodbye to those naive little dreams of yours. 
-:dad::unhappy:For good. 
-:dad::point:No one's ever outshined Daddy Dearest at his best. 
-:bf::happy:Looks like I'll just need to be the first to do it then! 
-:dad::unhappy:Big talk for someone your size. 
-:bf::happy:It only means that your loss will be more embarrassing! 
-:bf::angry:Now, hit it!
+:dad:point:Well would ya look at that, we attracted a bit of a crowd! That’s impressive...
+:dad:smirk:Welp, It's been fun messing with ya, but I'm going all out on this one. 
+:dad:fist:You can say goodbye to those naive little dreams of yours. 
+:dad:unhappy:For good. 
+:dad:point:No one's ever outshined Daddy Dearest at his best. 
+:bf:happy:Looks like I'll just need to be the first to do it then! 
+:dad:unhappy:Big talk for someone your size. 
+:bf:happy:It only means that your loss will be more embarrassing! 
+:bf:angry:Now, hit it!

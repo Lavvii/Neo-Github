@@ -51,10 +51,7 @@ class DialogueBox extends FlxSpriteGroup
 	var portraitSPOOKY:Portrait;
 	var portraitMONSTER:Portrait;
 	var portraitPICO:Portrait;
-	var portraitDARNELL:Portrait;
-	var portraitNENE:Portrait;
 	var portraitMOM:Portrait;
-	var portraitIMPS:Portrait;
 	var portraitNOCHAR:Portrait;
 
 	var portraitLeft:FlxSprite;
@@ -170,7 +167,7 @@ class DialogueBox extends FlxSpriteGroup
 		{
 		
 
-			portraitBF = new Portrait(170, 15, "bf");
+			portraitBF = new Portrait(600, 70, "bf");
 			add(portraitBF);
 
 			portraitGF = new Portrait(170, 50, "gf");
@@ -214,8 +211,8 @@ class DialogueBox extends FlxSpriteGroup
 		
 		default:
 		box.animation.play('normalOpen');
-		box.setGraphicSize(Std.int(box.width * 0.9));
-		box.updateHitbox();
+		//box.setGraphicSize(Std.int(box.width * 0.9));
+		//box.updateHitbox();
 		add(box);
 		}
 	
@@ -241,9 +238,9 @@ class DialogueBox extends FlxSpriteGroup
 		skipText.borderQuality = 1;
 		add(skipText);
 
-		swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
+		swagDialogue = new FlxTypeText(140, 510, Std.int(FlxG.width * 0.6), "", 32);
 		swagDialogue.font = 'Pixel Arial 11 Bold';
-		swagDialogue.color = 0xFF3F2021;
+		swagDialogue.color = FlxColor.WHITE;
 		swagDialogue.finishSounds = true;
 		swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 0.6)];
 		add(swagDialogue);
@@ -268,7 +265,7 @@ class DialogueBox extends FlxSpriteGroup
 			dropText.color = FlxColor.BLACK;
 		}
 		
-		dropText.text = swagDialogue.text;
+		//dropText.text = swagDialogue.text;
 
 		
 		
@@ -371,36 +368,27 @@ class DialogueBox extends FlxSpriteGroup
 		{
 			case "bf":
 				portraitBF.playFrame(curAnim);
-				changeSound('boyfriendText',0.6);
+				
 			case "gf":
 				portraitGF.playFrame(curAnim);
-				changeSound('gfText',0.6);
+			
 			case "dad":
 				portraitDAD.playFrame(curAnim);
-				changeSound('pixelText',0.6);
+				
 			case "spooky":
 				portraitSPOOKY.playFrame(curAnim);
-				changeSound('pumpText',0.6);
+			
 			case "monster":
 				portraitMONSTER.playFrame(curAnim);
-				changeSound('monsterText',0.6);
+				
 			case "pico":
 				portraitPICO.playFrame(curAnim);
-				changeSound('picoText',0.6);
-			case "darnell":
-				portraitDARNELL.playFrame(curAnim);
-				changeSound('darnellText',0.6);
 				
-			case "nene":
-				portraitNENE.playFrame(curAnim);
-				changeSound('neneText',0.6);
-
 			case "mom":
 				portraitMOM.playFrame(curAnim);
-				changeSound('momText',1);
-			case "imps":
-				portraitIMPS.playFrame(curAnim);
-				changeSound('pixelText',0.6);
+				
+		
+
 			case "noChar":
 				portraitNOCHAR.playFrame("default");
 				changeSound('momText',0);
