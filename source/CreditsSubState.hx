@@ -43,7 +43,7 @@ class CreditsSubState extends MusicBeatState
 		add(credits);
 		credits.loadGraphic(Paths.image('creditsAssets/CREDITS'));
 
-		daHelpers = new FlxSprite(-1300, -90);
+		daHelpers = new FlxSprite(-600, -90);
 		add(daHelpers);
 		daHelpers.loadGraphic(Paths.image('creditsAssets/Helpers'));
 		daHelpers.visible = false;
@@ -110,6 +110,10 @@ class CreditsSubState extends MusicBeatState
 			unselected.visible = false;
 			selection.visible = false;
 			daHelpers.visible = true;
+		} else {
+			unselected.visible = true;
+			selection.visible = true;
+			daHelpers.visible = false;
 		}
 		if (controls.LEFT_P)
 		{
