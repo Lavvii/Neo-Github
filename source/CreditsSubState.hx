@@ -5,6 +5,7 @@ import flixel.tweens.FlxTween;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.input.keyboard;
 
 #if windows
 import Discord.DiscordClient;
@@ -104,7 +105,7 @@ class CreditsSubState extends MusicBeatState
 					FlxG.openURL("https://www.youtube.com/channel/UCPxqmY0IEMN6AR-dY-4C9Lg");
 			}
 		}
-		if (controls.SHIFT)
+		if (FlxG.keys.pressed.SHIFT)
 		{
 			unselected.visible = false;
 			selection.visible = false;
