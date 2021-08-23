@@ -98,11 +98,11 @@ class CreditsSubState extends MusicBeatState
 				case 5:
 					FlxG.openURL("https://twitter.com/TheWoom4");
 				case 6:
-					FlxG.openURL("https://youtube.com/channel/UCVgVvwOzvsR8pRwVy316SyA");
+					FlxG.openURL("https://www.youtube.com/c/PincerProd");
 				case 7:
 					FlxG.openURL("https://www.youtube.com/channel/UC7M0aIL8-eVSJker9p0OyUQ");
 				case 8:
-					FlxG.openURL("https://www.youtube.com/channel/UCPxqmY0IEMN6AR-dY-4C9Lg");
+					FlxG.openURL("https://twitter.com/tamacoochi");
 			}
 		}
 		if (FlxG.keys.pressed.SHIFT)
