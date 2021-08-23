@@ -5,7 +5,7 @@ import flixel.tweens.FlxTween;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.input.keyboard;
+import flixel.FlxG.keys;
 
 #if windows
 import Discord.DiscordClient;
