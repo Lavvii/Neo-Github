@@ -3,11 +3,12 @@
 	<!-- Created with Adobe Animate version 19.2.1.408 -->
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="BrightFyre" x="0" y="0" width="2760" height="942" pivotX="0" pivotY="0"/>
-	<SubTexture name="GenoX" x="0" y="942" width="2760" height="942" pivotX="0" pivotY="0"/>
-	<SubTexture name="JellyFish" x="0" y="1884" width="2760" height="942" pivotX="0" pivotY="0"/>
-	<SubTexture name="Moisty" x="0" y="2826" width="2760" height="942" pivotX="0" pivotY="0"/>
-	<SubTexture name="NoLime" x="0" y="3768" width="2760" height="942" pivotX="0" pivotY="0"/>
-	<SubTexture name="Pincer" x="0" y="4710" width="2760" height="942" pivotX="0" pivotY="0"/>
-	<SubTexture name="Smokey" x="0" y="5652" width="2760" height="942" pivotX="0" pivotY="0"/>
-	<SubTexture name="Tama" x="0" y="6594" width="2760" height="942" pivotX="0" pivotY="0"/>
+	<SubTexture name="GenoX" x="2760" y="0" width="2760" height="942" pivotX="0" pivotY="0"/>
+	<SubTexture name="JellyFish" x="0" y="942" width="2760" height="942" pivotX="0" pivotY="0"/>
+	<SubTexture name="Moisty" x="2760" y="942" width="2760" height="942" pivotX="0" pivotY="0"/>
+	<SubTexture name="NoLime" x="0" y="1884" width="2760" height="942" pivotX="0" pivotY="0"/>
+	<SubTexture name="Pincer" x="2760" y="1884" width="2760" height="942" pivotX="0" pivotY="0"/>
+	<SubTexture name="Smokey" x="0" y="2826" width="2760" height="942" pivotX="0" pivotY="0"/>
+	<SubTexture name="Tama" x="2760" y="2826" width="2760" height="942" pivotX="0" pivotY="0"/>
+	<SubTexture name="Twoop" x="0" y="3768" width="2760" height="942" pivotX="0" pivotY="0"/>
 </TextureAtlas>

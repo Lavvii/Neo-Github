@@ -12,13 +12,14 @@ import Discord.DiscordClient;
 
 class CreditsSubState extends MusicBeatState
 {
-	var curSelected:Int = 1;
+	var curSelected:Int = 2;
 	
 	var bg:FlxSprite;
 	var unselected:FlxSprite;
 	var selection:FlxSprite;
 	var credits:FlxSprite;
 	var shit:FlxSprite;
+	var daHelpers:FlxSprite;
 	
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	
@@ -37,33 +38,30 @@ class CreditsSubState extends MusicBeatState
 		unselected.y += 70;
 		unselected.alpha = 0;
 
-		shit = new FlxSprite(-600, -90);
-		//add(shit);
-		shit.loadGraphic(Paths.image('creditsAssets/Shift and escape'));
-		shit.width = FlxG.width;
-		shit.height = FlxG.height;
-
-		credits = new FlxSprite(-600, -90);
+		credits = new FlxSprite(-1300, -90);
 		add(credits);
 		credits.loadGraphic(Paths.image('creditsAssets/CREDITS'));
 
 		selection = new FlxSprite(-600, -90);
 		selection.frames = Paths.getSparrowAtlas('creditsAssets/Select');
-		selection.animation.addByPrefix('0','BrightFyre',1,true);
-		selection.animation.addByPrefix('1','JellyFish',1,true);
-		selection.animation.addByPrefix('2','GenoX',1,true);
-		selection.animation.addByPrefix('3','Smokey',1,true);
-		selection.animation.addByPrefix('4','NoLime',1,true);
-		selection.animation.addByPrefix('5','Pincer',1,true);
-		selection.animation.addByPrefix('6','Moisty',1,true);
-		selection.animation.addByPrefix('7','Tama',1,true);
+		selection.animation.addByPrefix('0','Twoop',1,true);
+		selection.animation.addByPrefix('1','BrightFyre',1,true);
+		selection.animation.addByPrefix('2','JellyFish',1,true);
+		selection.animation.addByPrefix('3','GenoX',1,true);
+		selection.animation.addByPrefix('4','Smokey',1,true);
+		selection.animation.addByPrefix('5','NoLime',1,true);
+		selection.animation.addByPrefix('6','Pincer',1,true);
+		selection.animation.addByPrefix('7','Moisty',1,true);
+		selection.animation.addByPrefix('8','Tama',1,true);
 		selection.antialiasing = true;
 		add(selection);
-		selection.animation.play('1');
+		selection.animation.play('2');
 		selection.y += 70;
 		selection.alpha = 0;
 
 		FlxTween.tween(selection,{y: selection.y - 70, alpha: 1},0.7,{ease:FlxEase.smoothStepOut});
+
+		FlxTween.linearMotion(credits, -1300, -90, -600, -90, 1, true, {type: FlxTweenType.ONESHOT, ease: FlxEase.expoInOut});
 		
 		FlxTween.tween(unselected,{y: unselected.y - 70, alpha: 1},0.7,{ease:FlxEase.smoothStepOut});
 
@@ -82,28 +80,36 @@ class CreditsSubState extends MusicBeatState
 			switch (curSelected)
 			{
 				case 0:
-					FlxG.openURL("https://www.youtube.com/c/BrightFyre/featured");
+					FlxG.openURL("https://www.youtube.com/channel/UCWbYhAfPcEIDvYiHqrTB87A");
 				case 1:
-					FlxG.openURL("https://www.youtube.com/c/JellyFishEdm");
+					FlxG.openURL("https://www.youtube.com/c/BrightFyre");
 				case 2:
-					FlxG.openURL("https://www.youtube.com/c/GenoXLOID");
+					FlxG.openURL("https://www.youtube.com/c/JellyFishEdm");
 				case 3:
-					FlxG.openURL("https://twitter.com/Smokey_5_");
+					FlxG.openURL("https://www.youtube.com/c/GenoXLOID");
 				case 4:
-					FlxG.openURL("https://twitter.com/TheWoom4");
+					FlxG.openURL("https://twitter.com/Smokey_5_");
 				case 5:
-					FlxG.openURL("https://youtube.com/channel/UCVgVvwOzvsR8pRwVy316SyA");
+					FlxG.openURL("https://twitter.com/TheWoom4");
 				case 6:
-					FlxG.openURL("https://www.youtube.com/channel/UC7M0aIL8-eVSJker9p0OyUQ");
+					FlxG.openURL("https://youtube.com/channel/UCVgVvwOzvsR8pRwVy316SyA");
 				case 7:
-					FlxG.openURL("https://www.youtube.com/channel/UCPxqmY0IEMN6AR-dY-4C9Lg/featured");
+					FlxG.openURL("https://www.youtube.com/channel/UC7M0aIL8-eVSJker9p0OyUQ");
+				case 8:
+					FlxG.openURL("https://www.youtube.com/channel/UCPxqmY0IEMN6AR-dY-4C9Lg");
 			}
 		}
-		if (controls.UP_P)
+		if (controls.SHIFT)
+		{
+			unselected.visible = false;
+			selection.visible = false;
+			daHelpers.visible = true;
+		}
+		if (controls.LEFT_P)
 		{
 			changeSelection(-1);
 		}
-		if (controls.DOWN_P)
+		if (controls.RIGHT_P)
 		{
 			changeSelection(1);
 		}
@@ -123,8 +129,8 @@ class CreditsSubState extends MusicBeatState
 		curSelected += change;
 
 		if (curSelected < 0)
-			curSelected = 7;
-		if (curSelected > 7)
+			curSelected = 8;
+		if (curSelected > 8)
 			curSelected = 0;
 
 		selection.animation.play(personShit[curSelected]);
