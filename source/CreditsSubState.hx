@@ -42,6 +42,11 @@ class CreditsSubState extends MusicBeatState
 		add(credits);
 		credits.loadGraphic(Paths.image('creditsAssets/CREDITS'));
 
+		daHelpers = new FlxSprite(-1300, -90);
+		add(daHelpers);
+		daHelpers.loadGraphic(Paths.image('creditsAssets/Helpers'));
+		daHelpers.visible = false;
+
 		selection = new FlxSprite(-600, -90);
 		selection.frames = Paths.getSparrowAtlas('creditsAssets/Select');
 		selection.animation.addByPrefix('0','Twoop',1,true);
