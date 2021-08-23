@@ -609,7 +609,7 @@ class PlayState extends MusicBeatState
 				fgSnow.setGraphicSize(Std.int(fgSnow.width * 1.25));
 				add(fgSnow);
 
-				stagecorrupted = new FlxSprite(-450, -550).loadGraphic(Paths.image('newyears/mainstagecorruption'));
+				stagecorrupted = new FlxSprite(-450, -550).loadGraphic(Paths.image('newyears/mainstagecorrupted'));
 				stagecorrupted.active = false;
 				stagecorrupted.antialiasing = true;
 				stagecorrupted.setGraphicSize(Std.int(stagecorrupted.width * 1.25));
@@ -3495,15 +3495,15 @@ class PlayState extends MusicBeatState
 		}
 
 		//fade transition in
-		if (curStage == 'mall' && curBeat == 223 && curSong.toLowerCase() == 'eggnog') 
+		if (curStage == 'mall' && curBeat == 220 && curSong.toLowerCase() == 'eggnog') 
 		{
 			blackbg.visible = true;
 			blackbg.alpha = 0;
-			FlxTween.tween(blackbg, {alpha: 1}, 9.5, {ease: FlxEase.quartInOut});
+			FlxTween.tween(blackbg, {alpha: 1}, 1.5, {ease: FlxEase.quartInOut});
 		}
 
 		//stage change
-		if (curStage == 'mall' && curBeat > 256 && curSong.toLowerCase() == 'eggnog') 
+		if (curStage == 'mall' && curBeat > 224 && curSong.toLowerCase() == 'eggnog') 
 		{
 			sky.visible = false;
 			skyCorrupt.visible = true;
@@ -3516,11 +3516,11 @@ class PlayState extends MusicBeatState
 		}
 
 		//fade transition out
-		if (curStage == 'mall' && curBeat == 256 && curSong.toLowerCase() == 'eggnog') 
+		if (curStage == 'mall' && curBeat == 224 && curSong.toLowerCase() == 'eggnog') 
 		{
 			blackbg.visible = true;
 			blackbg.alpha = 1;
-			FlxTween.tween(blackbg, {alpha: 0}, 12.3, {ease: FlxEase.quartInOut});
+			FlxTween.tween(blackbg, {alpha: 0}, 22.3, {ease: FlxEase.quartInOut});
 		}
 
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
