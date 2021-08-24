@@ -1,5 +1,6 @@
 package;
 
+import flixel.math.FlxPoint;
 import flixel.tweens.FlxEase;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -38,14 +39,14 @@ class StoryMenuState extends MusicBeatState
 
 	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, false];
 
-	var weekCharacters:Array<Dynamic> = [
-		['', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
-		['spooky', 'bf', 'gf'],
-		['pico', 'bf', 'gf'],
-		['mom', 'bf', 'gf'],
-		['parents-christmas', 'bf', 'gf'],
-		['senpai', 'bf', 'gf']
+	var weekCharacters:Array<String> = [
+		'',
+		'dad',
+		'spooky',
+		'pico',
+		'mom',
+		'parents-christmas',
+		'senpai'
 	];
 
 	var weekNames:Array<String> = [
@@ -154,9 +155,7 @@ class StoryMenuState extends MusicBeatState
 		nottop = new FlxSprite(-100, 576).loadGraphic(Paths.image("WEEK6BG2"));
 		trace("Line 96");
 
-		grpWeekCharacters.add(new MenuCharacter(850, 100, 0.5, false));
-		//grpWeekCharacters.add(new MenuCharacter(450, 25, 0.9, true));
-		//grpWeekCharacters.add(new MenuCharacter(850, 100, 0.5, true));
+		grpWeekCharacters.add(new MenuCharacter(700, 100, 0.25, false));
 
 		difficultySelectors = new FlxGroup();
 
@@ -390,9 +389,7 @@ class StoryMenuState extends MusicBeatState
 	
 		function updateText()
 		{
-			grpWeekCharacters.members[0].setCharacter(weekCharacters[curWeek][0]);
-		///	grpWeekCharacters.members[1].setCharacter(weekCharacters[curWeek][1]);
-			//grpWeekCharacters.members[2].setCharacter(weekCharacters[curWeek][2]);
+			grpWeekCharacters.members[0].setCharacter(weekCharacters[curWeek]);
 	
 			txtTracklist.text = "Tracks\n";
 			var stringThing:Array<String> = weekData[curWeek];
