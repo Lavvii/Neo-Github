@@ -170,12 +170,11 @@ class PlayState extends MusicBeatState
 	var fgFog:FlxSprite;
 	var bgEscalator:FlxSprite;
 	var fgSnow:FlxSprite;
+	var iloveSmokey;
 
 	var blackbg:FlxSprite;
 
 	var fc:Bool = true;
-	
-
 
 	var bgGirls:BackgroundGirls;
 	var wiggleShit:WiggleEffect = new WiggleEffect();
@@ -653,6 +652,8 @@ class PlayState extends MusicBeatState
 				blackbg.antialiasing = true;
 				blackbg.scrollFactor.set(0.8, 0.8);
 				blackbg.setGraphicSize(Std.int(blackbg.width * 3.60));
+
+				iloveSmokey = new Character(100, 100, 'parents-creepy');
 				
 			}
 			case 'hallucination':
@@ -3577,16 +3578,20 @@ class PlayState extends MusicBeatState
 		}
 
 		//stage change
-		if (curStage == 'mall' && curBeat > 224 && curSong.toLowerCase() == 'eggnog') 
+		if (curSong == 'Eggnog')
 		{
-			sky.visible = false;
-			skyCorrupt.visible = true;
-			bgEscalator.visible = false;
-			fgSnow.visible = false;
-			stagecorrupted.visible = true;
-			Boppers2.visible = false;
-			Boppers3.visible = false;
-			gf.visible = false;
+			if (curBeat == 224) 
+			{
+				sky.visible = false;
+				skyCorrupt.visible = true;
+				bgEscalator.visible = false;
+				fgSnow.visible = false;
+				stagecorrupted.visible = true;
+				Boppers2.visible = false;
+				Boppers3.visible = false;
+				gf.visible = false;
+				dad = iloveSmokey;
+			}
 		}
 
 		//fade transition out
