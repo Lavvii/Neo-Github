@@ -217,6 +217,15 @@ class PlayState extends MusicBeatState
 
 	private var executeModchart = false;
 
+	var hasLyrics:Bool = false;
+
+	var lyricSteps:Array<String>;
+	var curLyrStep:String = '';
+	var lyrText:String = '';
+	var lyrAdded:Bool = false;
+
+	var lyrObj:FlxText;
+
 	// API stuff
 	
 	public function addObject(object:FlxBasic) { add(object); }
@@ -234,6 +243,18 @@ class PlayState extends MusicBeatState
 		if (FlxG.sound.music != null)
 			FlxG.sound.music.stop();
 
+		hasLyrics = FileSystem.exists(Paths.lyric(PlayState.SONG.song.toLowerCase()  + "/lyrics"));
+		trace('Lyric File: ' + hasLyrics + " - " + Paths.lyric(PlayState.SONG.song.toLowerCase() + "/lyrics"));
+
+		lyricSteps = null;
+		if (hasLyrics)
+		{
+			lyricSteps = CoolUtil.coolTextFile(Paths.lyric(PlayState.SONG.song.toLowerCase() + "/lyrics"));
+			var splitStep:Array<String> = lyricSteps[0].split(":");
+			curLyrStep = splitStep[1];
+			lyrText = lyricSteps[0].substr(splitStep[1].length + 2).trim();
+		}
+
 		sicks = 0;
 		bads = 0;
 		shits = 0;
@@ -243,6 +264,8 @@ class PlayState extends MusicBeatState
 
 		repPresses = 0;
 		repReleases = 0;
+
+		lyrAdded = false;
 
 		#if windows
 		executeModchart = FileSystem.exists(Paths.lua(PlayState.SONG.song.toLowerCase()  + "/modchart"));
@@ -1119,6 +1142,16 @@ class PlayState extends MusicBeatState
 		iconP2.y = healthBar.y - (iconP2.height / 2);
 		add(iconP2);
 
+		lyrObj = new FlxText(0, 0, 0, "", 30);
+		lyrObj.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+		lyrObj.scrollFactor.set();
+		lyrObj.alignment = CENTER;
+		lyrObj.screenCenter();
+		lyrObj.x -= 450;
+		lyrObj.y += 200;
+		add(lyrObj);
+		lyrObj.text = '';
+
 		strumLineNotes.cameras = [camHUD];
 		notes.cameras = [camHUD];
 		healthBar.cameras = [camHUD];
@@ -1126,6 +1159,7 @@ class PlayState extends MusicBeatState
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
+		lyrObj.cameras = [camHUD];
 		//doof.cameras = [camDialogue];
 		//doof2.cameras = [camDialogue];
 
@@ -3435,6 +3469,19 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
+		if ((("" +curStep) == curLyrStep) && hasLyrics)
+		{
+			if (lyrAdded = false)
+			{
+				lyrAdded = true;
+			}
+			lyrObj.text = lyrText;
+			trace(lyrText);
+			lyricSteps.remove(lyricSteps[0]);
+			var splitStep:Array<String> = lyricSteps[0].split(":");
+			curLyrStep = splitStep[1];
+			lyrText = lyricSteps[0].substr(splitStep[1].length + 2).trim();
+		}
 
 
 		// yes this updates every step.

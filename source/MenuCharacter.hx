@@ -22,14 +22,12 @@ class CharacterSetting
 class MenuCharacter extends FlxSprite
 {
 	private static var settings:Map<String, CharacterSetting> = [
-		'bf' => new CharacterSetting(0, -20, 1.0, true),
-		'gf' => new CharacterSetting(50, 80, 1.5, true),
-		'dad' => new CharacterSetting(-15, 130, 0.5),
-		'spooky' => new CharacterSetting(20, 30, 0.5),
-		'pico' => new CharacterSetting(0, 0, 1.0, true),
-		'mom' => new CharacterSetting(-30, 140, 0.85),
-		'parents-christmas' => new CharacterSetting(100, 130, 0.7),
-		'senpai' => new CharacterSetting(-40, -45, 1.4)
+		'dad' => new CharacterSetting(-15, 130, 0.1),
+		'spooky' => new CharacterSetting(-60, 70, 0.1),
+		'pico' => new CharacterSetting(20, -20, 1.0, true),
+		'mom' => new CharacterSetting(-40, 40, 0.3),
+		'parents-christmas' => new CharacterSetting(70, 130, 0.05),
+		'senpai' => new CharacterSetting(-40, -60, 1.4)
 	];
 
 	private var flipped:Bool = false;
@@ -43,9 +41,6 @@ class MenuCharacter extends FlxSprite
 
 		frames = Paths.getSparrowAtlas('Neo_menu');
 
-		animation.addByPrefix('bf', "BF idle dance white", 24);
-		animation.addByPrefix('bfConfirm', 'BF idle dance white', 24, false);
-		animation.addByPrefix('gf', "GF Dancing Beat WHITE", 24);
 		animation.addByPrefix('dad', "Dad idle dance BLACK LINE", 24);
 		animation.addByPrefix('spooky', "spooky dance idle BLACK LINES", 24);
 		animation.addByPrefix('pico', "Pico menu asset", 24);
