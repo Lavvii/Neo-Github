@@ -170,9 +170,6 @@ class PlayState extends MusicBeatState
 	var fgFog:FlxSprite;
 	var bgEscalator:FlxSprite;
 	var fgSnow:FlxSprite;
-	var iloveSmokey:Character;
-
-	var blackbg:FlxSprite;
 
 	var fc:Bool = true;
 
@@ -626,15 +623,6 @@ class PlayState extends MusicBeatState
 				Boppers3.animation.addByPrefix('boplmao', "CROWD LEFT", 24, false);
 				Boppers3.antialiasing = true;
 				Boppers3.updateHitbox();
-
-				blackbg = new FlxSprite(-50, 0).loadGraphic(Paths.image('newyears/swagnothing'));
-				blackbg.alpha = 0;
-				blackbg.antialiasing = true;
-				blackbg.scrollFactor.set(0.8, 0.8);
-				blackbg.setGraphicSize(Std.int(blackbg.width * 3.60));
-
-				iloveSmokey = new Character(100, 100, 'parents-creepy');
-				
 			}
 			case 'hallucination':
 			{
@@ -962,9 +950,6 @@ class PlayState extends MusicBeatState
 			{
 				add(stageBoppers);
 			}
-
-		if (curStage == 'mall')
-			add(blackbg);
 
 		if (curStage.startsWith('illusion'))
 			add(fgFog);
@@ -3498,34 +3483,36 @@ class PlayState extends MusicBeatState
 		//fade transition in
 		if (curStage == 'mall' && curBeat == 220 && curSong.toLowerCase() == 'eggnog') 
 		{
-			blackbg.visible = true;
-			blackbg.alpha = 0;
-			FlxTween.tween(blackbg, {alpha: 1}, 1.5, {ease: FlxEase.quartInOut});
+			FlxTween.tween(FlxG.camera, {alpha: 0}, 1.5, {ease: FlxEase.quartInOut});
 		}
 
 		//stage change
-		if (curSong == 'Eggnog')
+		if (SONG.song.toLowerCase() == 'eggnog')
 		{
 			if (curBeat == 224) 
 			{
-				sky.visible = false;
-				skyCorrupt.visible = true;
-				bgEscalator.visible = false;
-				fgSnow.visible = false;
-				stagecorrupted.visible = true;
-				Boppers2.visible = false;
-				Boppers3.visible = false;
-				gf.visible = false;
-				dad = iloveSmokey;
+				sys.thread.Thread.create(function()
+				{
+					sky.visible = false;
+					skyCorrupt.visible = true;
+					bgEscalator.visible = false;
+					fgSnow.visible = false;
+					stagecorrupted.visible = true;
+					Boppers2.visible = false;
+					Boppers3.visible = false;
+					gf.visible = false;
+
+					dad.kill();
+					dad = new Character(-400, 100, 'parents-creepy');
+					add(dad);
+				});
 			}
 		}
 
 		//fade transition out
 		if (curStage == 'mall' && curBeat == 224 && curSong.toLowerCase() == 'eggnog') 
 		{
-			blackbg.visible = true;
-			blackbg.alpha = 1;
-			FlxTween.tween(blackbg, {alpha: 0}, 22.3, {ease: FlxEase.quartInOut});
+			FlxTween.tween(FlxG.camera, {alpha: 1}, 22.3, {ease: FlxEase.quartInOut});
 		}
 
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
