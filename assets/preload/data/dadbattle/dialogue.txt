@@ -3,7 +3,10 @@
 :dad:fist:You can say goodbye to those naive little dreams of yours. 
 :dad:unhappy:For good. 
 :dad:point:No one's ever outshined Daddy Dearest at his best. 
+:effect:rightSide:
 :bf:happy:Looks like I'll just need to be the first to do it then! 
 :dad:unhappy:Big talk for someone your size. 
+:effect:rightSide:
 :bf:happy:It only means that your loss will be more embarrassing! 
+:effect:rightSide:
 :bf:angry:Now, hit it!

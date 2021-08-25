@@ -167,13 +167,13 @@ class DialogueBox extends FlxSpriteGroup
 		{
 		
 
-			portraitBF = new Portrait(600, 70, "bf");
+			portraitBF = new Portrait(700, 70, "bf");
 			add(portraitBF);
 
 			portraitGF = new Portrait(170, 50, "gf");
 			add(portraitGF);
 
-			portraitDAD = new Portrait(170, 85, "dad");
+			portraitDAD = new Portrait(100, 85, "dad");
 			add(portraitDAD);
 
 			portraitSPOOKY = new Portrait(170, 190, "spooky");
@@ -187,8 +187,8 @@ class DialogueBox extends FlxSpriteGroup
 
 			//portraitMOM = new Portrait(170, 25, "mom");
 			//add(portraitMOM);
-			//portraitNOCHAR = new Portrait(0, 9999, "bf");
-			//add(portraitNOCHAR);
+			portraitNOCHAR = new Portrait(0, 9999, "bf");
+			add(portraitNOCHAR);
 			
 		}
 		
@@ -555,9 +555,9 @@ class DialogueBox extends FlxSpriteGroup
 	}
 
 	function effectFlipRight(){
-		for(i in 0...portraitArray().length){
-			portraitArray()[i].effectFlipRight();
-			}
+		//for(i in 0...portraitArray().length){
+		//	portraitArray()[i].effectFlipRight();
+		//	}
 			box.flipX = false;
 		
 	}

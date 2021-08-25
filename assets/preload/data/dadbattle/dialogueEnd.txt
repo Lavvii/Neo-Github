@@ -1,12 +1,16 @@
-:dad::unhappy:You’ve got to be kidding me. 
-:bf::happy:How does it feel to be outshined at "your best"? 
-:dad::unhappy:You’re acting like my glory days are over. So, uh, thanks for the Mid-Life Crisis, asshole. 
-:bf::confused:You talk SO MUCH man.
-:bf::angry:Just shut up and get me admitted to a gig already.
-:dad::unhappy:Fine. The Spookeez are playing in the Raveyard in a few hours, 
-:dad::unhappy:I’ll help you get a battle in with them. 
-:dad::point:They keep wiping the floor with everyone that tries to battle 'em. 
-:dad::fist:I'd love to see you get your ass handed to you by a few REAL Rock Stars. 
-:bf::happy:Thanks for the tip, I’ll be sure to kick their ass too. 
-:dad::unhappy:Ay, he’s heading over there now. Be on alert and have someone on standby in case stuff gets shakey…
-:noChar::default:Wonderful...
+:dad:unhappy:You’ve got to be kidding me. 
+:effect:rightSide:
+:bf:happy:How does it feel to be outshined at "your best"? 
+:dad:unhappy:You’re acting like my glory days are over. So, uh, thanks for the Mid-Life Crisis, asshole.
+:effect:rightSide: 
+:bf:confused:You talk SO MUCH man.
+:effect:rightSide:
+:bf:angry:Just shut up and get me admitted to a gig already.
+:dad:unhappy:Fine. The Spookeez are playing in the Raveyard in a few hours, 
+:dad:unhappy:I’ll help you get a battle in with them. 
+:dad:point:They keep wiping the floor with everyone that tries to battle 'em. 
+:dad:fist:I'd love to see you get your ass handed to you by a few REAL Rock Stars. 
+:effect:rightSide:
+:bf:happy:Thanks for the tip, I’ll be sure to kick their ass too. 
+:dad:unhappy:Ay, he’s heading over there now. Be on alert and have someone on standby in case stuff gets shakey…
+:noChar:default:Wonderful...

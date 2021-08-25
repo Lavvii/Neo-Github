@@ -1,5 +1,7 @@
 :dad:point:So, you're that kid that wants to be the next star in this place, eh? You sure you could handle it? 
+:effect:rightSide:
 :bf:happy:'Course I can! I'll sure as hell be able to handle it, maybe even better than you. 
 :dad:unhappy:Your attitude says otherwise, kid. I'll still give ya a chance at this though. 
+:effect:rightSide:
 :bf:happy:Bring it, shit lips! 
 :dad:unhappy:Alright. Your funeral.

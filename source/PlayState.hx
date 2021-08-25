@@ -50,7 +50,7 @@ class PlayState extends MusicBeatState
 	public static var bads:Int = 0;
 	public static var goods:Int = 0;
 	public static var sicks:Int = 0;
-
+	var fReturn:String;
 	public static var songPosBG:FlxSprite;
 	public static var songPosBar:FlxBar;
 
@@ -226,6 +226,7 @@ class PlayState extends MusicBeatState
 	override public function create()
 	{
 		instance = this;
+		trace(dialogueEndList);
 		
 		if (FlxG.save.data.fpsCap > 290)
 			(cast (Lib.current.getChildAt(0), Main)).setFPSCap(800);
@@ -329,14 +330,10 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (dialogueEndList.contains(SONG.song.toLowerCase()))
-		{
-			var path:String = "assets/data/" + SONG.song.toLowerCase() + "/dialogueEnd.txt";
-			if (FileSystem.exists(path))
-			{
-				dialogueEnd = CoolUtil.coolTextFile(path);
-				usesEndDialogue = true;
-			}
+		if(dialogueEndList.contains(SONG.song.toLowerCase())){
+			dialogueEnd = CoolUtil.coolTextFile("assets/data/" + SONG.song.toLowerCase() + "/dialogueEnd.txt");
+			usesEndDialogue = true;
+			trace(dialogueEnd);
 		}
 		
 
@@ -993,6 +990,7 @@ class PlayState extends MusicBeatState
 		// doof.x += 70;
 		// doof.y = FlxG.height * 0.5;
 		doof2.scrollFactor.set();
+		doof2.finishThing = endReturn;
 		
 		Conductor.songPosition = -5000;
 		
@@ -1312,8 +1310,13 @@ class PlayState extends MusicBeatState
 	function endCutscene(dialogueBox:DialogueBox){
 
 		trace("endCutscene");
+	//	var black:FlxSprite = new FlxSprite(-256, -256).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+	//	black.scrollFactor.set(0);
 		inCutscene = true;
+		//black.alpha = 0;
+		//add(black);
 		camHUD.visible = false;
+		//FlxTween.tween(black, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		vocals.stop();
 		new FlxTimer().start(0.5, function(tmr:FlxTimer)
 		{
@@ -1321,7 +1324,6 @@ class PlayState extends MusicBeatState
 		});
 
 	}
-
 
 	var startTimer:FlxTimer;
 	var perfectMode:Bool = false;
@@ -1464,6 +1466,7 @@ class PlayState extends MusicBeatState
 
 	function startSong():Void
 	{
+		trace(usesEndDialogue);
 		startingSong = false;
 		songStarted = true;
 		previousFrameTime = FlxG.game.ticks;
@@ -2486,6 +2489,7 @@ class PlayState extends MusicBeatState
 			FlxG.save.data.downscroll = false;
 		}
 
+
 		if (FlxG.save.data.fpsCap > 290)
 			(cast (Lib.current.getChildAt(0), Main)).setFPSCap(290);
 
@@ -2524,6 +2528,8 @@ class PlayState extends MusicBeatState
 
 				if (storyPlaylist.length <= 0)
 				{
+
+					fReturn = "story";
 					transIn = FlxTransitionableState.defaultTransIn;
 					transOut = FlxTransitionableState.defaultTransOut;
 
@@ -2531,11 +2537,7 @@ class PlayState extends MusicBeatState
 					{
 						LoadingState.loadAndSwitchState(new CutsceneState(), true);
 					}
-					else
-					{
-						FlxG.sound.playMusic(Paths.music('freakyMenu'));
-						FlxG.switchState(new StoryMenuState());
-					}
+				
 
 					#if windows
 					if (luaModchart != null)
@@ -2588,13 +2590,22 @@ class PlayState extends MusicBeatState
 					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + difficulty, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
 
-					LoadingState.loadAndSwitchState(new PlayState());
+					fReturn = "play";
 				}
+			
+					if(usesEndDialogue){
+						endCutscene(doof2);
+					}
+					else endReturn();
+				
 			}
+
+			
 			else
 			{
 				trace('WENT BACK TO FREEPLAY??');
-				FlxG.switchState(new FreeplayState());
+				fReturn = "free";
+				endReturn();
 			}
 		}
 	}
@@ -3389,6 +3400,22 @@ class PlayState extends MusicBeatState
 			startedMoving = false;
 		}
 	}
+
+
+	function endReturn(){
+
+		switch(fReturn){
+			case "play":
+				LoadingState.loadAndSwitchState(new PlayState());
+			case "story":
+			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			FlxG.switchState(new StoryMenuState());
+			case "free":
+			FlxG.switchState(new FreeplayState());
+		}
+
+	}
+
 
 	var danced:Bool = false;
 
