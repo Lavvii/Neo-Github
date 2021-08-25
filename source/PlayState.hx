@@ -874,7 +874,12 @@ class PlayState extends MusicBeatState
 				camPos.x += 600;
 				dad.y += 300;
 			case 'parents-christmas':
-				dad.x -= 500;
+				dad.kill();
+				dad = new Character(-400, 100, 'parents-creepy');
+				add(dad);
+				dad.kill();
+				dad = new Character(-400, 100, 'parents-christmas');
+				add(dad);
 			case 'senpai':
 				dad.x += 150;
 				dad.y += 360;
