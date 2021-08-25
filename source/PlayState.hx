@@ -574,6 +574,8 @@ class PlayState extends MusicBeatState
 
 				defaultCamZoom = 0.70;
 
+				FlxG.bitmap.add(Paths.image('characters/parents-creepy'));
+
 				sky = new FlxSprite(-1000, -500).loadGraphic(Paths.image('newyears/sky'));
 				sky.antialiasing = true;
 				sky.scrollFactor.set(0.2, 0.2);
