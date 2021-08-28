@@ -282,7 +282,6 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
 				animation.addByPrefix('hey', 'BF HEY', 24, false);
 				animation.addByPrefix('passOut', 'Bf passing out', 24, false);
-
 				animation.addByPrefix('firstDeath', "BF dies", 24, false);
 				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
 				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
@@ -300,7 +299,7 @@ class Character extends FlxSprite
 				addOffset("singLEFTmiss", 38, 0);
 				addOffset("singDOWNmiss", 6, -36);
 				addOffset("hey", 7, -1);
-				addOffset('passOut', 14, -22);
+				addOffset("passOut", 14, -22);
 				addOffset('firstDeath', 57, -13);
 				addOffset('deathLoop', 57, -17);
 				addOffset('deathConfirm', 83, 51);

@@ -129,6 +129,8 @@ class PlayState extends MusicBeatState
 	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
 	var dialogueEnd:Array<String> = ['ayooooo', 'swagcool'];
 
+	private var bfpassOut:Bool = false;
+
 	var stageLights:FlxSprite;
 	var stageCurtains:FlxSprite;
 	var stageBoppers:FlxSprite;
@@ -1905,6 +1907,17 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+		if (bfpassOut)
+		{
+			boyfriend.playAnim('passOut');
+		}
+		if (curSong == 'Eggnog')
+		{
+			if (curBeat == 288 && boyfriend.animation.curAnim.name != 'passOut')
+			{
+				boyfriend.playAnim('passOut', true);
+			}
+		}
 		#if !debug
 		perfectMode = false;
 		#end
@@ -3494,7 +3507,6 @@ class PlayState extends MusicBeatState
 	{
 		super.beatHit();
 
-
 		if (curSong.toLowerCase() == 'milf' && curBeat >= 80 && curBeat < 144 && camZooming && FlxG.camera.zoom < 1.35)
 			{
 				FlxG.camera.zoom += 0.015;
@@ -3520,11 +3532,6 @@ class PlayState extends MusicBeatState
 				dad.playAnim('danceLeft');
 			if (curBeat % 2 == 0 && dad.animOffsets.exists('danceRight'))
 				dad.playAnim('danceRight');
-		}
-
-		if (curSong.toLowerCase() == 'eggnog' && curBeat >= 287)
-		{
-			boyfriend.animation.play('passOut', true);
 		}
 
 		if (dad.curCharacter.startsWith('monster')) {
@@ -3568,11 +3575,12 @@ class PlayState extends MusicBeatState
 		}
 
 		//stage change
-		if (SONG.song.toLowerCase() == 'eggnog')
+		if (curSong == 'Eggnog')
 		{
-			if (curBeat == 224) 
+			sys.thread.Thread.create(function()
 			{
-				sys.thread.Thread.create(function()
+				var creepy = new Character(-400, 100, 'parents-creepy');
+				if (curBeat == 224) 
 				{
 					sky.visible = false;
 					skyCorrupt.visible = true;
@@ -3582,16 +3590,15 @@ class PlayState extends MusicBeatState
 					Boppers2.visible = false;
 					Boppers3.visible = false;
 					gf.visible = false;
-
-					dad.kill();
-					dad = new Character(-400, 100, 'parents-creepy');
+					remove(dad);
+					dad = creepy;
 					add(dad);
-				});
-			}
+				}
+			});
 		}
 
 		//fade transition out
-		if (curStage == 'mall' && curBeat == 224 && curSong.toLowerCase() == 'eggnog') 
+		if (curBeat == 224 && curSong == 'Eggnog') 
 		{
 			FlxTween.tween(FlxG.camera, {alpha: 1}, 22.3, {ease: FlxEase.quartInOut});
 		}
