@@ -3606,6 +3606,12 @@ class PlayState extends MusicBeatState
 			FlxTween.tween(FlxG.camera, {alpha: 1}, 22.3, {ease: FlxEase.quartInOut});
 		}
 
+		//fade transition final
+		if (curBeat == 293 && curSong.toLowerCase() == 'eggnog') 
+		{
+			FlxTween.tween(FlxG.camera, {alpha: 0}, 1.5, {ease: FlxEase.quartInOut});
+		}
+
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
 		{
 			if (SONG.notes[Math.floor(curStep / 16)].changeBPM)
