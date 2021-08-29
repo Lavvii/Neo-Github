@@ -1913,9 +1913,12 @@ class PlayState extends MusicBeatState
 		}
 		if (curSong == 'Eggnog')
 		{
-			if (curBeat == 288 && boyfriend.animation.curAnim.name != 'passOut')
+			if (boyfriend.animation.curAnim.name != 'passOut')
 			{
-				boyfriend.playAnim('passOut', true);
+				if (curBeat == 288)
+				{
+					boyfriend.playAnim('passOut', true);
+				}
 			}
 		}
 		#if !debug
@@ -3641,7 +3644,7 @@ class PlayState extends MusicBeatState
 			gf.dance();
 		}
 
-		if (!boyfriend.animation.curAnim.name.startsWith("sing"))
+		if (boyfriend.animation.curAnim.name != 'passOut' && !boyfriend.animation.curAnim.name.startsWith("sing"))
 		{
 			boyfriend.playAnim('idle');
 		}
