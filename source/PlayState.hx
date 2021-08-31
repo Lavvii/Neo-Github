@@ -600,20 +600,18 @@ class PlayState extends MusicBeatState
 				NEO.animation.addByPrefix('swag', "Week 5 Firework Blue", 24, false);
 				NEO.antialiasing = true;
 				NEO.scrollFactor.set(0.25, 0.25);
-				NEO.setGraphicSize(Std.int(NEO.width * 1.3));
+				NEO.setGraphicSize(Std.int(NEO.width * 1.5));
 				NEO.updateHitbox();
 				add(NEO);
-				NEO.alpha = 0;
 
 				fire = new FlxSprite(300, -100);
 				fire.frames = Paths.getSparrowAtlas('newyears/FireworkNeo');
 				fire.animation.addByPrefix('swag2', "Week 5 Firework", 24, false);
 				fire.antialiasing = true;
 				fire.scrollFactor.set(0.35, 0.35);
-				fire.setGraphicSize(Std.int(fire.width * 1.3));
+				fire.setGraphicSize(Std.int(fire.width * 1.6));
 				fire.updateHitbox();
 				add(fire);
-				fire.alpha = 0;
 
 				bgEscalator = new FlxSprite(-1100, -600).loadGraphic(Paths.image('newyears/buildings'));
 				bgEscalator.antialiasing = true;
@@ -3545,29 +3543,17 @@ class PlayState extends MusicBeatState
 		}
 
 		//fireworks
-		if (curStage == 'mall') 
+		if ((curStage == 'mall' && curSong != 'Eggnog') || (curSong == 'Eggnog' && curBeat < 224)) 
 		{
-			fire.alpha = 0;
-			NEO.alpha = 0;
 			if (FlxG.random.bool(13))
 			{
 				FlxG.sound.play(Paths.sound('firework'));
-				NEO.alpha = 1;
 				NEO.animation.play('swag');
-				new FlxTimer().start(4.3, function(tmr:FlxTimer)
-				{
-					NEO.alpha = 0;
-				});
 			}
 			if (FlxG.random.bool(20))
 			{
 				FlxG.sound.play(Paths.sound('firework2'));
-				fire.alpha = 1;
 				fire.animation.play('swag2');
-				new FlxTimer().start(4.3, function(tmr:FlxTimer)
-				{
-					fire.alpha = 0;
-				});
 			}
 		}
 
