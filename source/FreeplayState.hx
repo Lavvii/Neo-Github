@@ -192,10 +192,10 @@ class FreeplayState extends MusicBeatState
 		if (FlxG.sound.music != null)
             Conductor.songPosition = FlxG.sound.music.time;
 
-		if (FlxG.sound.music.volume < 0.7)
+		/*if (FlxG.sound.music.volume < 0.7)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
-		}
+		}*/
 
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, 0.4));
 
@@ -315,7 +315,7 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		#if PRELOAD_ALL
-		FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
+		FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 1);
 		#end
 
 		Conductor.changeBPM(bpms[curSelected]);

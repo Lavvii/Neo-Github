@@ -100,7 +100,7 @@ class CreditsSubState extends MusicBeatState
 				case 6:
 					FlxG.openURL("https://www.youtube.com/c/PincerProd");
 				case 7:
-					FlxG.openURL("https://www.youtube.com/channel/UC7M0aIL8-eVSJker9p0OyUQ");
+					trace('Moisty from fnf lolol');
 				case 8:
 					FlxG.openURL("https://twitter.com/tamacoochi");
 			}

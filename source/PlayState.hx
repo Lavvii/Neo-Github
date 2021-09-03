@@ -129,6 +129,8 @@ class PlayState extends MusicBeatState
 	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
 	var dialogueEnd:Array<String> = ['ayooooo', 'swagcool'];
 
+	private var bfpassOut:Bool = false;
+
 	var stageLights:FlxSprite;
 	var stageCurtains:FlxSprite;
 	var stageBoppers:FlxSprite;
@@ -171,11 +173,7 @@ class PlayState extends MusicBeatState
 	var bgEscalator:FlxSprite;
 	var fgSnow:FlxSprite;
 
-	var blackbg:FlxSprite;
-
 	var fc:Bool = true;
-	
-
 
 	var bgGirls:BackgroundGirls;
 	var wiggleShit:WiggleEffect = new WiggleEffect();
@@ -579,6 +577,8 @@ class PlayState extends MusicBeatState
 
 				defaultCamZoom = 0.70;
 
+				FlxG.bitmap.add(Paths.image('characters/parents-creepy'));
+
 				sky = new FlxSprite(-1000, -500).loadGraphic(Paths.image('newyears/sky'));
 				sky.antialiasing = true;
 				sky.scrollFactor.set(0.2, 0.2);
@@ -601,20 +601,18 @@ class PlayState extends MusicBeatState
 				NEO.animation.addByPrefix('swag', "Week 5 Firework Blue", 24, false);
 				NEO.antialiasing = true;
 				NEO.scrollFactor.set(0.25, 0.25);
-				NEO.setGraphicSize(Std.int(NEO.width * 1.3));
+				NEO.setGraphicSize(Std.int(NEO.width * 1.5));
 				NEO.updateHitbox();
 				add(NEO);
-				NEO.alpha = 0;
 
 				fire = new FlxSprite(300, -100);
 				fire.frames = Paths.getSparrowAtlas('newyears/FireworkNeo');
 				fire.animation.addByPrefix('swag2', "Week 5 Firework", 24, false);
 				fire.antialiasing = true;
 				fire.scrollFactor.set(0.35, 0.35);
-				fire.setGraphicSize(Std.int(fire.width * 1.3));
+				fire.setGraphicSize(Std.int(fire.width * 1.6));
 				fire.updateHitbox();
 				add(fire);
-				fire.alpha = 0;
 
 				bgEscalator = new FlxSprite(-1100, -600).loadGraphic(Paths.image('newyears/buildings'));
 				bgEscalator.antialiasing = true;
@@ -648,13 +646,6 @@ class PlayState extends MusicBeatState
 				Boppers3.animation.addByPrefix('boplmao', "CROWD LEFT", 24, false);
 				Boppers3.antialiasing = true;
 				Boppers3.updateHitbox();
-
-				blackbg = new FlxSprite(-50, 0).loadGraphic(Paths.image('newyears/swagnothing'));
-				blackbg.alpha = 0;
-				blackbg.antialiasing = true;
-				blackbg.scrollFactor.set(0.8, 0.8);
-				blackbg.setGraphicSize(Std.int(blackbg.width * 3.60));
-				
 			}
 			case 'hallucination':
 			{
@@ -884,7 +875,12 @@ class PlayState extends MusicBeatState
 				camPos.x += 600;
 				dad.y += 300;
 			case 'parents-christmas':
-				dad.x -= 500;
+				dad.kill();
+				dad = new Character(-400, 100, 'parents-creepy');
+				add(dad);
+				dad.kill();
+				dad = new Character(-400, 100, 'parents-christmas');
+				add(dad);
 			case 'senpai':
 				dad.x += 150;
 				dad.y += 360;
@@ -982,9 +978,6 @@ class PlayState extends MusicBeatState
 			{
 				add(stageBoppers);
 			}
-
-		if (curStage == 'mall')
-			add(blackbg);
 
 		if (curStage.startsWith('illusion'))
 			add(fgFog);
@@ -1913,6 +1906,20 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+		if (bfpassOut)
+		{
+			boyfriend.playAnim('passOut');
+		}
+		if (curSong == 'Eggnog')
+		{
+			if (boyfriend.animation.curAnim.name != 'passOut')
+			{
+				if (curBeat == 288)
+				{
+					boyfriend.playAnim('passOut', true);
+				}
+			}
+		}
 		#if !debug
 		perfectMode = false;
 		#end
@@ -3502,7 +3509,6 @@ class PlayState extends MusicBeatState
 	{
 		super.beatHit();
 
-
 		if (curSong.toLowerCase() == 'milf' && curBeat >= 80 && curBeat < 144 && camZooming && FlxG.camera.zoom < 1.35)
 			{
 				FlxG.camera.zoom += 0.015;
@@ -3530,11 +3536,6 @@ class PlayState extends MusicBeatState
 				dad.playAnim('danceRight');
 		}
 
-		if (curSong.toLowerCase() == 'eggnog' && curBeat >= 287)
-		{
-			boyfriend.animation.play('passOut', true);
-		}
-
 		if (dad.curCharacter.startsWith('monster')) {
 			if (curBeat % 2 == 1)
 				health -= 0.0175;
@@ -3543,59 +3544,59 @@ class PlayState extends MusicBeatState
 		}
 
 		//fireworks
-		if (curStage == 'mall') 
+		if ((curStage == 'mall' && curSong != 'Eggnog') || (curSong == 'Eggnog' && curBeat < 224)) 
 		{
-			fire.alpha = 0;
-			NEO.alpha = 0;
 			if (FlxG.random.bool(13))
 			{
 				FlxG.sound.play(Paths.sound('firework'));
-				NEO.alpha = 1;
 				NEO.animation.play('swag');
-				new FlxTimer().start(4.3, function(tmr:FlxTimer)
-				{
-					NEO.alpha = 0;
-				});
 			}
 			if (FlxG.random.bool(20))
 			{
 				FlxG.sound.play(Paths.sound('firework2'));
-				fire.alpha = 1;
 				fire.animation.play('swag2');
-				new FlxTimer().start(4.3, function(tmr:FlxTimer)
-				{
-					fire.alpha = 0;
-				});
 			}
 		}
 
 		//fade transition in
 		if (curStage == 'mall' && curBeat == 220 && curSong.toLowerCase() == 'eggnog') 
 		{
-			blackbg.visible = true;
-			blackbg.alpha = 0;
-			FlxTween.tween(blackbg, {alpha: 1}, 1.5, {ease: FlxEase.quartInOut});
+			FlxTween.tween(FlxG.camera, {alpha: 0}, 1.5, {ease: FlxEase.quartInOut});
 		}
 
 		//stage change
-		if (curStage == 'mall' && curBeat > 224 && curSong.toLowerCase() == 'eggnog') 
+		if (curSong == 'Eggnog')
 		{
-			sky.visible = false;
-			skyCorrupt.visible = true;
-			bgEscalator.visible = false;
-			fgSnow.visible = false;
-			stagecorrupted.visible = true;
-			Boppers2.visible = false;
-			Boppers3.visible = false;
-			gf.visible = false;
+			sys.thread.Thread.create(function()
+			{
+				var creepy = new Character(-400, 100, 'parents-creepy');
+				if (curBeat == 224) 
+				{
+					sky.visible = false;
+					skyCorrupt.visible = true;
+					bgEscalator.visible = false;
+					fgSnow.visible = false;
+					stagecorrupted.visible = true;
+					Boppers2.visible = false;
+					Boppers3.visible = false;
+					gf.visible = false;
+					remove(dad);
+					dad = creepy;
+					add(dad);
+				}
+			});
 		}
 
 		//fade transition out
-		if (curStage == 'mall' && curBeat == 224 && curSong.toLowerCase() == 'eggnog') 
+		if (curBeat == 224 && curSong == 'Eggnog') 
 		{
-			blackbg.visible = true;
-			blackbg.alpha = 1;
-			FlxTween.tween(blackbg, {alpha: 0}, 22.3, {ease: FlxEase.quartInOut});
+			FlxTween.tween(FlxG.camera, {alpha: 1}, 22.3, {ease: FlxEase.quartInOut});
+		}
+
+		//fade transition final
+		if (curBeat == 293 && curSong.toLowerCase() == 'eggnog') 
+		{
+			FlxTween.tween(FlxG.camera, {alpha: 0}, 1.5, {ease: FlxEase.quartInOut});
 		}
 
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
@@ -3636,7 +3637,7 @@ class PlayState extends MusicBeatState
 			gf.dance();
 		}
 
-		if (!boyfriend.animation.curAnim.name.startsWith("sing"))
+		if (boyfriend.animation.curAnim.name != 'passOut' && !boyfriend.animation.curAnim.name.startsWith("sing"))
 		{
 			boyfriend.playAnim('idle');
 		}

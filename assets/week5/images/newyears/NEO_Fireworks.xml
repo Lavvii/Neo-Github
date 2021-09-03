@@ -24,4 +24,5 @@
 	<SubTexture name="Week 5 Firework Blue0019" x="386" y="466" width="372" height="195" frameX="-35" frameY="-47" frameWidth="452" frameHeight="555"/>
 	<SubTexture name="Week 5 Firework Blue0020" x="386" y="466" width="372" height="195" frameX="-35" frameY="-47" frameWidth="452" frameHeight="555"/>
 	<SubTexture name="Week 5 Firework Blue0021" x="768" y="466" width="0" height="0" frameX="159" frameY="-375" frameWidth="452" frameHeight="555"/>
+	<SubTexture name="Week 5 Firework Blue0022" x="0" y="0" width="22" height="35" frameX="-75" frameY="-520" frameWidth="452" frameHeight="555"/>
 </TextureAtlas>

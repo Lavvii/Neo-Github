@@ -282,7 +282,6 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
 				animation.addByPrefix('hey', 'BF HEY', 24, false);
 				animation.addByPrefix('passOut', 'Bf passing out', 24, false);
-
 				animation.addByPrefix('firstDeath', "BF dies", 24, false);
 				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
 				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
@@ -300,7 +299,7 @@ class Character extends FlxSprite
 				addOffset("singLEFTmiss", 38, 0);
 				addOffset("singDOWNmiss", 6, -36);
 				addOffset("hey", 7, -1);
-				addOffset('passOut', 14, -22);
+				addOffset("passOut", 14, -22);
 				addOffset('firstDeath', 57, -13);
 				addOffset('deathLoop', 57, -17);
 				addOffset('deathConfirm', 83, 51);
@@ -518,6 +517,34 @@ class Character extends FlxSprite
 				addOffset("singDOWN-alt", -30, -27);
 
 				healthbarColor = FlxColor.fromRGB(0,234,255);
+
+				playAnim('idle');
+
+			case 'parents-creepy':
+				frames = Paths.getSparrowAtlas('characters/Parents_assets');
+				animation.addByPrefix('idle', 'Parent Christmas Idle', 24, false);
+				animation.addByPrefix('singUP', 'Parent Up Note Dad', 24, false);
+				animation.addByPrefix('singDOWN', 'Parent Down Note Dad', 24, false);
+				animation.addByPrefix('singLEFT', 'Parent Left Note Dad', 24, false);
+				animation.addByPrefix('singRIGHT', 'Parent Right Note Dad', 24, false);
+
+				animation.addByPrefix('singUP-alt', 'Parent Up Note Mom', 24, false);
+
+				animation.addByPrefix('singDOWN-alt', 'Parent Down Note Mom', 24, false);
+				animation.addByPrefix('singLEFT-alt', 'Parent Left Note Mom', 24, false);
+				animation.addByPrefix('singRIGHT-alt', 'Parent Right Note Mom', 24, false);
+
+				addOffset('idle');
+				addOffset("singUP", -47, 24);
+				addOffset("singRIGHT", -1, -23);
+				addOffset("singLEFT", -30, 16);
+				addOffset("singDOWN", -31, -29);
+				addOffset("singUP-alt", -47, 24);
+				addOffset("singRIGHT-alt", -1, -24);
+				addOffset("singLEFT-alt", -30, 15);
+				addOffset("singDOWN-alt", -30, -27);
+
+				healthbarColor = FlxColor.fromRGB(255,0,7);
 
 				playAnim('idle');
 		}
