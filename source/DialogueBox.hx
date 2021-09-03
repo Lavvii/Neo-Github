@@ -185,8 +185,8 @@ class DialogueBox extends FlxSpriteGroup
 			//portraitPICO = new Portrait(170, 85, "pico");
 			//add(portraitPICO);
 
-			//portraitMOM = new Portrait(170, 25, "mom");
-			//add(portraitMOM);
+			portraitMOM = new Portrait(120, 25, "mom");
+			add(portraitMOM);
 			portraitNOCHAR = new Portrait(0, 9999, "bf");
 			add(portraitNOCHAR);
 			
@@ -518,7 +518,7 @@ class DialogueBox extends FlxSpriteGroup
 
 	function portraitArray(){
 	//Why? i don't know, i was bored and hey it's easier to work with
-	var portraitArray = [portraitBF,portraitGF,portraitDAD,portraitSPOOKY];
+	var portraitArray = [portraitBF,portraitGF,portraitDAD,portraitSPOOKY,portraitMOM];
 	return portraitArray;
 	}
 	

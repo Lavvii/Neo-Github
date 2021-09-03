@@ -15,7 +15,7 @@ class Portrait extends FlxSprite
 
     private var resize = 0.35;
 
-    private var characters:Array<String> = ["bf", "gf", "dad", "spooky", "monster", "pico"];
+    private var characters:Array<String> = ["bf", "gf", "dad", "spooky", "monster", "pico",'mom'];
 
     var posTween:FlxTween;
     var alphaTween:FlxTween;
@@ -95,6 +95,13 @@ class Portrait extends FlxSprite
                 addAnim("shout", "pico shout.png");
                 addAnim("smile", "pico smile.png");
                 animation.play("default");
+            case 'mom':
+                addAnim('happy','happy');
+                addAnim('laugh','laugh');
+                addAnim('mad','mad');
+                addAnim('point','point');
+                animation.play("happy");
+
             
         }
 

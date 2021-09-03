@@ -1,0 +1,10 @@
+:mom:happy:Hey, welcome to the top, hun. You're really good at this!
+:effect:rightSide:
+:bf:happy:Thanks. I didn't know reaching here was so easy. So what next?
+:mom:happy:Well, although you're here, it's not worth it. People need to know you're here.
+:effect:rightSide:
+:bf:confused:And how do we do that?
+:mom:point:Well, by recording a battle!
+:effect:rightSide:
+:bf:confused:I don't see anything special in that.
+:mom:happy:Oh, you'll see. Follow me.

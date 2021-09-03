@@ -323,11 +323,12 @@ class PlayState extends MusicBeatState
 		camGame = new FlxCamera();
 		camHUD = new FlxCamera();
 		camDialogue = new FlxCamera();
+		camDialogue.bgColor.alpha = 0;
 		camHUD.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
-	//	FlxG.cameras.add(camDialogue);
+		FlxG.cameras.add(camDialogue);
 		FlxCamera.defaultCameras = [camGame];
 
 		persistentUpdate = true;
@@ -1160,8 +1161,8 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		lyrObj.cameras = [camHUD];
-		//doof.cameras = [camDialogue];
-		//doof2.cameras = [camDialogue];
+		doof.cameras = [camDialogue];
+		doof2.cameras = [camDialogue];
 
 		if (FlxG.save.data.songPosition)
 		{
