@@ -1,0 +1,7 @@
+:effect:rightSide:
+bf:sweat:Who the hell are you!?!
+monster:lemon1:No need to chat... just come with me and everything will be okay... for everyone
+monster:lemon2:If you're smart you'll just come with us...
+:effect:rightSide:
+bf:angry:FUCK YOU, I'll kick your ass, man
+monster:lemon1:So unwise...

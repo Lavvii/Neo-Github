@@ -1,10 +1,22 @@
-:mom:happy:Hey, welcome to the top, hun. You're really good at this!
 :effect:rightSide:
-:bf:happy:Thanks. I didn't know reaching here was so easy. So what next?
-:mom:happy:Well, although you're here, it's not worth it. People need to know you're here.
+:bf:angry:WHAT THE HELL IS WRONG WITH YOU, WOMAN?!
+:mom:laugh:What’s the matter? Got a lil’ stage fright?
 :effect:rightSide:
-:bf:confused:And how do we do that?
-:mom:point:Well, by recording a battle!
+:bf:sweat:It’s not that…
 :effect:rightSide:
-:bf:confused:I don't see anything special in that.
-:mom:happy:Oh, you'll see. Follow me.
+:bf:sweat:It’s just…
+:effect:rightSide:
+:bf:sweat:Y’know...
+:effect:rightSide:
+:bf:angry:WE ARE ON TOP OF A FUCKING PLANE!
+:gf:blush:I know! The view is amazing from up here!
+:mom:laugh:Don’t tell me you're afraid of a mere thirty four thousand seven hundred and ten foot drop!
+:effect:rightSide:
+:bf:sweat:…
+:mom:laugh:Anyways, roll the cameras!
+:mom:point:You know what to do, right glowsdick?
+:effect:rightSide:
+:bf:confused:You mean “glowstick” right?
+:mom:default: :)
+:effect:rightSide:
+:bf:sweat:… right!?

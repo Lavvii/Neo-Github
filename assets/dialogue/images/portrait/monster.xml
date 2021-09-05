@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="noLime and moisty do last min grinding.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="lemon frame 10000" x="0" y="0" width="828" height="593"/>
+	<SubTexture name="lemon frame 20000" x="838" y="0" width="648" height="499" frameX="-65" frameY="-23" frameWidth="828" frameHeight="593"/>
+</TextureAtlas>

@@ -116,8 +116,6 @@ class Init extends FlxUIState
 		if (StoryMenuState.weekUnlocked[5] || isDebug)
 			FreeplayState.addWeek(['Cocoa', 'Eggnog', 'Hallucination'], 5, ['parents-christmas', 'parents-christmas', 'monster-christmas']);
 
-		if (StoryMenuState.weekUnlocked[6] || isDebug)
-			FreeplayState.addWeek(['Senpai', 'Roses', 'Thorns'], 6, ['senpai', 'senpai-angry', 'spirit']);
 
         loadTxt.text = "Loading Sounds";
 

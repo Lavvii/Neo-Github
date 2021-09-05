@@ -1,4 +1,5 @@
-:gf::blush:BF you were amazing!
-:bf::happy:Aww thanks bab-
-:dad::unhappy:Am I interrupting???
-:dad::fist:Stop yammering you two… ITS SHOWTIME!!!
+:gf:blush:BF you were amazing!
+:effect:rightSide:
+:bf:happy:Aww thanks bab-
+:dad:smirk:Am I interrupting???
+:dad:point:Stop yammering you two… ITS SHOWTIME!!!

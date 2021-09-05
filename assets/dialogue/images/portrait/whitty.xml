@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Whitty dialouge assets.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="whitty10000" x="0" y="0" width="379" height="444"/>
+	<SubTexture name="whitty20000" x="389" y="0" width="343" height="444" frameX="-25" frameY="0" frameWidth="379" frameHeight="444"/>
+</TextureAtlas>

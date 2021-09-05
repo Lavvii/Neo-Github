@@ -1,0 +1,26 @@
+:effect:rightSide:
+:bf:grimace:The raveyard. This is gonna be easy game, don't ya think, GF?
+:gf:blush:Yeah! Whoever we're going against I'm sure you'll destroy them, babe.
+:effect:rightSide:
+:bf:confused:Hey you kids! We're here for the rap battle against the Spookeez, we heard they were playing here in a bit. You know where they are?
+:spooky:irritated:That would be us! Can't you recognize us you dickweed? We were just about to head on stage!
+:spooky:default:Yeah, dickweed!
+:effect:rightSide:
+:bf:sweat:(Dumbfounded)
+:effect:rightSide:
+:bf:angry:You got some sharp tongues for kids your age. 
+:spooky:angry:Yeah, so what!? 
+:spooky:default:Yeah! So what?
+:effect:rightSide:
+:bf:sweat:...
+:spooky:scared:(Whsipering) Skid, didn't he say something about a battle?
+:effect:rightSide:
+:bf:grimace:Well at least one of you kids listened!
+:spooky:irritated:...
+:spooky:angry:If you want the battle, then you came to the right place! We're gonna beat you so hard that you're gonna be 6 feet under! 
+:spooky:default:Yeah! This'll be easy!
+:spooky:default:(Whispering) ...Skid, we still need to get on stage. 
+:spooky:default:Oh yeah.
+:spooky:point:AHEM! We still need to give the audience a performance, they came here for a reason! To hear us play!
+:effect:rightSide:
+:bf:grimace:Then let's give the audience a show!

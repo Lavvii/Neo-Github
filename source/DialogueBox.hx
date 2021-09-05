@@ -53,7 +53,7 @@ class DialogueBox extends FlxSpriteGroup
 	var portraitPICO:Portrait;
 	var portraitMOM:Portrait;
 	var portraitNOCHAR:Portrait;
-
+	var portraitWHITTY:Portrait;
 	var portraitLeft:FlxSprite;
 	var portraitRight:FlxSprite;
 	
@@ -170,20 +170,22 @@ class DialogueBox extends FlxSpriteGroup
 			portraitBF = new Portrait(700, 70, "bf");
 			add(portraitBF);
 
-			portraitGF = new Portrait(170, 50, "gf");
+			portraitGF = new Portrait(170, 120, "gf");
 			add(portraitGF);
 
 			portraitDAD = new Portrait(100, 85, "dad");
 			add(portraitDAD);
 
-			portraitSPOOKY = new Portrait(170, 190, "spooky");
+			portraitSPOOKY = new Portrait(120, 110, "spooky");
 			add(portraitSPOOKY);
+			portraitWHITTY = new Portrait(120, 110, "whitty");
+			add(portraitWHITTY);
 
-			//portraitMONSTER = new Portrait(170, 125, "monster");
-			//add(portraitMONSTER);
+			portraitMONSTER = new Portrait(170, 125, "monster");
+			add(portraitMONSTER);
 
-			//portraitPICO = new Portrait(170, 85, "pico");
-			//add(portraitPICO);
+			portraitPICO = new Portrait(170, 85, "pico");
+			add(portraitPICO);
 
 			portraitMOM = new Portrait(120, 25, "mom");
 			add(portraitMOM);
@@ -233,13 +235,13 @@ class DialogueBox extends FlxSpriteGroup
 		add(dropText);
 		skipText = new FlxText(5, 695, 640, "Press SPACE to skip the dialogue.\n", 40);
 		skipText.scrollFactor.set(0, 0);
-		skipText.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		skipText.setFormat(Paths.font("hyeon.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		skipText.borderSize = 2;
 		skipText.borderQuality = 1;
 		add(skipText);
 
 		swagDialogue = new FlxTypeText(140, 510, Std.int(FlxG.width * 0.6), "", 32);
-		swagDialogue.font = 'Pixel Arial 11 Bold';
+		swagDialogue.font = Paths.font('neuropolitical rg.ttf');
 		swagDialogue.color = FlxColor.WHITE;
 		swagDialogue.finishSounds = true;
 		swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 0.6)];
@@ -386,6 +388,8 @@ class DialogueBox extends FlxSpriteGroup
 				
 			case "mom":
 				portraitMOM.playFrame(curAnim);
+			case "whitty":
+				portraitWHITTY.playFrame(curAnim);
 				
 		
 
@@ -518,7 +522,7 @@ class DialogueBox extends FlxSpriteGroup
 
 	function portraitArray(){
 	//Why? i don't know, i was bored and hey it's easier to work with
-	var portraitArray = [portraitBF,portraitGF,portraitDAD,portraitSPOOKY,portraitMOM];
+	var portraitArray = [portraitBF,portraitGF,portraitDAD,portraitSPOOKY,portraitMOM,portraitMONSTER,portraitWHITTY];
 	return portraitArray;
 	}
 	

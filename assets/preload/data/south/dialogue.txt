@@ -1,0 +1,6 @@
+:spooky:angry:...
+:spooky:irritated:Okay, that wasn’t bad! But it was just beginner’s luck! You can’t keep up with our next songs!
+spooky:default:Yeah! We just went easy on you!
+:effect:rightSide:
+:bf:grimace:If ya say so.
+:spooky:angry:Next song!

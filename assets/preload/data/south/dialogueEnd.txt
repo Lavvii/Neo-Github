@@ -1,0 +1,15 @@
+:effect:rightSide:
+:bf:grimace:Was that also just “beginner’s luck”?
+:spooky:irritated:Yeah! W-we just went medium on you!
+:spooky:default:(Whisper) My throat kinda hurts, Skid.
+:spooky:irritated:(Whisper) One more song.
+:effect:rightSide:
+:bf:happy:Sure sure, so you actually gonna do “your best” this time around?
+:spooky:angry:Yeah! No more going easy on you!
+:spooky:default:Yeah! We’re gonna beat you this time around-
+:nochar:default:*CRASH*
+:nochar:default:*the crowd runs out in a panic*
+:spooky:scared:WHAT IS THAT!?
+:spooky:nope:LET'S GET THE HELL OUT OF HERE!
+:monster:lemon1:Oh, did I crash your little party...? That's too bad, as this'll be the last time you see anyone else...
+:monster:lemon2:After all, I can't let you experience the burden I've carried for the past 7 years...
