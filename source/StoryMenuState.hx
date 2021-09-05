@@ -155,7 +155,7 @@ class StoryMenuState extends MusicBeatState
 		nottop = new FlxSprite(-100, 576).loadGraphic(Paths.image("WEEK6BG2"));
 		trace("Line 96");
 
-		grpWeekCharacters.add(new MenuCharacter(700, 100, 0.25, false));
+		grpWeekCharacters.add(new MenuCharacter(550, 260, 0.25, false));
 
 		difficultySelectors = new FlxGroup();
 

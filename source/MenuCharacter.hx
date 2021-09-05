@@ -22,12 +22,12 @@ class CharacterSetting
 class MenuCharacter extends FlxSprite
 {
 	private static var settings:Map<String, CharacterSetting> = [
-		'dad' => new CharacterSetting(-15, 130, 0.1),
-		'spooky' => new CharacterSetting(-60, 70, 0.1),
+		'dad' => new CharacterSetting(-15, 130, 1),
+		'spooky' => new CharacterSetting(-60, 70, 1),
 		'pico' => new CharacterSetting(20, -20, 1.0, true),
-		'mom' => new CharacterSetting(-40, 40, 0.3),
-		'parents-christmas' => new CharacterSetting(70, 130, 0.05),
-		'senpai' => new CharacterSetting(-40, -60, 1.4)
+		'mom' => new CharacterSetting(-40, 40, 1),
+		'parents-christmas' => new CharacterSetting(70, 130, 1),
+		'senpai' => new CharacterSetting(-40, -60, 1)
 	];
 
 	private var flipped:Bool = false;
@@ -39,17 +39,17 @@ class MenuCharacter extends FlxSprite
 
 		antialiasing = true;
 
-		frames = Paths.getSparrowAtlas('Neo_menu');
+		frames = Paths.getSparrowAtlas('menuAssets/storyShit');
 
-		animation.addByPrefix('dad', "Dad idle dance BLACK LINE", 24);
-		animation.addByPrefix('spooky', "spooky dance idle BLACK LINES", 24);
-		animation.addByPrefix('pico', "Pico menu asset", 24);
-		animation.addByPrefix('mom', "Mom Idle BLACK LINES", 24);
-		animation.addByPrefix('parents-christmas', "Parent Christmas Idle Black Lines", 24);
+		animation.addByPrefix('dad', "Week 1", 24);
+		animation.addByPrefix('spooky', "Week 2", 24);
+		animation.addByPrefix('pico', "Week 3", 24);
+		animation.addByPrefix('mom', "week 4", 24);
+		animation.addByPrefix('parents-christmas', "week 5", 24);
 		animation.addByPrefix('senpai', "SENPAI idle Black Lines", 24);
 
-		setGraphicSize(Std.int(width * scale));
-		updateHitbox();
+		//setGraphicSize(Std.int(width * scale));
+		//updateHitbox();
 	}
 
 	public function setCharacter(character:String):Void
@@ -67,8 +67,8 @@ class MenuCharacter extends FlxSprite
 		animation.play(character);
 
 		var setting:CharacterSetting = settings[character];
-		offset.set(setting.x, setting.y);
-		setGraphicSize(Std.int(width * setting.scale));
+		//offset.set(setting.x, setting.y);
+		//setGraphicSize(Std.int(width * setting.scale));
 		flipX = setting.flipped != flipped;
 	}
 }
