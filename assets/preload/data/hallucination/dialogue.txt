@@ -9,7 +9,7 @@
 :bf:sweat:I beg to differ.
 :effect:rightSide:
 :bf:angry:The fuck you want this time?
-.monster:lemon1:I want to protect you.
+:monster:lemon1:I want to protect you.
 :effect:rightSide:
 :bf:angry:Bullshit.
 :monster:lemon2:I don't entirely believe you know the potential suffering that you will face in the near future...

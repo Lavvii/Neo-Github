@@ -326,9 +326,8 @@ class FPSOption extends Option
 
 	public override function press():Bool
 	{
-		FlxG.save.data.fps = !FlxG.save.data.fps;
-		(cast (Lib.current.getChildAt(0), Main)).toggleFPS(FlxG.save.data.fps);
-		display = updateDisplay();
+		trace('fuck off');
+		
 		return true;
 	}
 

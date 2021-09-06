@@ -3447,13 +3447,16 @@ class PlayState extends MusicBeatState
 			case "play":
 				LoadingState.loadAndSwitchState(new PlayState());
 			case "story":
-			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 			if (SONG.song.toLowerCase() == 'hallucination')
-				{
-					LoadingState.loadAndSwitchState(new CutsceneState(), true);
-				}
+			{
+				LoadingState.loadAndSwitchState(new CutsceneState(), true);
+			}
 			else
-			FlxG.switchState(new StoryMenuState());
+			{
+				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				FlxG.switchState(new StoryMenuState());
+			}
+
 			case "free":
 			FlxG.switchState(new FreeplayState());
 		}

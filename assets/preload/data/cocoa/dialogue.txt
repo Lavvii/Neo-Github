@@ -1,18 +1,18 @@
 :effect:rightSide:
-bf:happy:Wow, this party is amazing!
+:bf:happy:Wow, this party is amazing!
 :effect:rightSide:
-bf:happy:So many big faces, so much food, so much-
-gf:blush:Shouldn't we be meeting up with my parents, BF?
-gf:blush:Mom said they needed us for something during the party as we were getting off the plane.
+:bf:happy:So many big faces, so much food, so much-
+:gf:blush:Shouldn't we be meeting up with my parents, BF?
+:gf:blush:Mom said they needed us for something during the party as we were getting off the plane.
 :effect:rightSide:
-bf:sweat:I was hoping you were going to forget about that…
-momchristmas:momchristmas1:Hey Glowsdick!!!!
+:bf:sweat:I was hoping you were going to forget about that…
+:momchristmas:momchristmas1:Hey Glowsdick!!!!
 :effect:rightSide:
-bf:angry:God damn it.
-dadchristmas:dadchristmas1:We were wonderin if you'd like to have another go at this whole rap battle thing 
-dadchristmas:dadchristmas2:Two of us against one of you; whaddya say?
+:bf:angry:God damn it.
+:dadchristmas:dadchristmas1:We were wonderin if you'd like to have another go at this whole rap battle thing 
+:dadchristmas:dadchristmas2:Two of us against one of you; whaddya say?
 :effect:rightSide:
-bf:grimace:I say you're on, shit lips!
-dadchristmas:dadchristmas3:STOP CALLING ME SHIT LIPS
+:bf:grimace:I say you're on, shit lips!
+:dadchristmas:dadchristmas3:STOP CALLING ME SHIT LIPS
 :effect:rightSide:
-bf:angry:STOP CALLING ME GLOWSDICK 
+:bf:angry:STOP CALLING ME GLOWSDICK 

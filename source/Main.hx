@@ -80,7 +80,7 @@ class Main extends Sprite
 		#if !mobile
 		fpsCounter = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsCounter);
-		toggleFPS(FlxG.save.data.fps);
+		
 
 		#end
 	}
@@ -89,10 +89,7 @@ class Main extends Sprite
 
 	var fpsCounter:FPS;
 
-	public function toggleFPS(fpsEnabled:Bool):Void {
-		fpsCounter.visible = fpsEnabled;
-	}
-
+	
 	public function changeFPSColor(color:FlxColor)
 	{
 		fpsCounter.textColor = color;
