@@ -59,6 +59,10 @@ class TitleState extends MusicBeatState
 
 		// NGio.noLogin(APIStuff.API);
 
+		#if !desktop
+		FlxG.resetGame();
+		#end
+
 		#if ng
 		var ng:NGio = new NGio(APIStuff.API, APIStuff.EncKey);
 		trace('NEWGROUNDS LOL');
