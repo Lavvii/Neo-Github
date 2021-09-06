@@ -1,30 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="Finished neo pico assets.png">
+<TextureAtlas imagePath="neo pico dialouge assets.png">
 	<!-- Created with Adobe Animate version 21.0.7.42652 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="pico default0000" x="0" y="0" width="349" height="415" frameX="-7" frameY="-13" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="pico angry0001" x="359" y="0" width="337" height="429" frameX="-23" frameY="0" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="pico super angry0002" x="706" y="0" width="641" height="409" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="pico super angry0003" x="1357" y="0" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="pico super angry0004" x="0" y="439" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="pico smirk0005" x="706" y="0" width="641" height="409" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="pico pissed0006" x="1357" y="0" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="pico pissedevenmore0007" x="0" y="439" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10008" x="706" y="0" width="641" height="409" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10009" x="1357" y="0" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10010" x="0" y="439" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10011" x="706" y="0" width="641" height="409" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10012" x="1357" y="0" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10013" x="0" y="439" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10014" x="706" y="0" width="641" height="409" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10015" x="1357" y="0" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10016" x="0" y="439" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10017" x="660" y="439" width="352" height="415" frameX="0" frameY="-13" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10018" x="1022" y="439" width="346" height="415" frameX="-21" frameY="-13" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10019" x="1378" y="439" width="350" height="409" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10020" x="0" y="864" width="335" height="411" frameX="-35" frameY="-17" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10021" x="345" y="864" width="383" height="415" frameX="-21" frameY="-13" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10022" x="345" y="864" width="383" height="415" frameX="-21" frameY="-13" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10023" x="345" y="864" width="383" height="415" frameX="-21" frameY="-13" frameWidth="697" frameHeight="429"/>
-	<SubTexture name="Neo pico new dialouge instance 10024" x="345" y="864" width="383" height="415" frameX="-21" frameY="-13" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge shit one0000" x="0" y="0" width="349" height="415" frameX="-7" frameY="-13" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge shit two0000" x="359" y="0" width="337" height="429" frameX="-23" frameY="0" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0000" x="359" y="0" width="337" height="429" frameX="-23" frameY="0" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0001" x="706" y="0" width="641" height="409" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0002" x="1357" y="0" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0003" x="0" y="439" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0004" x="706" y="0" width="641" height="409" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0005" x="1357" y="0" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0006" x="0" y="439" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0007" x="706" y="0" width="641" height="409" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0008" x="1357" y="0" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0009" x="0" y="439" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0010" x="706" y="0" width="641" height="409" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0011" x="1357" y="0" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0012" x="0" y="439" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0013" x="706" y="0" width="641" height="409" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0014" x="1357" y="0" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge instance 0015" x="0" y="439" width="650" height="414" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge shit three0000" x="660" y="439" width="352" height="415" frameX="0" frameY="-13" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge shit fuck you smokey0000" x="1022" y="439" width="346" height="415" frameX="-21" frameY="-13" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge shit five0000" x="1378" y="439" width="350" height="409" frameX="-47" frameY="-10" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge shit six0000" x="0" y="864" width="335" height="411" frameX="-35" frameY="-17" frameWidth="697" frameHeight="429"/>
+	<SubTexture name="Neo pico new dialouge shit seven0000" x="345" y="864" width="383" height="415" frameX="-21" frameY="-13" frameWidth="697" frameHeight="429"/>
 </TextureAtlas>

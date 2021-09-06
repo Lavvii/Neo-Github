@@ -1,0 +1,7 @@
+:pico:default:So you really thought escape would be that easy?
+:effect:rightSide:
+:bf:grimace:Uh… yeah kinda if I’m being honest.
+:gf:happy:Yeah- that lemon guy was kinda slow.
+:pico:smirk:He might’ve been too slow to catch you… but I don’t think you’ll be able to outrun my bullets.
+:effect:rightSide:
+:bf:sweat:...

@@ -56,6 +56,8 @@ class DialogueBox extends FlxSpriteGroup
 	var portraitWHITTY:Portrait;
 	var portraitLeft:FlxSprite;
 	var portraitRight:FlxSprite;
+	var portraitMOMCHRISTMAS:Portrait;
+	var portraitDADCHRISTMAS:Portrait;
 	
 	//var handSelect:FlxSprite;
 	var bgFade:FlxSprite;
@@ -176,19 +178,27 @@ class DialogueBox extends FlxSpriteGroup
 			portraitDAD = new Portrait(100, 85, "dad");
 			add(portraitDAD);
 
+			portraitDADCHRISTMAS = new Portrait(100, 85, "dadchristmas");
+			add(portraitDADCHRISTMAS);
+
 			portraitSPOOKY = new Portrait(120, 110, "spooky");
 			add(portraitSPOOKY);
+
 			portraitWHITTY = new Portrait(120, 110, "whitty");
 			add(portraitWHITTY);
 
 			portraitMONSTER = new Portrait(170, 125, "monster");
 			add(portraitMONSTER);
 
-			portraitPICO = new Portrait(170, 85, "pico");
+			portraitPICO = new Portrait(140, 85, "pico");
 			add(portraitPICO);
 
 			portraitMOM = new Portrait(120, 25, "mom");
 			add(portraitMOM);
+			
+			portraitMOMCHRISTMAS = new Portrait(120, 25, "momchristmas");
+			add(portraitMOMCHRISTMAS);
+
 			portraitNOCHAR = new Portrait(0, 9999, "bf");
 			add(portraitNOCHAR);
 			
@@ -390,7 +400,10 @@ class DialogueBox extends FlxSpriteGroup
 				portraitMOM.playFrame(curAnim);
 			case "whitty":
 				portraitWHITTY.playFrame(curAnim);
-				
+			case 'momchristmas':
+				portraitMOMCHRISTMAS.playFrame(curAnim);
+			case 'dadchristmas':
+				portraitDADCHRISTMAS.playFrame(curAnim);
 		
 
 			case "noChar":
@@ -522,7 +535,7 @@ class DialogueBox extends FlxSpriteGroup
 
 	function portraitArray(){
 	//Why? i don't know, i was bored and hey it's easier to work with
-	var portraitArray = [portraitBF,portraitGF,portraitDAD,portraitSPOOKY,portraitMOM,portraitMONSTER,portraitWHITTY];
+	var portraitArray = [portraitBF,portraitGF,portraitDAD,portraitSPOOKY,portraitMOM,portraitMONSTER,portraitWHITTY,portraitPICO,portraitMOMCHRISTMAS,portraitDADCHRISTMAS];
 	return portraitArray;
 	}
 	

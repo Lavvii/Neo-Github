@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="neo dad dialouge assets.png">
+	<!-- Created with Adobe Animate version 21.0.5.40714 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Neo dad point0000" x="0" y="0" width="495" height="457" frameX="-32" frameY="-13" frameWidth="528" frameHeight="470"/>
+	<SubTexture name="Neo dad fist0000" x="505" y="0" width="528" height="451" frameX="0" frameY="-18" frameWidth="528" frameHeight="470"/>
+	<SubTexture name="Neo dad unhappy0000" x="1043" y="0" width="424" height="451" frameX="0" frameY="-17" frameWidth="528" frameHeight="470"/>
+	<SubTexture name="Neo dad smirk0000" x="1477" y="0" width="427" height="468" frameX="-12" frameY="0" frameWidth="528" frameHeight="470"/>
+</TextureAtlas>

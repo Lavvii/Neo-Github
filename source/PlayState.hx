@@ -2575,10 +2575,7 @@ class PlayState extends MusicBeatState
 					transIn = FlxTransitionableState.defaultTransIn;
 					transOut = FlxTransitionableState.defaultTransOut;
 
-					if (SONG.song.toLowerCase() == 'hallucination')
-					{
-						LoadingState.loadAndSwitchState(new CutsceneState(), true);
-					}
+					
 				
 
 					#if windows
@@ -3451,6 +3448,11 @@ class PlayState extends MusicBeatState
 				LoadingState.loadAndSwitchState(new PlayState());
 			case "story":
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			if (SONG.song.toLowerCase() == 'hallucination')
+				{
+					LoadingState.loadAndSwitchState(new CutsceneState(), true);
+				}
+			else
 			FlxG.switchState(new StoryMenuState());
 			case "free":
 			FlxG.switchState(new FreeplayState());

@@ -15,7 +15,7 @@ class Portrait extends FlxSprite
 
     private var resize = 0.35;
 
-    private var characters:Array<String> = ["bf", "gf", "dad", "spooky", "monster", "pico",'mom','whitty'];
+    private var characters:Array<String> = ["bf", "gf", "dad", "spooky", "monster", "pico",'mom','whitty','momchristmas','dadchristmas'];
 
     var posTween:FlxTween;
     var alphaTween:FlxTween;
@@ -87,20 +87,14 @@ class Portrait extends FlxSprite
                 addAnim("lemon2", "lemon frame 2");
                 animation.play("default");
             case "pico":
-                addAnim("default", "pico default.png");
-                addAnim("angry", "pico angry.png");
-                addAnim("blush", "pico blush.png");
-                addAnim("choke", "pico choke.png");
-                addAnim("disappearing", "pico disappearing.png");
-                addAnim("furious2", "pico furious 2.png");
-                addAnim("furious", "pico furious.png");
-                addAnim("gloom", "pico gloom.png");
-                addAnim("grimace", "pico grimace.png");
-                addAnim("happy", "pico happy.png");
-                addAnim("bruh", "pico bruh.png");
-                addAnim("scoff", "pico scoff.png");
-                addAnim("shout", "pico shout.png");
-                addAnim("smile", "pico smile.png");
+                addAnim("default", "Neo pico new dialouge shit one");
+                addAnim('pissed','Neo pico new dialouge shit two');
+                addAnim('superpissed','Neo pico new dialouge instance ');
+                addAnim('smirk','Neo pico new dialouge shit three');
+                addAnim('angry','Neo pico new dialouge shit fuck you smokey');
+                addAnim('shout','Neo pico new dialouge shit five');
+                addAnim('sad','Neo pico new dialouge shit six');
+                addAnim('confused','Neo pico new dialouge shit seven');
                 animation.play("default");
             case 'mom':
                 addAnim('happy','happy');
@@ -111,6 +105,18 @@ class Portrait extends FlxSprite
             case 'whitty':
                 addAnim('whitty1','whitty1');
                 addAnim('whitty2','whitty2');
+            case 'momchristmas':
+                addAnim('momchristmas1','happy');
+                addAnim('momchristmas2','laugh');
+                addAnim('momchristmas3','mad');
+                addAnim('momchristmas4','point');
+                
+            case 'dadchristmas':
+                addAnim('dadchristmas1','Neo dad point');
+                addAnim('dadchristmas2','Neo dad fist');
+                addAnim('dadchristmas3','Neo dad unhappy');
+                addAnim('dadchristmas4','Neo dad smirk');
+                
 
             
         }

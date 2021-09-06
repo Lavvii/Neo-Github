@@ -1,0 +1,13 @@
+:pico:pissed:Tch. Why do you have to put up such a fight, ey?
+:pico:pissed:Why can’t you just go with it… Just accept your fate and come with us. It’s inevitable.
+:effect:rightSide:
+:bf:confused:What kind of shit are you guys on? How the hell do you expect me to go with you guys!? I don’t know any of you! 
+:effect:rightSide:
+:bf:angry:And you literally threatened to SHOOT ME!
+:pico:default:...
+:pico:pissed:That aside...
+:pico:angry:Trust me I’ll explain when we get to the base… 
+:pico:default:Now…
+:pico:shout:COME.
+:pico:shout:WITH.
+:pico:shout:US.

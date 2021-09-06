@@ -1,11 +1,11 @@
 :effect:rightSide:
-bf:sweat:Alright, we gotta get out of here GF!
+:bf:sweat:Alright, we gotta get out of here GF!
 :effect:rightSide:
-bf:sweat:Take my hand!
-gf:happy:Right!
+:bf:sweat:Take my hand!
+:gf:happy:Right!
 :effect:rightSide:
-bf:sweat:Here, into this alleyway!
-bf:sweat:Phew, we should be safe for n-
-pico:gloom:You aren't getting away that easily.
+:bf:sweat:Here, into this alleyway!
+:bf:sweat:Phew, we should be safe for n-
+:pico:smirk:You aren't getting away that easily.
 :effect:rightSide:
-bf:angry:fuck
+:bf:angry:fuck

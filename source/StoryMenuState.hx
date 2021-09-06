@@ -33,7 +33,6 @@ class StoryMenuState extends MusicBeatState
 		['Pico', 'Philly', "Blammed"],
 		['Satin Panties', "High", "Milf"],
 		['Cocoa', 'Eggnog', 'Hallucination'],
-		['Senpai', 'Roses', 'Thorns']
 	];
 	var curDifficulty:Int = 1;
 
@@ -46,7 +45,7 @@ class StoryMenuState extends MusicBeatState
 		'pico',
 		'mom',
 		'parents-christmas',
-		'senpai'
+		
 	];
 
 	var weekNames:Array<String> = [
@@ -56,7 +55,7 @@ class StoryMenuState extends MusicBeatState
 		"Drop Out",
 		"Popstar",
 		"Thin Ice",
-		"Coming soon"
+		
 	];
 
 	var txtWeekTitle:FlxText;
