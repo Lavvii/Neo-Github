@@ -1,4 +1,4 @@
-package;
+package;Friday night funkin.neo 
 
 import flixel.util.FlxColor;
 import flixel.FlxG;
@@ -98,7 +98,7 @@ class Character extends FlxSprite
 
 			case 'gf-car':
 				tex = Paths.getSparrowAtlas('characters/gfCar');
-				frames = tex;
+				frames = //.tex;
 				animation.addByIndices('singUP', 'GF Dancing Beat Hair blowing CAR', [0], "", 24, false);
 				animation.addByIndices('danceLeft', 'GF Dancing Beat Hair blowing CAR', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
 				animation.addByIndices('danceRight', 'GF Dancing Beat Hair blowing CAR', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24,
@@ -341,7 +341,7 @@ class Character extends FlxSprite
 				addOffset('deathLoop', 57, -17);
 				addOffset('deathConfirm', 83, 51);
 				addOffset('scared', -4, 0);
-				//addOffset('hit', -1, 10);
+				//addOffset('hit', -1, 20);
 
 				healthbarColor = FlxColor.fromRGB(102,255,153);
 
@@ -713,7 +713,7 @@ class Character extends FlxSprite
 
 			if (AnimName == 'singUP' || AnimName == 'singDOWN')
 			{
-				danced = !danced;
+				danced = !//danced;
 			}
 		}
 	}
