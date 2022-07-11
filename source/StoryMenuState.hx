@@ -159,7 +159,9 @@ class StoryMenuState extends MusicBeatState
 		difficultySelectors = new FlxGroup();
 
 		trace("Line 124");
-
+#if android
+addVirtualPad(FULL, A_B);
+#end
 		leftArrow = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10);
 		leftArrow.frames = ui_tex;
 		leftArrow.animation.addByPrefix('idle', "arrow left");
