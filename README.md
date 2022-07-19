@@ -2,7 +2,7 @@
 	<img src="assets/preload/images/NEOlogo.png"> 
 </p>
 
-# Friday Night Funkin': Neo V3
+# Friday Night Funkin': Neo V3.0 android port
 ## About
 FNF: Neo V3 is a ambitious game modification based around the remixes by JellyFish
 
