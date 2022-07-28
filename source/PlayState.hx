@@ -53,7 +53,7 @@ class PlayState extends MusicBeatState
 	var fReturn:String;
 	public static var songPosBG:FlxSprite;
 	public static var songPosBar:FlxBar;
-
+	var skyBG:FlxSprite;
 	public static var rep:Replay;
 	public static var loadRep:Bool = false;
 
@@ -515,8 +515,8 @@ class PlayState extends MusicBeatState
 				curStage = 'limo';
 				defaultCamZoom = 0.60; // 0.60
 				//-120 -50
-				var skyBG:FlxSprite = new FlxSprite(-780,-400).loadGraphic(Paths.image('planeshit/limoSunset'));
-				skyBG.velocity.x = 5;
+				skyBG = new FlxSprite(-780,-400).loadGraphic(Paths.image('planeshit/limoSunset'));
+				
 				skyBG.scrollFactor.set(0, 0);
 				skyBG.antialiasing = true;
 				skyBG.setGraphicSize(Std.int(skyBG.width*1.65));
@@ -1494,7 +1494,9 @@ class PlayState extends MusicBeatState
 
 	function startSong():Void
 	{
-		trace(usesEndDialogue);
+		if(curStage == 'limo')
+		skyBG.velocity.x = 5;
+	
 		startingSong = false;
 		songStarted = true;
 		previousFrameTime = FlxG.game.ticks;
@@ -2522,6 +2524,8 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
+		if(curStage == 'limo')
+			skyBG.velocity.x = 0;
 		if (!loadRep)
 			rep.SaveReplay(saveNotes);
 		else

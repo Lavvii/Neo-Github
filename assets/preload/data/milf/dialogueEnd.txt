@@ -1,5 +1,5 @@
 :effect:rightSide:
-:bf:Is that it? Is it over?
+:bf:default:Is that it? Is it over?
 :mom:Aw that's no fun, I didn't get to throw your tiny self off of the plane…
 :mom:Maybe next time 
 :effect:rightSide:

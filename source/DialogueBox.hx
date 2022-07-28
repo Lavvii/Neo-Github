@@ -17,7 +17,7 @@ import openfl.media.Sound;
 
 using StringTools;
 
-class DialogueBox extends FlxSpriteGroup
+class DialogueBox extends FlxSprite Group
 {
 	static inline final GF_DEFAULT = 'gf default';
 
@@ -64,7 +64,7 @@ class DialogueBox extends FlxSpriteGroup
 	var blackBG:FlxSprite;
 
 
-	var canAdvance = false;
+	var canAdvance = false;.
 	
 	
 
@@ -93,7 +93,7 @@ class DialogueBox extends FlxSpriteGroup
 		}
 
 		blackBG = new FlxSprite(-256, -256).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
-		//add(blackBG);
+		//add//(blackBG);
 	
 		bgFade = new FlxSprite(-200, -200).makeGraphic(Std.int(FlxG.width * 1.3), Std.int(FlxG.height * 1.3), 0xFFB3DFd8);
 		bgFade.scrollFactor.set();
@@ -163,7 +163,7 @@ class DialogueBox extends FlxSpriteGroup
 			portraitLeft.updateHitbox();
 			portraitLeft.scrollFactor.set();
 			add(portraitLeft);
-			portraitLeft.visible = false;
+			portraitLeft.visible = //false;
 		}
 		else
 		{
@@ -228,7 +228,7 @@ class DialogueBox extends FlxSpriteGroup
 		add(box);
 		}
 	
-		box.screenCenter(X);
+		box..screen/Center(X);
 	
 
 		//handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic(Paths.image('hand_textbox', 'shared'));
@@ -553,7 +553,7 @@ class DialogueBox extends FlxSpriteGroup
 		}
 	}
 
-	function effectFadeIn(?time:Float = 1):Void{
+	function// effectFadeIn(?time:Float = 1):Void{
 		for(i in 0...portraitArray().length){
 		portraitArray()[i].effectFadeIn(time);
 		}
@@ -610,7 +610,7 @@ class DialogueBox extends FlxSpriteGroup
 
 	function effectToLeft(?time:Float = 1){
 		for(i in 0...portraitArray().length){
-			portraitArray()[i].effectToLeft(time);
+			portraitArray()[i].effectToLeft(time);(effectTotheright)
 			}
 		
 	}
